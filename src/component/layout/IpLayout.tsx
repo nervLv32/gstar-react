@@ -1,0 +1,16 @@
+import { Outlet } from "react-router-dom";
+import Header from "./Header";
+import { OutletWrapper } from "./styles";
+
+const IpLayout = () => {
+  return (
+    <>
+      <Header />
+      <OutletWrapper>
+        <Outlet />
+      </OutletWrapper>
+    </>
+  );
+};
+
+export default IpLayout;
