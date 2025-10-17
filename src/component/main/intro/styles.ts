@@ -16,6 +16,9 @@ const textMove = keyframes`
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  10% {
+    opacity: 1;
+  }
   100% {
     width: 114rem;
     top: 11rem;
@@ -29,7 +32,7 @@ export const IntroVideoWrapper = styled.div`
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  z-index: 500;
+  z-index: 2000;
 `;
 
 /* 🔹 dim 오버레이 */

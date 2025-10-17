@@ -17,17 +17,65 @@ import LogoCinderImage from "../../../assets/images/main/main-cinder-logo-slide-
 import LogoLimitImage from "../../../assets/images/main/main-limit-logo-slide-image.png";
 import LogoTimeImage from "../../../assets/images/main/main-time-logo-slide-image.png";
 const list = [
-  { uid: 1, img: AionImage, logoImg: LogoAionImage },
-  { uid: 2, img: CinderImage, logoImg: LogoCinderImage },
+  {
+    uid: 1,
+    img: AionImage,
+    logoImg: LogoAionImage,
+    title: "AION2",
+    subTitle: "두 개의 하늘, 하나의 영광",
+  },
+  {
+    uid: 2,
+    img: CinderImage,
+    logoImg: LogoCinderImage,
+    title: "신더시티",
+    subTitle: "새로운 슈터 장르의 시작",
+  },
   { uid: 3, img: CmImage, logoImg: null },
-  { uid: 4, img: TimeImage, logoImg: LogoTimeImage },
-  { uid: 5, img: LimitImage, logoImg: LogoLimitImage },
+  {
+    uid: 4,
+    img: TimeImage,
+    logoImg: LogoTimeImage,
+    title: "타임 테이커즈",
+    subTitle: `“시간”으로 진화한 차세대 서바이벌 슈터`,
+  },
+  {
+    uid: 5,
+    img: LimitImage,
+    logoImg: LogoLimitImage,
+    title: "브레이커스",
+    subTitle: "애니메이션 속으로 스며들 순간, 애니메이션 액션 RPG",
+  },
 
-  { uid: 6, img: AionImage, logoImg: LogoAionImage },
-  { uid: 7, img: CinderImage, logoImg: LogoCinderImage },
+  {
+    uid: 6,
+    img: AionImage,
+    logoImg: LogoAionImage,
+    title: "AION2",
+    subTitle: "두 개의 하늘, 하나의 영광",
+  },
+  {
+    uid: 7,
+    img: CinderImage,
+    logoImg: LogoCinderImage,
+    title: "신더시티",
+    subTitle: "새로운 슈터 장르의 시작",
+  },
   { uid: 8, img: CmImage, logoImg: null },
-  { uid: 10, img: TimeImage, logoImg: LogoTimeImage },
-  { uid: 9, img: LimitImage, logoImg: LogoLimitImage },
+  {
+    uid: 10,
+    img: TimeImage,
+    logoImg: LogoTimeImage,
+    title: "타임 테이커즈",
+    subTitle: `“시간”으로 진화한 차세대 서바이벌 슈터`,
+  },
+  {
+    uid: 9,
+    img: LimitImage,
+    logoImg: LogoLimitImage,
+    title: "브레이커스",
+    subTitle: "애니메이션 속으로 스며들 순간, 애니메이션 액션 RPG",
+  },
 ];
 
 const MainSwiper = () => {

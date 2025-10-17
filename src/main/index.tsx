@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import MainSection from "../component/main/mainsection";
 
@@ -8,6 +8,7 @@ import GstarBoothSection from "../component/main/gstarboothsection";
 import GstarSection from "../component/main/gstarsection";
 import VideoSection from "../component/main/videosection";
 import { TapeWrapper } from "./styles";
+import Intro from "../component/main/intro";
 
 const Main = () => {
   const location = useLocation();
@@ -15,7 +16,7 @@ const Main = () => {
     Cookies.get("isVideoView") ? "done" : "video"
   );
 
-  // const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // ✅ 새로고침 시 쿠키 제거
   useEffect(() => {
@@ -36,9 +37,9 @@ const Main = () => {
   }, [location.pathname]);
 
   // ✅ 인트로 영상 종료 후
-  // const handleVideoEnd = () => {
-  //   setIntroStep("dim");
-  // };
+  const handleVideoEnd = () => {
+    setIntroStep("dim");
+  };
 
   // ✅ dim 애니메이션 종료 후
   const handleDimEnd = () => {
@@ -46,9 +47,9 @@ const Main = () => {
     setIntroStep("done");
   };
 
-  useEffect(() => {
-    handleDimEnd();
-  }, []);
+  // useEffect(() => {
+  //   handleDimEnd();
+  // }, []);
 
   //  tape
   const textList = ["NC 2025 G-STAR", "무한한 세계, 하나의 여정"];
@@ -66,14 +67,14 @@ const Main = () => {
   return (
     <div>
       {/* 🔹 인트로 전체 */}
-      {/* {location.pathname === "/" && introStep !== "done" && (
+      {location.pathname === "/" && introStep !== "done" && (
         <Intro
           step={introStep}
           onVideoEnd={handleVideoEnd}
           onDimEnd={handleDimEnd}
           videoRef={videoRef}
         />
-      )} */}
+      )}
 
       {/* 🔹 메인 컨텐츠 */}
       {introStep === "done" && (
