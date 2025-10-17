@@ -1,96 +1,39 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Swiper as SwiperCore } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { Autoplay } from "swiper/modules";
 import { MainSwiperWrapper } from "./styles";
 
+import AionImage from "../../../assets/images/main/main-aion-slide-image.png";
+import CinderImage from "../../../assets/images/main/main-cinder-slide-image.png";
 import CmImage from "../../../assets/images/main/main-cm-slide-image.png";
 import LimitImage from "../../../assets/images/main/main-limit-slide-image.png";
-import CinderImage from "../../../assets/images/main/main-cinder-slide-image.png";
-import AionImage from "../../../assets/images/main/main-aion-slide-image.png";
 import TimeImage from "../../../assets/images/main/main-time-slide-image.png";
 import TitleImage from "../../../assets/images/main/main-title.png";
 
-import LogoAionImage from "../../../assets/images/main/main-aion-logo-slide-image.png";
-import LogoLimitImage from "../../../assets/images/main/main-limit-logo-slide-image.png";
 import { Link } from "react-router-dom";
-
+import LogoAionImage from "../../../assets/images/main/main-aion-logo-slide-image.png";
+import LogoCinderImage from "../../../assets/images/main/main-cinder-logo-slide-image.png";
+import LogoLimitImage from "../../../assets/images/main/main-limit-logo-slide-image.png";
+import LogoTimeImage from "../../../assets/images/main/main-time-logo-slide-image.png";
 const list = [
-  {
-    id: "aion",
-    img: LimitImage,
-    logoImg: LogoAionImage,
-  },
-  {
-    id: "limit",
-    img: CmImage,
-    logoImg: LogoLimitImage,
-  },
-  {
-    id: "aion",
-    img: AionImage,
-    logoImg: LogoAionImage,
-  },
-  {
-    id: "limit",
-    img: CmImage,
-    logoImg: LogoLimitImage,
-  },
-  {
-    id: "aion",
-    img: CmImage,
-    logoImg: LogoAionImage,
-  },
-  {
-    id: "limit",
-    img: LimitImage,
-    logoImg: LogoLimitImage,
-  },
-  {
-    id: "aion",
-    img: CmImage,
-    logoImg: LogoAionImage,
-  },
-  {
-    id: "limit",
-    img: AionImage,
-    logoImg: LogoLimitImage,
-  },
-  {
-    id: "aion",
-    img: CmImage,
-    logoImg: LogoAionImage,
-  },
-  {
-    id: "aion",
-    img: CmImage,
-    logoImg: LogoAionImage,
-  },
+  { uid: 1, img: AionImage, logoImg: LogoAionImage },
+  { uid: 2, img: CinderImage, logoImg: LogoCinderImage },
+  { uid: 3, img: CmImage, logoImg: null },
+  { uid: 4, img: TimeImage, logoImg: LogoTimeImage },
+  { uid: 5, img: LimitImage, logoImg: LogoLimitImage },
+
+  { uid: 6, img: AionImage, logoImg: LogoAionImage },
+  { uid: 7, img: CinderImage, logoImg: LogoCinderImage },
+  { uid: 8, img: CmImage, logoImg: null },
+  { uid: 10, img: TimeImage, logoImg: LogoTimeImage },
+  { uid: 9, img: LimitImage, logoImg: LogoLimitImage },
 ];
+
 const MainSwiper = () => {
   const [moActiveIndex, setMoActiveIndex] = useState(0);
 
   const swiperRef = useRef<SwiperCore | null>(null);
-  const handleNext = () => {
-    if (!swiperRef.current) return;
-
-    if (moActiveIndex < list.length - 1) {
-      const nextIndex = moActiveIndex + 1;
-      swiperRef.current.slideTo(nextIndex);
-      setMoActiveIndex(nextIndex);
-    }
-  };
-
-  const handlePrev = () => {
-    if (!swiperRef.current) return;
-
-    if (moActiveIndex > 0) {
-      const prevIndex = moActiveIndex - 1;
-      swiperRef.current.slideTo(prevIndex);
-      setMoActiveIndex(prevIndex);
-    }
-  };
 
   const [isFirstRender, setIsFirstRender] = useState(true);
 
@@ -111,7 +54,7 @@ const MainSwiper = () => {
         <Swiper
           onSwiper={(swiper: SwiperCore) => (swiperRef.current = swiper)}
           onSlideChange={(swiper: SwiperCore) =>
-            setMoActiveIndex(swiper.activeIndex)
+            setMoActiveIndex(swiper.realIndex)
           }
           slidesPerView={5}
           spaceBetween={16}
@@ -122,18 +65,34 @@ const MainSwiper = () => {
           // loopAdditionalSlides={10}
           // grapCursor={true}
         >
-          {list.map((item, idx) => (
-            <SwiperSlide key={idx} className={`contents-0${idx + 1}`}>
-              <Link to="/work/aion2">
-                <i className="char-image">
-                  <img src={item.img} alt="" />
-                </i>
-                <i className={`${item.id} logo-image`}>
-                  <img src={item.logoImg} alt="" />
-                </i>
-              </Link>
-            </SwiperSlide>
-          ))}
+          {list.map((item, idx) => {
+            let positionClass = "";
+            const total = list.length;
+            const diff = (idx - moActiveIndex + total) % total;
+
+            if (diff === 0) positionClass = "center";
+            else if (diff <= total / 2) positionClass = "right";
+            else positionClass = "left";
+
+            return (
+              <SwiperSlide
+                key={item.uid}
+                className={`contents-0${idx + 1} ${positionClass}`}
+              >
+                <Link to="/work/aion2">
+                  <i className="char-image">
+                    <img src={item.img} alt="" />
+                  </i>
+                  <span className="dim"></span>
+                  {item.logoImg && (
+                    <i className={`logo-image`}>
+                      <img src={item.logoImg} alt="" />
+                    </i>
+                  )}
+                </Link>
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </div>
     </MainSwiperWrapper>

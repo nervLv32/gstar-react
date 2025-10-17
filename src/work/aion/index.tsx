@@ -1,12 +1,11 @@
-import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
-import { IpWrapper } from "../styles";
-import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { Autoplay } from "swiper/modules";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { IpWrapper } from "../styles";
 
-import AionLogo from "../../assets/images/ip/aion/ip-aion-logo.png";
 import ButtonIcon from "../../assets/images/ip/aion/ip-aion-button-icon.png";
+import AionLogo from "../../assets/images/ip/aion/ip-aion-logo.png";
 import FloatingMenu from "../../component/ip/floatingmenu";
 
 import Slide01 from "../../assets/images/ip/aion/ip-aion-slide01.png";
@@ -16,8 +15,8 @@ import Slide04 from "../../assets/images/ip/aion/ip-aion-slide04.jpg";
 import Slide05 from "../../assets/images/ip/aion/ip-aion-slide05.jpg";
 
 import { Swiper as SwiperCore } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -161,7 +160,7 @@ const Aion = () => {
   }, [currentSection]);
 
   // ✅ Swiper
-  const [moActiveIndex, setMoActiveIndex] = useState(0);
+  const [, setMoActiveIndex] = useState(0);
   const swiperRef = useRef<SwiperCore | null>(null);
 
   return (

@@ -1,12 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import MainSection from "../component/main/mainsection";
-import VideoSection from "../component/main/videosection";
 
-import Intro from "../component/main/intro";
-import { TapeWrapper } from "./styles";
 import BoothSection from "../component/main/boothsection";
+import GstarBoothSection from "../component/main/gstarboothsection";
+import GstarSection from "../component/main/gstarsection";
+import VideoSection from "../component/main/videosection";
+import { TapeWrapper } from "./styles";
 
 const Main = () => {
   const location = useLocation();
@@ -14,7 +15,7 @@ const Main = () => {
     Cookies.get("isVideoView") ? "done" : "video"
   );
 
-  const videoRef = useRef<HTMLVideoElement>(null);
+  // const videoRef = useRef<HTMLVideoElement>(null);
 
   // ✅ 새로고침 시 쿠키 제거
   useEffect(() => {
@@ -35,9 +36,9 @@ const Main = () => {
   }, [location.pathname]);
 
   // ✅ 인트로 영상 종료 후
-  const handleVideoEnd = () => {
-    setIntroStep("dim");
-  };
+  // const handleVideoEnd = () => {
+  //   setIntroStep("dim");
+  // };
 
   // ✅ dim 애니메이션 종료 후
   const handleDimEnd = () => {
@@ -79,7 +80,10 @@ const Main = () => {
         <>
           <MainSection />
           <VideoSection />
+          <GstarSection />
+          {/* <TicketParallaxSection /> */}
 
+          <GstarBoothSection />
           <BoothSection />
           <TapeWrapper>
             <div className="tape vitro">
@@ -88,12 +92,6 @@ const Main = () => {
               ))}
             </div>
           </TapeWrapper>
-
-          <section
-            style={{ width: "100vw", height: "100vh", background: "red" }}
-          >
-            d11
-          </section>
         </>
       )}
     </div>

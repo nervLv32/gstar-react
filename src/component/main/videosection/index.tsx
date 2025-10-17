@@ -51,7 +51,8 @@ const VideoSection = () => {
 
         <video
           ref={videoRef}
-          src="/video/gstar.mp4"
+          // src="/video/gstar.mp4"
+          src="/video/production-gstar.mp4"
           muted
           playsInline
           webkit-playsinline="true"

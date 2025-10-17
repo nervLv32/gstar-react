@@ -9,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <ScrollToTop />
+      {/* <ScrollToHash /> */}
       <Routes>
         <Route element={<PublicLayout />}>
           {routes.map((route) => {

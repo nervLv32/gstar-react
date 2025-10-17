@@ -3,6 +3,7 @@ import MainHeaderLogo from "../../assets/images/common/main-header-logo.png";
 
 export const HeaderWrapper = styled.header`
   position: fixed;
+  z-index: 1000;
   top: 0;
   left: 0;
   width: 100%;
@@ -25,7 +26,8 @@ export const HeaderWrapper = styled.header`
     align-items: center;
     gap: 0.6rem;
     li {
-      a {
+      a,
+      button {
         display: block;
         font-weight: 700;
         font-size: 2.2rem;

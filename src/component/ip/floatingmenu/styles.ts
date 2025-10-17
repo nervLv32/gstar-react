@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import FloatingBorderImage from "../../../assets/images/floating/floating-border-image.png";
 import FloatingBgImage from "../../../assets/images/floating/floating-bg-image.png";
 import FloatingBgTransparentImage from "../../../assets/images/floating/floating-bg-transparent-image.png";
 

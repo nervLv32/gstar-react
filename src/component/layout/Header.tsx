@@ -6,7 +6,17 @@ const Header = () => {
     <HeaderWrapper>
       <ul>
         <li>
-          <Link to="/">출품작 안내</Link>
+          <button
+            onClick={() => {
+              const target = document.querySelector("#booth");
+              if (target) {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+                window.history.replaceState(null, "", "/#booth");
+              }
+            }}
+          >
+            출품작 안내
+          </button>
         </li>
         <li>
           <Link to="/info">행사 안내</Link>
