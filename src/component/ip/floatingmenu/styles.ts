@@ -128,7 +128,6 @@ export const FloatingMenuWrapper = styled.div`
   ul {
     list-style: none;
 
-    opacity: 0.8;
     padding: 1.4rem 0 1.6rem 3.2rem;
     display: flex;
     flex-direction: column;
