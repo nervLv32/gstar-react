@@ -92,7 +92,7 @@ const GstarBoothSection = () => {
                   </p>
                 </div>
               </li>
-              <li className="nc">
+              <li className="nc hover-list">
                 <div className="text-box">
                   <h6 className="vitro">NC CINEMA</h6>
                   <p>
