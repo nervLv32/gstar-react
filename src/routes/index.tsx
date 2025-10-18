@@ -2,6 +2,7 @@ import Aion from "../work/aion";
 import Info from "../info";
 import Main from "../main";
 import Media from "../media";
+import Cinder from "../work/cinder";
 
 export const routes = [
   {
@@ -22,5 +23,9 @@ export const ipRoutes = [
   {
     path: "/work/aion2",
     element: <Aion />,
+  },
+  {
+    path: "/work/cinder",
+    element: <Cinder />,
   },
 ];

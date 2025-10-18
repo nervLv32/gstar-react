@@ -5,25 +5,24 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleScrollToBooth = () => {
+  // ✅ 특정 섹션으로 스크롤 이동 함수 (video / event 등)
+  const scrollToSection = (sectionId: string) => {
     if (location.pathname === "/") {
-      const target = document.querySelector("#booth");
+      const target = document.querySelector(sectionId);
       if (target) {
         target.scrollIntoView({ behavior: "smooth", block: "start" });
-        window.history.replaceState(null, "", "/#booth");
+        window.history.replaceState(null, "", `/${sectionId}`);
       }
     } else {
-      navigate("/", { state: { scrollTo: "#booth" } });
+      navigate("/", { state: { scrollTo: sectionId } });
     }
   };
 
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (location.pathname === "/") {
-      // ✅ 이미 메인 페이지일 경우 맨 위로 스크롤
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      // ✅ 다른 페이지라면 메인으로 이동
       navigate("/");
     }
   };
@@ -32,19 +31,20 @@ const Header = () => {
     <HeaderWrapper>
       <ul>
         <li>
-          <button onClick={handleScrollToBooth}>출품작 안내</button>
+          {/* ✅ 출품작 안내 → id="video" */}
+          <button onClick={() => scrollToSection("#video")}>출품작 안내</button>
         </li>
         <li>
-          <Link to="/info">행사 안내</Link>
+          <button onClick={() => scrollToSection("#booth")}>행사 안내</button>
         </li>
         <h1 className="logo">
-          {/* ✅ Link 대신 직접 onClick 제어 */}
           <a href="/" onClick={handleLogoClick}>
             <i></i>
           </a>
         </h1>
         <li>
-          <Link to="/">이벤트</Link>
+          {/* ✅ 이벤트 → id="event" */}
+          <button onClick={() => scrollToSection("#event")}>이벤트</button>
         </li>
         <li>
           <Link to="/media">MEDIA</Link>

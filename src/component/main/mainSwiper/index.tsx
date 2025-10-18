@@ -96,6 +96,25 @@ const MainSwiper = () => {
   const [isFirstRender, setIsFirstRender] = useState(true);
 
   useEffect(() => {
+    const preloadImages = [
+      AionImage,
+      CinderImage,
+      CmImage,
+      LimitImage,
+      TimeImage,
+      TitleImage,
+      LogoAionImage,
+      LogoCinderImage,
+      LogoLimitImage,
+      LogoTimeImage,
+    ];
+    preloadImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
+  useEffect(() => {
     const timer = setTimeout(() => setIsFirstRender(false), 1500);
     return () => clearTimeout(timer);
   }, []);

@@ -6,10 +6,27 @@ import GstarListBg01HoverImage02 from "../../../assets/images/main/gstar-booth-l
 import GstarListBg02HoverImage01 from "../../../assets/images/main/gstar-booth-list02-hover-img01.png";
 import GstarListBg02HoverImage02 from "../../../assets/images/main/gstar-booth-list02-hover-img02.png";
 
+// preload
+import GstarListBg01Hover from "../../../assets/images/main/gstar-booth-list01-hover-bg.png";
+import GstarListBg02Hover from "../../../assets/images/main/gstar-booth-list02-hover-bg.png";
+import GstarListBg03Hover from "../../../assets/images/main/gstar-booth-list03-hover-bg.png";
+
 const GstarBoothSection = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const hasAnimated = useRef(false); // ✅ 이미 애니메이션이 실행된 적 있는지 저장
+
+  useEffect(() => {
+    const preloadImages = [
+      GstarListBg01Hover,
+      GstarListBg02Hover,
+      GstarListBg03Hover,
+    ];
+    preloadImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   useEffect(() => {
     const target = sectionRef.current;

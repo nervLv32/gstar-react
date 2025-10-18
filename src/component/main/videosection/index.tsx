@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { VideoSectionWrapper } from "./styles";
 import TitleImage from "../../../assets/images/main/main-title.png";
+
 const VideoSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -8,6 +9,7 @@ const VideoSection = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
 
+  // 🔹 비디오 미리 로드 (preload)
   useEffect(() => {
     const preloadVideo = document.createElement("video");
     preloadVideo.src = "/video/production-gstar.mp4";
@@ -16,9 +18,12 @@ const VideoSection = () => {
     preloadVideo.addEventListener("loadeddata", () => {
       setVideoReady(true);
     });
+
     // 메모리 누수 방지
     return () => preloadVideo.remove();
   }, []);
+
+  // 🔹 IntersectionObserver: 화면에 들어올 때만 재생 시작 (한 번만)
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
@@ -26,14 +31,12 @@ const VideoSection = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          // ✅ 화면에 처음 들어올 때만 재생
           if (entry.isIntersecting) {
             setIsActive(true);
             setTimeout(() => {
               videoRef.current?.play().catch(() => {});
             }, 100);
-          } else {
-            setIsActive(false);
-            videoRef.current?.pause();
           }
         });
       },
@@ -48,12 +51,21 @@ const VideoSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  // 🔹 혹시 로드 완료 시 자동 재생 보장
+  useEffect(() => {
+    if (videoReady) {
+      videoRef.current?.play().catch(() => {});
+    }
+  }, [videoReady]);
+
   return (
     <VideoSectionWrapper
+      id="video"
       ref={sectionRef}
       className={`${isActive ? "active" : ""} ${isVideoLoaded ? "loaded" : ""}`}
     >
       <div className="video-inner">
+        {/* 비디오 로딩 전 보여줄 이미지 */}
         <img
           src={TitleImage}
           alt="video placeholder"
@@ -61,6 +73,7 @@ const VideoSection = () => {
           draggable={false}
         />
 
+        {/* 실제 비디오 */}
         <video
           ref={videoRef}
           src={videoReady ? "/video/production-gstar.mp4" : undefined}

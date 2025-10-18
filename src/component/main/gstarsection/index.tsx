@@ -5,29 +5,23 @@ import TicketImage from "../../../assets/images/main/main-ticket-section-image.p
 const GstarSection = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const hasAnimated = useRef(false); // ✅ 한 번만 실행하도록 제어
 
   useEffect(() => {
     const target = sectionRef.current;
     if (!target) return;
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const ratio = entry.intersectionRatio;
-
-          // ✅ 화면의 10%라도 보이면 활성화
-          if (ratio >= 0.3) {
-            setIsVisible(true);
-          }
-
-          // ✅ 화면에서 90% 이상 사라졌을 때만 초기화
-          if (ratio < 0.3) {
-            setIsVisible(false);
-          }
-        });
+      ([entry]) => {
+        // ✅ 화면에 들어오고 아직 애니메이션이 실행되지 않았다면
+        if (entry.isIntersecting && !hasAnimated.current) {
+          setIsVisible(true);
+          hasAnimated.current = true; // ✅ 다시 실행되지 않게 막음
+          observer.unobserve(target); // ✅ 관찰 종료 (성능 최적화)
+        }
       },
       {
-        threshold: Array.from({ length: 100 }, (_, i) => i / 100), // 세밀한 감지
+        threshold: 0.3, // 30% 정도 보일 때 트리거
       }
     );
 

@@ -9,6 +9,7 @@ import GstarSection from "../component/main/gstarsection";
 import VideoSection from "../component/main/videosection";
 import { TapeWrapper } from "./styles";
 import Intro from "../component/main/intro";
+import TicketSection from "../component/main/ticektsection";
 
 const Main = () => {
   const location = useLocation();
@@ -99,6 +100,7 @@ const Main = () => {
 
           <GstarBoothSection />
           <BoothSection />
+          <TicketSection />
           <TapeWrapper>
             <div className="tape vitro">
               {repeated.map((text, idx) => (

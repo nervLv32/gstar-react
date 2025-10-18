@@ -93,7 +93,9 @@ export const InfoWrapper = styled.div`
       background: #000;
     }
     .slide-wrapper {
-      position: relative;
+      .slide-inner {
+        position: relative;
+      }
       .swiper-slide {
         width: 100%;
         i {
