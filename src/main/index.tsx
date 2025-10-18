@@ -61,9 +61,9 @@ const Main = () => {
     setIntroStep("done");
   };
 
-  useEffect(() => {
-    handleDimEnd();
-  }, []);
+  // useEffect(() => {
+  //   handleDimEnd();
+  // }, []);
 
   const textList = ["NC 2025 G-STAR", "무한한 세계, 하나의 여정"];
 

@@ -187,13 +187,13 @@ const Aion = () => {
               </div>
 
               <div className="info-text" data-anim>
-                2025 NC G-STAR에서 AION2를 더욱 빠르게 만나보세요.
+                NC G-STAR 2025에서 AION2를 더욱 빠르게 만나보세요.
               </div>
             </div>
 
             <div className="button-wrap" data-anim>
               <Link to="/" className="default">
-                <p>공식홈페이지 바로가기 {">"}</p>
+                <p>공식홈페이지 바로가기</p>
               </Link>
               <Link to="/" className="point">
                 <i>

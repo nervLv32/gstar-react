@@ -35,7 +35,7 @@ const Header = () => {
           <button onClick={() => scrollToSection("#video")}>출품작 안내</button>
         </li>
         <li>
-          <button onClick={() => scrollToSection("#booth")}>행사 안내</button>
+          <button onClick={() => scrollToSection("#gstar")}>행사 안내</button>
         </li>
         <h1 className="logo">
           <a href="/" onClick={handleLogoClick}>

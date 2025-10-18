@@ -132,7 +132,7 @@ export const IpWrapper = styled.div`
               background: #ff0000;
               i {
                 display: block;
-
+                width: 1.6rem;
                 height: 2rem;
                 img {
                   display: block;

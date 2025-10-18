@@ -39,60 +39,25 @@ const textUp = keyframes`
     opacity: 1;
     transform: translateY(0);
   }
+  
 `;
 
 export const MainSwiperWrapper = styled.div`
+  @keyframes dimReveal {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
   width: 144rem;
 
   margin: 14rem auto 0;
   /* height: 60rem; */
   position: relative;
-  /* &::before {
-    content: "";
-    display: block;
-    width: 30rem;
-    height: 80%;
-    background: blue;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0;
-    background: linear-gradient(
-      270deg,
-      rgba(0, 0, 0, 0) 5.38%,
-      rgba(0, 0, 0, 0.3) 35.08%,
-      rgba(0, 0, 0, 0.5) 63.24%,
-      rgba(0, 0, 0, 0.7) 85.28%
-    );
-    background-blend-mode: multiply;
-
-    z-index: 100;
-  }
-  &::after {
-    content: "";
-    display: block;
-    width: 30rem;
-    height: 80%;
-    background: blue;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0;
-    background: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0) 5.38%,
-      rgba(0, 0, 0, 0.3) 35.08%,
-      rgba(0, 0, 0, 0.5) 63.24%,
-      rgba(0, 0, 0, 0.7) 85.28%
-    );
-
-    background-blend-mode: multiply;
-
-    z-index: 100;
-  } */
 
   &.intro {
-    /* background: red; */
     .swiper {
       .swiper-slide {
         opacity: 0;
@@ -112,14 +77,6 @@ export const MainSwiperWrapper = styled.div`
           animation-delay: 0.8s;
         }
       }
-    }
-  }
-  @keyframes dimReveal {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(100%);
     }
   }
 
@@ -259,8 +216,7 @@ export const MainSwiperWrapper = styled.div`
       display: block;
       width: 100%;
       position: relative;
-      /* transition: transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1),
-          filter 0.8s ease, opacity 0.8s ease; */
+
       will-change: transform, filter, opacity;
       backface-visibility: hidden;
 
@@ -292,8 +248,7 @@ export const MainSwiperWrapper = styled.div`
       height: 22.2rem;
       transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease,
         opacity 0.6s ease;
-      /* opacity: 0.6; */
-      /* filter: brightness(0.8); */
+
       z-index: 10;
       img {
         display: block;
@@ -323,5 +278,8 @@ export const MainSwiperWrapper = styled.div`
         color: #fff;
       }
     }
+  }
+  @media all and (max-width: 1440px) {
+    width: 100%;
   }
 `;

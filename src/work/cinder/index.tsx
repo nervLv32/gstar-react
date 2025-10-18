@@ -192,7 +192,7 @@ const Cinder = () => {
 
             <div className="button-wrap" data-anim>
               <Link to="/" className="default">
-                <p>공식홈페이지 바로가기 {">"}</p>
+                <p>공식홈페이지 바로가기</p>
               </Link>
               <Link to="/" className="point">
                 <i>

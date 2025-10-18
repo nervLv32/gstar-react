@@ -24,7 +24,7 @@ export const GstarBoothSectionWrapper = styled.section`
   justify-content: center;
   align-items: center;
   background: #fff;
-  padding: 10rem 0 24.7rem;
+  padding: 15rem 0 24.7rem;
   overflow: hidden;
 
   .section-wrapper {

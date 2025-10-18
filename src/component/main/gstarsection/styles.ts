@@ -39,7 +39,7 @@ const fadeDown = keyframes`
 export const GstarSectionWrapper = styled.section`
   width: 100%;
   text-align: center;
-  padding: 24rem 0 10rem;
+  padding: 24rem 0 5rem;
   background: #fff;
   overflow: hidden;
 

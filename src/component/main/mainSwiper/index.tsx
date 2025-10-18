@@ -138,6 +138,16 @@ const MainSwiper = () => {
           centeredSlides={true}
           loop={true}
           speed={800}
+          // breakpoints={{
+          //   1440: {
+          //     slidesPerView: 5,
+          //     spaceBetween: 16,
+          //   },
+          //   1024: {
+          //     slidesPerView: 4,
+          //     spaceBetween: 14,
+          //   },
+          // }}
 
           // loopAdditionalSlides={10}
           // grapCursor={true}

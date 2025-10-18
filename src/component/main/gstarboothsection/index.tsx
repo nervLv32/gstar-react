@@ -1,21 +1,37 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { GstarBoothSectionWrapper } from "./styles";
 import GstarListBg01HoverImage01 from "../../../assets/images/main/gstar-booth-list01-hover-img01.png";
 import GstarListBg01HoverImage02 from "../../../assets/images/main/gstar-booth-list01-hover-img02.png";
-
 import GstarListBg02HoverImage01 from "../../../assets/images/main/gstar-booth-list02-hover-img01.png";
 import GstarListBg02HoverImage02 from "../../../assets/images/main/gstar-booth-list02-hover-img02.png";
-
-// preload
 import GstarListBg01Hover from "../../../assets/images/main/gstar-booth-list01-hover-bg.png";
 import GstarListBg02Hover from "../../../assets/images/main/gstar-booth-list02-hover-bg.png";
 import GstarListBg03Hover from "../../../assets/images/main/gstar-booth-list03-hover-bg.png";
 
+const ENTER_RATIO = 0.5;
+
+// ✅ 해시 세팅 함수
+function setHash(hash: string) {
+  const base = window.location.pathname + window.location.search;
+  if (hash) {
+    if (window.location.hash !== hash) {
+      window.history.replaceState(null, "", base + hash);
+    }
+  } else {
+    if (window.location.hash) {
+      window.history.replaceState(null, "", base);
+    }
+  }
+}
+
 const GstarBoothSection = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
+  const location = useLocation();
   const [isVisible, setIsVisible] = useState(false);
-  const hasAnimated = useRef(false); // ✅ 이미 애니메이션이 실행된 적 있는지 저장
+  const hasAnimated = useRef(false);
 
+  // ✅ 이미지 미리 로드
   useEffect(() => {
     const preloadImages = [
       GstarListBg01Hover,
@@ -28,30 +44,47 @@ const GstarBoothSection = () => {
     });
   }, []);
 
+  // ✅ IntersectionObserver로 해시 관리
   useEffect(() => {
     const target = sectionRef.current;
     if (!target) return;
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated.current) {
-            // ✅ 처음 진입 시 한 번만 실행
-            setIsVisible(true);
-            hasAnimated.current = true;
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= ENTER_RATIO) {
+          setIsVisible(true);
+          setHash("#gstar"); // 👈 화면에 들어오면 #gstar
+        } else if (!entry.isIntersecting && window.location.hash === "#gstar") {
+          setHash("#event"); // 👈 벗어나면 이전 섹션(#event)로 되돌림
+        }
       },
-      { threshold: 0.5 }
+      {
+        threshold: Array.from({ length: 11 }, (_, i) => i / 10),
+        rootMargin: "0px 0px -15% 0px",
+      }
     );
 
     observer.observe(target);
     return () => observer.disconnect();
   }, []);
 
+  // ✅ 페이지 복귀 시 자동 스크롤 이동
+  useEffect(() => {
+    if (location.hash === "#gstar" && sectionRef.current) {
+      const id = window.setTimeout(() => {
+        sectionRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 150);
+      return () => window.clearTimeout(id);
+    }
+  }, [location.hash]);
+
   return (
     <GstarBoothSectionWrapper
       ref={sectionRef}
+      id="gstar"
       className={isVisible ? "active" : ""}
     >
       <div className="inner">
@@ -92,13 +125,14 @@ const GstarBoothSection = () => {
                   </p>
                 </div>
               </li>
+
               <li className="nc hover-list">
                 <div className="text-box">
                   <h6 className="vitro">NC CINEMA</h6>
                   <p>
                     G-STAR 최초 파노라마 상영관에서
                     <br />
-                    경험하는  NC 신작 트레일러의 짜릿한 몰입감!
+                    경험하는 NC 신작 트레일러의 짜릿한 몰입감!
                   </p>
                 </div>
               </li>
