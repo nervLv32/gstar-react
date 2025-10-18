@@ -66,6 +66,12 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "VitroPride";
+  src: url("/public/fonts/VitroPride.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @font-face {
   font-family: "Montserrat";
@@ -321,6 +327,9 @@ button {
 
 .vitro {
   font-family: "VitroCore";
+}
+.vitro-pride {
+  font-family: "VitroPride";
 }
 
 .atreia {

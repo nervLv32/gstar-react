@@ -38,6 +38,103 @@ export const HeaderWrapper = styled.header`
   }
 `;
 
-export const FooterWrapper = styled.footer``;
+export const FooterWrapper = styled.footer`
+  background: #003769;
+  padding: 12.8rem 0 8.7rem;
+  .footer-inner {
+    position: relative;
+    max-width: 166rem;
+    margin: 0 auto;
+    width: 100%;
+    .footer-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 14rem;
+      .logo-wrap {
+        ul {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          width: 100%;
+          gap: 3rem;
+        }
+      }
+      .info-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 8rem;
+        .text-sns-wrap {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-bottom: 0.8rem;
+          border-bottom: 0.1rem solid #fff;
+          .text-wrap {
+            p {
+              line-height: 2.2rem;
+              font-size: 1.2rem;
+              color: #fff;
+              text-align: left;
+            }
+          }
+          .sns-wrap {
+            align-items: center;
+            gap: 1.6rem;
+            display: flex;
+            a {
+              transition: all 0.2s;
+              &:hover {
+                opacity: 0.7;
+              }
+              i {
+                display: block;
+                width: 2.4rem;
+                height: 2.4rem;
+                img {
+                  display: block;
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+        .footer-logo-wrap {
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          .footer-logo {
+            i {
+              display: block;
+              width: 14.2rem;
+              height: 7.6rem;
+              img {
+                display: block;
+                width: 100%;
+              }
+            }
+          }
+          .scoll-top {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            background: #003769;
+
+            i {
+              display: block;
+              width: 3.1rem;
+              height: 4.7rem;
+              cursor: pointer;
+              img {
+                display: block;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 export const OutletWrapper = styled.div``;

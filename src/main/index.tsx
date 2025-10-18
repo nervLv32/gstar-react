@@ -61,14 +61,12 @@ const Main = () => {
     setIntroStep("done");
   };
 
-  // useEffect(() => {
-  //   handleDimEnd();
-  // }, []);
+  useEffect(() => {
+    handleDimEnd();
+  }, []);
 
-  //  tape
   const textList = ["NC 2025 G-STAR", "무한한 세계, 하나의 여정"];
 
-  // 2배로 복제해서 자연스럽게 무한 반복
   const repeated = [
     ...textList,
     ...textList,
