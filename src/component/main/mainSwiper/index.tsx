@@ -18,6 +18,7 @@ import LogoLimitImage from "../../../assets/images/main/main-limit-logo-slide-im
 import LogoTimeImage from "../../../assets/images/main/main-time-logo-slide-image.png";
 const list = [
   {
+    link: "aion2",
     uid: 1,
     img: AionImage,
     logoImg: LogoAionImage,
@@ -25,14 +26,17 @@ const list = [
     subTitle: "두 개의 하늘, 하나의 영광",
   },
   {
+    link: "cinder",
     uid: 2,
     img: CinderImage,
     logoImg: LogoCinderImage,
     title: "신더시티",
     subTitle: "새로운 슈터 장르의 시작",
   },
-  { uid: 3, img: CmImage, logoImg: null },
+
+  { link: "", uid: 3, img: CmImage, logoImg: null },
   {
+    link: "timetakers",
     uid: 4,
     img: TimeImage,
     logoImg: LogoTimeImage,
@@ -40,6 +44,7 @@ const list = [
     subTitle: `“시간”으로 진화한 차세대 서바이벌 슈터`,
   },
   {
+    link: "breakers",
     uid: 5,
     img: LimitImage,
     logoImg: LogoLimitImage,
@@ -48,6 +53,7 @@ const list = [
   },
 
   {
+    link: "aion2",
     uid: 6,
     img: AionImage,
     logoImg: LogoAionImage,
@@ -55,14 +61,17 @@ const list = [
     subTitle: "두 개의 하늘, 하나의 영광",
   },
   {
+    link: "cinder",
     uid: 7,
     img: CinderImage,
     logoImg: LogoCinderImage,
     title: "신더시티",
     subTitle: "새로운 슈터 장르의 시작",
   },
-  { uid: 8, img: CmImage, logoImg: null },
+
+  { link: "", uid: 8, img: CmImage, logoImg: null },
   {
+    link: "timetakers",
     uid: 10,
     img: TimeImage,
     logoImg: LogoTimeImage,
@@ -70,6 +79,7 @@ const list = [
     subTitle: `“시간”으로 진화한 차세대 서바이벌 슈터`,
   },
   {
+    link: "breakers",
     uid: 9,
     img: LimitImage,
     logoImg: LogoLimitImage,
@@ -127,7 +137,7 @@ const MainSwiper = () => {
                 key={item.uid}
                 className={`contents-0${idx + 1} ${positionClass}`}
               >
-                <Link to="/work/aion2">
+                <Link to={item.link ? `/work/${item.link}` : "/"}>
                   <i className="char-image">
                     <img src={item.img} alt="" />
                   </i>
@@ -136,6 +146,12 @@ const MainSwiper = () => {
                     <i className={`logo-image`}>
                       <img src={item.logoImg} alt="" />
                     </i>
+                  )}
+                  {item.title && item.subTitle && (
+                    <div className="text-wrap">
+                      <h2>{item.title}</h2>
+                      <h4>{item.subTitle}</h4>
+                    </div>
                   )}
                 </Link>
               </SwiperSlide>

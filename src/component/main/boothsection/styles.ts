@@ -278,4 +278,37 @@ export const BoothSectionWrapper = styled.div`
       transform: translateY(0);
     }
   }
+
+  /* 🔹 공통 fade 효과 */
+  .fade-item {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .fade-item.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 🔹 내부 자식 순차 애니메이션 */
+  .fade-child {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-item.active .fade-child {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 🔹 순차 딜레이 (필요에 따라 개수 추가 가능) */
+  .fade-child.delay-0 {
+    transition-delay: 0.2s;
+  }
+  .fade-child.delay-1 {
+    transition-delay: 0.5s;
+  }
+  .fade-child.delay-2 {
+    transition-delay: 0.8s;
+  }
 `;

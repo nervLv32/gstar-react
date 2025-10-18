@@ -27,10 +27,24 @@ const smoothPop = keyframes`
   100% { transform: scale(1.24); }
 `;
 
+const textUp = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 export const MainSwiperWrapper = styled.div`
   width: 144rem;
 
-  margin: 6.8rem auto 0;
+  margin: 6rem auto 0;
   /* height: 60rem; */
   position: relative;
   /* &::before {
@@ -138,7 +152,7 @@ export const MainSwiperWrapper = styled.div`
   .swiper {
     .swiper-wrapper {
       padding-top: 12rem;
-      padding-bottom: 8rem;
+      padding-bottom: 16rem;
     }
     .swiper-slide {
       width: 100%;
@@ -183,6 +197,7 @@ export const MainSwiperWrapper = styled.div`
 
       &.swiper-slide-active {
         z-index: 10 !important;
+
         .logo-image {
           bottom: -3.4rem;
         }
@@ -191,7 +206,6 @@ export const MainSwiperWrapper = styled.div`
         }
         .char-image {
           animation: ${smoothPop} 0.9s ease forwards;
-          /* filter: blur(0); */
           opacity: 1;
           position: relative;
           &::before {
@@ -205,72 +219,108 @@ export const MainSwiperWrapper = styled.div`
             left: 50%;
             transform: translate(-50%, -50%);
           }
-          &::after {
-            clip-path: circle(75% at 50% 50%);
-          }
           img {
             height: 100%;
           }
         }
         .logo-image {
-          transform: translateX(-50%) scale(1.2); /* 살짝 커지기 */
-          /* filter: brightness(1) drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));  */
+          transform: translateX(-50%) scale(1.2);
           opacity: 1;
         }
+
+        /* ✅ 이 부분 중요 */
+        .text-wrap {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+          h2,
+          h4 {
+            animation: ${textUp} 0.8s cubic-bezier(0.25, 1, 0.5, 1) both; /* ✅ both */
+          }
+
+          h2 {
+            animation-delay: 0.2s;
+          }
+          h4 {
+            animation-delay: 0.4s;
+          }
+        }
       }
-      .dim {
-        display: block;
+    }
+    .dim {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .char-image {
+      display: block;
+      width: 100%;
+      position: relative;
+      /* transition: transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1),
+          filter 0.8s ease, opacity 0.8s ease; */
+      will-change: transform, filter, opacity;
+      backface-visibility: hidden;
+
+      &::after {
+        content: "";
         width: 100%;
+        mix-blend-mode: plus-lighter;
         height: 100%;
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 1;
+        background: url(${SlideBorderImage}) no-repeat center / cover;
+        clip-path: circle(0% at 50% 50%);
+        transition: clip-path 0.5s ease-in-out;
       }
-      .char-image {
+      img {
         display: block;
         width: 100%;
         position: relative;
-        /* transition: transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1),
-          filter 0.8s ease, opacity 0.8s ease; */
-        will-change: transform, filter, opacity;
-        backface-visibility: hidden;
-
-        &::after {
-          content: "";
-          width: 100%;
-          mix-blend-mode: plus-lighter;
-          height: 100%;
-          position: absolute;
-          top: 0;
-          left: 0;
-          background: url(${SlideBorderImage}) no-repeat center / cover;
-          clip-path: circle(0% at 50% 50%);
-          transition: clip-path 0.5s ease-in-out;
-        }
-        img {
-          display: block;
-          width: 100%;
-          position: relative;
-        }
       }
-      .logo-image {
+    }
+    .logo-image {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 22.2rem;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease,
+        opacity 0.6s ease;
+      /* opacity: 0.6; */
+      /* filter: brightness(0.8); */
+      z-index: 10;
+      img {
         display: block;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
         width: 100%;
-        height: 22.2rem;
-        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
-          filter 0.6s ease, opacity 0.6s ease;
-        /* opacity: 0.6; */
-        /* filter: brightness(0.8); */
-        z-index: 10;
-        img {
-          display: block;
-          width: 100%;
-        }
+      }
+    }
+    .text-wrap {
+      position: absolute;
+      width: 300%;
+      bottom: -14rem;
+      left: 50%;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      opacity: 0;
+      transform: translateX(-50%) translateY(4rem);
+      h2 {
+        font-size: 3rem;
+        line-height: 1;
+        font-weight: 900;
+        color: #fff;
+      }
+      h4 {
+        font-size: 2.2rem;
+        line-height: 1;
+        color: #fff;
       }
     }
   }

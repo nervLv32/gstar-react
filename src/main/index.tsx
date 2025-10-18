@@ -18,6 +18,19 @@ const Main = () => {
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const target = document.querySelector(location.state.scrollTo);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 300); // 약간의 delay로 렌더 완료 후 스크롤
+      }
+      // ✅ state를 제거해서 새로고침 시 다시 스크롤 안되게
+      window.history.replaceState(null, "", "/#booth");
+    }
+  }, [location.state]);
+
   // ✅ 새로고침 시 쿠키 제거
   useEffect(() => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {

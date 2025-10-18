@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FloatingMenuWrapper } from "./styles";
+import FloatingPoint from "../../../assets/images/floating/floating-point.png";
+import FloatingLight from "../../../assets/images/floating/floating-light.png";
 
 const FloatingMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,22 +15,45 @@ const FloatingMenu = () => {
 
   return (
     <FloatingMenuWrapper className={`aion-box ${isOpen ? "open" : ""}`}>
+      <i className="light-image">
+        <img src={FloatingLight} alt="" />
+      </i>
       <div className="inner">
         <div className="title-text">
           <p>출품작 안내</p>
         </div>
         <ul>
           <li className="active">
-            <Link to="/">AION2</Link>
+            <Link to="/">
+              <i className="point-image">
+                <img src={FloatingPoint} alt="" />
+              </i>
+              <span>AION2</span>
+            </Link>
           </li>
           <li>
-            <Link to="/">CINDER CITY</Link>
+            <Link to="/">
+              <i className="point-image">
+                <img src={FloatingPoint} alt="" />
+              </i>
+              <span>CINDER CITY</span>
+            </Link>
           </li>
           <li>
-            <Link to="/">타임 테이커즈</Link>
+            <Link to="/">
+              <i className="point-image">
+                <img src={FloatingPoint} alt="" />
+              </i>
+              <span>타임 테이커즈</span>
+            </Link>
           </li>
           <li>
-            <Link to="/">브레이커스</Link>
+            <Link to="/">
+              <i className="point-image">
+                <img src={FloatingPoint} alt="" />
+              </i>
+              <span>브레이커스</span>
+            </Link>
           </li>
           <li>
             <Link to="/">COMING SOON</Link>

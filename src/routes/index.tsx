@@ -1,6 +1,7 @@
 import Aion from "../work/aion";
 import Info from "../info";
 import Main from "../main";
+import Media from "../media";
 
 export const routes = [
   {
@@ -10,6 +11,10 @@ export const routes = [
   {
     path: "/info",
     element: <Info />,
+  },
+  {
+    path: "/media",
+    element: <Media />,
   },
 ];
 

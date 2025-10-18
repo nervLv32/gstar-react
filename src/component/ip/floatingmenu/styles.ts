@@ -1,65 +1,7 @@
 import { styled } from "styled-components";
 import FloatingBgImage from "../../../assets/images/floating/floating-bg-image.png";
-import FloatingBgTransparentImage from "../../../assets/images/floating/floating-bg-transparent-image.png";
 
 export const FloatingMenuWrapper = styled.div`
-  position: fixed;
-  top: 40rem;
-  left: -100px;
-  width: 20rem;
-  height: 37.6rem;
-  margin: 0 auto;
-  z-index: 21;
-  overflow: hidden;
-
-  transition: left 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease;
-
-  &.open {
-    left: 2rem;
-
-    .inner {
-      opacity: 1;
-
-      .title-text {
-        &::after {
-          transform: translateX(-50%) scaleX(1); /* 💡 가로 확장 */
-        }
-      }
-    }
-  }
-
-  &::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: url(${FloatingBgTransparentImage}) no-repeat center / cover;
-    z-index: -1;
-    opacity: 0;
-    animation: fadeInBg 0.8s ease forwards;
-    animation-delay: 1s;
-  }
-  /* 
-  &::before {
-    content: "";
-    display: block;
-    width: calc(100% - 0.4rem);
-    height: 37.4rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: url(${FloatingBgImage}) no-repeat center / cover;
-    z-index: -1;
-    opacity: 0;
-    animation: fadeInBg 0.8s ease forwards;
-    animation-delay: 1s;
-  } */
-
   @keyframes fadeInBg {
     from {
       opacity: 0;
@@ -69,6 +11,57 @@ export const FloatingMenuWrapper = styled.div`
     }
   }
 
+  @keyframes pointFadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  position: fixed;
+  top: 40rem;
+  left: -100%;
+  width: 21.9rem;
+  height: 34.6rem;
+  margin: 0 auto;
+  z-index: 21;
+
+  transition: left 2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease;
+
+  background: url(${FloatingBgImage}) no-repeat center / cover;
+  z-index: 1;
+
+  &.open {
+    left: -1rem;
+
+    .light-image {
+      opacity: 1;
+    }
+    .inner {
+      opacity: 1;
+    }
+  }
+
+  .light-image {
+    display: block;
+    width: 7.8rem;
+    height: 7.8rem;
+    position: absolute;
+    top: -2.2rem;
+    right: -2.2rem;
+    opacity: 0;
+    transition: opacity 1s ease;
+    transition-delay: 1.8s;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
   .inner {
     position: relative;
     opacity: 0;
@@ -83,19 +76,6 @@ export const FloatingMenuWrapper = styled.div`
       justify-content: center;
       position: relative;
 
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 100%;
-        height: 0.2rem;
-        background: #fff;
-        transform: translateX(-50%) scaleX(0); /* 💡 처음엔 0으로 접혀있음 */
-        transform-origin: center; /* 💡 중앙 기준으로 양쪽 확장 */
-        transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.4s; /* 딜레이로 자연스럽게 */
-      }
-
       p {
         font-size: 2.2rem;
         font-weight: 800;
@@ -109,10 +89,10 @@ export const FloatingMenuWrapper = styled.div`
     list-style: none;
 
     opacity: 0.8;
-    padding: 3rem 2.2rem;
+    padding: 3rem 0 3rem 3.2rem;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+
     li {
       &.active {
         a {
@@ -128,17 +108,64 @@ export const FloatingMenuWrapper = styled.div`
           color: #fff;
           text-shadow: 0px 0px 5px #2bbcff;
           opacity: 1;
+          &::after {
+            opacity: 1;
+            z-index: -1;
+            background: linear-gradient(
+              to right,
+              rgba(255, 255, 255, 0.6) 0%,
+              rgba(255, 255, 255, 0) 100%
+            );
+          }
+          .point-image {
+            display: block;
+            width: 2.6rem;
+            height: 2.7rem;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: pointFadeIn 0.4s ease forwards;
+          }
         }
       }
       a {
-        display: block;
-        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 2.2rem;
+        line-height: 4rem;
         letter-spacing: -0.3px;
         color: #fff;
-        opacity: 0.5;
-        height: 2.8rem;
+        opacity: 0.8;
+        font-weight: 800;
+
         font-weight: 400;
         transition: all 0.3s;
+        position: relative;
+
+        &::after {
+          content: "";
+          display: block;
+          width: calc(100% + 4rem);
+          height: 100%;
+          left: -4rem;
+          top: 0;
+          position: absolute;
+          background: red;
+          opacity: 0;
+          z-index: -1;
+        }
+
+        .point-image {
+          display: none;
+          img {
+            display: block;
+            width: 100%;
+          }
+        }
+        span {
+          display: block;
+          position: relative;
+        }
       }
     }
 

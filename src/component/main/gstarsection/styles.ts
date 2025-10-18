@@ -58,7 +58,7 @@ export const GstarSectionWrapper = styled.section`
       color: #0050ff;
       opacity: 0;
       transform: translateY(0);
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      transition: opacity 0.4s ease, transform 0.3s ease;
       line-height: 1;
     }
 
@@ -99,13 +99,13 @@ export const GstarSectionWrapper = styled.section`
     }
 
     .top-text {
-      animation: ${fadeUp} 1s ease forwards;
-      animation-delay: 1.2s;
+      animation: ${fadeUp} 0.8s ease forwards;
+      animation-delay: 0.7s;
     }
 
     .bottom-text {
-      animation: ${fadeDown} 1s ease forwards;
-      animation-delay: 2s;
+      animation: ${fadeDown} 0.8s ease forwards;
+      animation-delay: 1s;
     }
   }
 `;

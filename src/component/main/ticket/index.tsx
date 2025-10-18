@@ -5,6 +5,7 @@ import TicketImage from "../../../assets/images/main/main-ticket.png";
 const Ticket = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const hasAnimated = useRef(false); // ✅ 이미 애니메이션이 실행되었는지 체크
 
   useEffect(() => {
     const target = sectionRef.current;
@@ -13,12 +14,11 @@ const Ticket = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // 화면에 들어오면 애니메이션 실행
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && !hasAnimated.current) {
+            // ✅ 처음 진입 시 한 번만 실행
             setIsVisible(true);
-          } else {
-            // 화면에서 벗어나면 리셋 (다시 내려올 때 재실행됨)
-            setIsVisible(false);
+            hasAnimated.current = true;
+            observer.unobserve(target); // ✅ 더 이상 감시 안 함 (한 번만)
           }
         });
       },

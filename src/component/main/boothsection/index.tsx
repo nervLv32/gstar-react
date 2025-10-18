@@ -20,13 +20,58 @@ function setHash(hash: string) {
   }
 }
 
+// ✅ 공용 IntersectionObserver Hook (once 옵션 추가)
+const useFadeInObserver = (threshold = 0.4, once = false) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [visible, setVisible] = useState(false);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const target = ref.current;
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (once) {
+            if (!hasAnimated.current) {
+              setVisible(true);
+              hasAnimated.current = true;
+              observer.unobserve(target); // ✅ 한 번만 트리거
+            }
+          } else {
+            setVisible(true);
+          }
+        } else if (!once) {
+          // ✅ 반복 모드일 경우 다시 숨기기
+          setVisible(false);
+        }
+      },
+      { threshold }
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [threshold, once]);
+
+  return { ref, visible };
+};
+
 const BoothSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const rafId = useRef<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // 페이지 복귀/직접 접근 시 부드럽게 이동
+  // ✅ fade-in observer 훅들
+  const { ref: bannerRef, visible: bannerVisible } = useFadeInObserver(
+    0.5,
+    false
+  ); // 반복 실행
+  const { ref: textRef, visible: textVisible } = useFadeInObserver(0.5, true); // 한 번만 실행
+  const { ref: infoRef, visible: infoVisible } = useFadeInObserver(0.5, true); // 한 번만 실행
+
+  // ✅ 페이지 복귀/직접 접근 시 부드럽게 이동
   useEffect(() => {
     if (location.hash === "#booth" && sectionRef.current) {
       const id = window.setTimeout(() => {
@@ -39,6 +84,7 @@ const BoothSection = () => {
     }
   }, [location.hash]);
 
+  // ✅ hash 관리
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
@@ -99,13 +145,13 @@ const BoothSection = () => {
     };
   }, []);
 
+  // ✅ 모달 열릴 때 body 스크롤 막기
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
-
     return () => {
       document.body.style.overflow = "";
     };
@@ -113,28 +159,47 @@ const BoothSection = () => {
 
   return (
     <BoothSectionWrapper ref={sectionRef} id="booth">
-      <div className="booth-banner-wrap">
+      {/* ✅ 배너 영역 (반복 애니메이션) */}
+      <div
+        ref={bannerRef}
+        className={`booth-banner-wrap fade-item ${
+          bannerVisible ? "active" : ""
+        }`}
+      >
         <div className="banner-title-wrap">
-          <span className="vitro">NC 2025 G- STAR</span>
-          <h6 className="vitro">부스 위치 안내</h6>
+          <span className="vitro fade-child delay-0">NC 2025 G- STAR</span>
+          <h6 className="vitro fade-child delay-1">부스 위치 안내</h6>
         </div>
-        <div className="button-wrap">
+        <div className="button-wrap fade-child delay-2">
           <Link to="/info">자세히 보기</Link>
         </div>
       </div>
 
+      {/* ✅ 내용 영역 (한 번만 실행) */}
       <div className="contents-wrap">
         <div className="small-inner">
           <div className="contents-wrapper">
-            <div className="text-wrap">
-              <h4 className="vitro">2025 G-STAR는 NC와 함께!</h4>
-              <p>
+            <div
+              ref={textRef}
+              className={`text-wrap fade-item ${textVisible ? "active" : ""}`}
+            >
+              <h4 className="vitro fade-child delay-1">
+                2025 G-STAR는 NC와 함께!
+              </h4>
+              <p className="fade-child delay-2">
                 NC G-STAR 사전 이벤트 참여자 중<br />
                 200명을 추첨하여 G-STAR 초대권(1일권) 2매를 드립니다.
               </p>
             </div>
+
             <Ticket />
-            <div className="ticket-info-wrapper">
+
+            <div
+              ref={infoRef}
+              className={`ticket-info-wrapper fade-item ${
+                infoVisible ? "active" : ""
+              }`}
+            >
               <div className="ticket-info-wrap">
                 <div className="info-wrap">
                   <div className="title-info-wrap">
@@ -173,7 +238,7 @@ const BoothSection = () => {
                 </div>
               </div>
 
-              <div className="modal-event-wrap">
+              <div className="modal-event-wrap fade-item">
                 <p>
                   초대권 이벤트 참여 및 이벤트 안내를 위한 개인정보 수집/이용
                   동의
@@ -209,25 +274,12 @@ const BoothSection = () => {
                 있습니다.
               </p>
               <p>당첨자는 기입한 휴대폰 번호로 안내 드립니다.</p>
-              <p>
-                이벤트 참여 시 경품 발송을 위해 개인 정보 제공에 동의하는 것으로
-                간주합니다.
-              </p>
+              <p>이벤트 참여 시 개인정보 제공에 동의하는 것으로 간주합니다.</p>
               <p>네트워크 환경 등에 따라 MMS 수신이 지연될 수 있습니다.</p>
               <p>
-                연락처 오류, 수신 거부 등으로 안내가 불가할 경우 당첨이 취소될
-                수 있습니다.
+                연락처 오류 등으로 안내가 불가할 경우 당첨이 취소될 수 있습니다.
               </p>
-              <p>
-                마케팅 정보 수신 미동의 혹은 SMS 수취 거절 시 대상자에서 제외될
-                수 있습니다.
-              </p>
-              <p>
-                수집된 개인정보는 당첨자 확인 및 경품 발송 용도로만 사용되며,
-                목적 달성 후 즉시 파기됩니다.
-              </p>
-              <p>당첨자분께 제공되는 초대권은 양도 및 재판매가 불가합니다.</p>
-              <p>G-STAR 초대권은 1인 2매 제공되며, 동일 일자로 발송됩니다.</p>
+              <p>수집된 개인정보는 목적 달성 후 즉시 파기됩니다.</p>
             </div>
           </div>
         </div>
