@@ -8,16 +8,30 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import BoothImage from "../assets/images/info/info-booth.png";
-import MainImage05 from "../assets/images/info/info-main-slide-image05.png";
+import MainImage01 from "../assets/images/info/info-main-slide-image01.png";
+import MainImage02 from "../assets/images/info/info-main-slide-image02.png";
+import MainImage03 from "../assets/images/info/info-main-slide-image03.png";
+import MainImage04 from "../assets/images/info/info-main-slide-image04.png";
+
+import RestImage01 from "../assets/images/info/info-rest-slide-image01.png";
+import RestImage02 from "../assets/images/info/info-rest-slide-image02.png";
+
+import BoothImage01 from "../assets/images/info/info-booth-slide-image01.png";
+import BoothImage02 from "../assets/images/info/info-booth-slide-image02.png";
 
 import NextIcon from "../assets/images/info/info-slide-next-arrow.png";
 import PrevIcon from "../assets/images/info/info-slide-prev-arrow.png";
 
 // ✅ 카테고리별 슬라이드 데이터
 const slideData = {
-  main: [{ img: MainImage05 }, { img: MainImage05 }],
-  rest: [{ img: MainImage05 }, { img: MainImage05 }],
-  booth: [{ img: MainImage05 }, { img: MainImage05 }],
+  main: [
+    { img: MainImage01 },
+    { img: MainImage02 },
+    { img: MainImage03 },
+    { img: MainImage04 },
+  ],
+  rest: [{ img: RestImage01 }, { img: RestImage02 }],
+  booth: [{ img: BoothImage01 }, { img: BoothImage02 }],
 };
 
 const Info = () => {
@@ -55,16 +69,6 @@ const Info = () => {
     setActiveIndex(0);
     swiperRef.current?.slideTo(0);
   }, [isCategory]);
-
-  // ✅ 새로고침 방지
-  useEffect(() => {
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      e.preventDefault();
-      e.returnValue = "";
-    };
-    window.addEventListener("beforeunload", handleBeforeUnload);
-    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
-  }, []);
 
   const currentSlides = slideData[isCategory];
 
