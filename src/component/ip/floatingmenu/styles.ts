@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import FloatingBgImage from "../../../assets/images/floating/floating-bg-image.png";
+import FloatingAfterBorder from "../../../assets/images/floating/floating-after-border.png";
 
 export const FloatingMenuWrapper = styled.div`
   @keyframes fadeInBg {
@@ -25,8 +26,8 @@ export const FloatingMenuWrapper = styled.div`
   position: fixed;
   top: 40rem;
   left: -100%;
-  width: 21.9rem;
-  height: 34.6rem;
+  width: 22rem;
+  height: 34.8rem;
   margin: 0 auto;
   z-index: 21;
 
@@ -43,6 +44,29 @@ export const FloatingMenuWrapper = styled.div`
     }
     .inner {
       opacity: 1;
+      .title-text {
+        p {
+          opacity: 1;
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+    ul {
+      li {
+        opacity: 1;
+      }
+    }
+    .home {
+      .icon-wrap {
+        &::after {
+          width: 100%;
+        }
+        i {
+          opacity: 1;
+        }
+      }
     }
   }
 
@@ -70,17 +94,33 @@ export const FloatingMenuWrapper = styled.div`
     text-align: center;
 
     .title-text {
-      height: 6.8rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 13rem;
+      padding: 2.4rem 3.2rem 1.6rem;
+      width: 100%;
+
       position: relative;
 
       p {
+        text-align: left;
         font-size: 2.2rem;
         font-weight: 800;
         letter-spacing: -0.33px;
         color: #fff;
+        position: relative;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        transition-delay: 1.4s;
+        &::after {
+          content: "";
+          display: block;
+          width: 0;
+          height: 0.2rem;
+          background: url(${FloatingAfterBorder}) no-repeat center / cover;
+          position: absolute;
+          bottom: -1.6rem;
+          left: 0;
+          transition: all 1s linear 1.6s;
+        }
       }
     }
   }
@@ -89,17 +129,51 @@ export const FloatingMenuWrapper = styled.div`
     list-style: none;
 
     opacity: 0.8;
-    padding: 3rem 0 3rem 3.2rem;
+    padding: 1.4rem 0 1.6rem 3.2rem;
     display: flex;
     flex-direction: column;
 
     li {
+      opacity: 0;
+      transition: opacity 0.7s ease;
+      &:first-child {
+        transition-delay: 1.2s;
+      }
+      &:nth-child(2) {
+        transition-delay: 1.35s;
+      }
+      &:nth-child(3) {
+        transition-delay: 1.5s;
+      }
+      &:nth-child(4) {
+        transition-delay: 1.65s;
+      }
+      &:last-child {
+        transition-delay: 1.8s;
+      }
       &.active {
         a {
           font-weight: 800;
           color: #fff;
           text-shadow: 0px 0px 5px #2bbcff;
           opacity: 1;
+          &::after {
+            opacity: 1;
+            z-index: -1;
+            background: linear-gradient(
+              to right,
+              rgba(255, 255, 255, 0.6) 0%,
+              rgba(255, 255, 255, 0) 100%
+            );
+          }
+          .point-image {
+            display: block;
+            width: 2.6rem;
+            height: 2.7rem;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: pointFadeIn 0.4s ease forwards;
+          }
         }
       }
       &:hover {
@@ -168,11 +242,36 @@ export const FloatingMenuWrapper = styled.div`
         }
       }
     }
-
-    .home {
-      margin-top: 2rem;
-      font-weight: 900;
-      font-size: 1.2rem;
+  }
+  .home {
+    padding: 1.4rem 3.2rem 0;
+    .icon-wrap {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0.2rem;
+        background: url(${FloatingAfterBorder}) no-repeat center / cover;
+        position: absolute;
+        top: -1.6rem;
+        left: 0;
+        transition: all 1s linear 1.6s;
+      }
+      i {
+        display: block;
+        width: 2.9rem;
+        height: 2.7rem;
+        opacity: 0;
+        transition: opacity 1s ease;
+        transition-delay: 1.2s;
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
     }
   }
 `;

@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import { IpWrapper } from "../styles";
 
 import ButtonIcon from "../../assets/images/ip/aion/ip-aion-button-icon.png";
-import AionLogo from "../../assets/images/ip/aion/ip-aion-logo.png";
+import CinderLogo from "../../assets/images/ip/cinder/ip-cinder-logo.png";
 import FloatingMenu from "../../component/ip/floatingmenu";
 
-import Slide01 from "../../assets/images/ip/aion/ip-aion-slide01.png";
-import Slide02 from "../../assets/images/ip/aion/ip-aion-slide02.png";
-import Slide03 from "../../assets/images/ip/aion/ip-aion-slide03.jpg";
-import Slide04 from "../../assets/images/ip/aion/ip-aion-slide04.jpg";
-import Slide05 from "../../assets/images/ip/aion/ip-aion-slide05.jpg";
+import Slide01 from "../../assets/images/ip/cinder/ip-cinder-slide01.png";
+import Slide02 from "../../assets/images/ip/cinder/ip-cinder-slide02.png";
+import Slide03 from "../../assets/images/ip/cinder/ip-cinder-slide03.png";
+import Slide04 from "../../assets/images/ip/cinder/ip-cinder-slide04.png";
+import Slide05 from "../../assets/images/ip/cinder/ip-cinder-slide05.png";
 
 import { Swiper as SwiperCore } from "swiper";
 import { Pagination } from "swiper/modules";
@@ -164,36 +164,35 @@ const Cinder = () => {
   const swiperRef = useRef<SwiperCore | null>(null);
 
   return (
-    <IpWrapper className="aion">
+    <IpWrapper className="cinder">
       <FloatingMenu />
 
       {/* SECTION 1 */}
       <section className="section ip-section">
         <div className="logo-text-wrap">
           <i data-anim>
-            <img src={AionLogo} alt="" />
+            <img src={CinderLogo} alt="" />
           </i>
 
           <div className="text-button-wrapper">
             <div className="text-info-wrap">
               <div className="text-wrap">
-                <h2 className="atreia">
-                  <p data-anim>두 개의 하늘,</p>
-                  <p data-anim>하나의 영광</p>
+                <h2 className="">
+                  <p data-anim>파괴된 세상을 구하라</p>
                 </h2>
-                <span className="atreia" data-anim>
-                  2025. 11. 19 GRAND OPEN
+                <span className="" data-anim>
+                  메가시티 서울을 무대로 펼쳐지는 오픈월드 택티컬 슈터
                 </span>
               </div>
 
               <div className="info-text" data-anim>
-                2025 NC G-STAR에서 AION2를 더욱 빠르게 만나보세요.
+                2025 NC G-STAR에서 신더시티를 더 빠르게 만나보세요
               </div>
             </div>
 
             <div className="button-wrap" data-anim>
               <Link to="/" className="default">
-                <p>공식홈페이지 바로가기</p>
+                <p>공식홈페이지 바로가기 {">"}</p>
               </Link>
               <Link to="/" className="point">
                 <i>

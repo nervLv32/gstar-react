@@ -3,6 +3,8 @@ import Info from "../info";
 import Main from "../main";
 import Media from "../media";
 import Cinder from "../work/cinder";
+import TimeTakers from "../work/takers";
+import Breakers from "../work/breakers";
 
 export const routes = [
   {
@@ -27,5 +29,13 @@ export const ipRoutes = [
   {
     path: "/work/cinder",
     element: <Cinder />,
+  },
+  {
+    path: "/work/timetakers",
+    element: <TimeTakers />,
+  },
+  {
+    path: "/work/breakers",
+    element: <Breakers />,
   },
 ];

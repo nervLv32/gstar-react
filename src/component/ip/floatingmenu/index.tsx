@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FloatingMenuWrapper } from "./styles";
 import FloatingPoint from "../../../assets/images/floating/floating-point.png";
 import FloatingLight from "../../../assets/images/floating/floating-light.png";
+import FloatingHomeIcon from "../../../assets/images/floating/floating-home-icon.png";
 
 const FloatingMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
+  // 메뉴 목록 정의
+  const menuList = [
+    { name: "AION2", to: "/work/aion2" },
+    { name: "CINDER CITY", to: "/work/cinder" },
+    { name: "타임 테이커즈", to: "/work/timetakers" },
+    { name: "브레이커스", to: "/work/breakers" },
+    { name: "COMING SOON", to: "/" },
+  ];
+
+  // 초기 오픈 애니메이션
   useEffect(() => {
-    // 페이지 진입 시 애니메이션 자동 실행
     const timer = setTimeout(() => setIsOpen(true), 300);
     return () => clearTimeout(timer);
   }, []);
@@ -22,44 +33,34 @@ const FloatingMenu = () => {
         <div className="title-text">
           <p>출품작 안내</p>
         </div>
+
         <ul>
-          <li className="active">
-            <Link to="/">
-              <i className="point-image">
-                <img src={FloatingPoint} alt="" />
-              </i>
-              <span>AION2</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <i className="point-image">
-                <img src={FloatingPoint} alt="" />
-              </i>
-              <span>CINDER CITY</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <i className="point-image">
-                <img src={FloatingPoint} alt="" />
-              </i>
-              <span>타임 테이커즈</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">
-              <i className="point-image">
-                <img src={FloatingPoint} alt="" />
-              </i>
-              <span>브레이커스</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/">COMING SOON</Link>
-          </li>
+          {menuList.map((menu) => (
+            <li
+              key={menu.to}
+              className={location.pathname === menu.to ? "active" : ""}
+            >
+              <Link to={menu.to}>
+                {menu.name !== "COMING SOON" && (
+                  <i className="point-image">
+                    <img src={FloatingPoint} alt="" />
+                  </i>
+                )}
+                <span>{menu.name}</span>
+              </Link>
+            </li>
+          ))}
         </ul>
-        <p className="home">HOME</p>
+
+        <div className="home">
+          <div className="icon-wrap">
+            <Link to="/">
+              <i>
+                <img src={FloatingHomeIcon} alt="" />
+              </i>
+            </Link>
+          </div>
+        </div>
       </div>
     </FloatingMenuWrapper>
   );

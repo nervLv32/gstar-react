@@ -1,5 +1,8 @@
 import { styled } from "styled-components";
 import AionBg from "../assets/images/ip/aion/ip-aion-default-bg.png";
+import CinderBg from "../assets/images/ip/cinder/ip-cinder-default-bg.png";
+import TimeTakersBg from "../assets/images/ip/timetakers/ip-timetakers-default-bg.png";
+import BreakersBg from "../assets/images/ip/breakers/ip-breakers-default-bg.png";
 
 export const IpWrapper = styled.div`
   width: 100vw;
@@ -15,22 +18,44 @@ export const IpWrapper = styled.div`
       pointer-events: none;
     } */
   }
+  &.aion {
+    .ip-section {
+      background: url(${AionBg}) no-repeat left bottom / cover;
+    }
+  }
+  &.cinder {
+    .ip-section {
+      background: url(${CinderBg}) no-repeat left bottom / cover;
+    }
+  }
+  &.timetakers {
+    .ip-section {
+      background: url(${TimeTakersBg}) no-repeat center / 110%;
+      background-position-y: 55%;
+    }
+  }
+  &.breakers {
+    .ip-section {
+      background: url(${BreakersBg}) no-repeat bottom / cover;
+    }
+  }
 
   .ip-section {
-    background: url(${AionBg}) no-repeat left bottom / cover;
     color: #fff;
     .logo-text-wrap {
       position: absolute;
       top: 50%;
-      right: 26rem;
+      right: 15rem;
       transform: translateY(-50%);
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 4rem;
+
       i {
         display: block;
-        max-width: 44rem;
+
+        max-width: 70rem;
         img {
           width: 100%;
           display: block;
@@ -52,8 +77,8 @@ export const IpWrapper = styled.div`
             align-items: center;
             gap: 1.4rem;
             h2 {
-              text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.6);
-
+              text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+              font-weight: bold;
               font-size: 5.8rem;
               letter-spacing: -0.87px;
               color: #fff;
@@ -62,9 +87,10 @@ export const IpWrapper = styled.div`
               gap: 1.6rem;
             }
             span {
+              font-weight: bold;
               font-size: 3.2rem;
               letter-spacing: -0.48px;
-              text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.6);
+              text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
             }
           }
           .info-text {
@@ -94,6 +120,7 @@ export const IpWrapper = styled.div`
 
             p {
               font-size: 1.6rem;
+              font-weight: 600;
             }
             &.default {
               background: #fff;
