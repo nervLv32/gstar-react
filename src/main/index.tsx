@@ -31,7 +31,7 @@ import SoftLeftDim from "../assets/images/main/main-slide-soft-left-dim.png";
 import AionLogo from "../assets/images/ip/aion/ip-aion-logo.png";
 import TimeTakersLogo from "../assets/images/ip/timetakers/ip-timetakers-logo.png";
 import BreakersLogo from "../assets/images/ip/breakers/ip-breakers-logo.png";
-import CinderLogo from "../ssets/images/ip/cinder/ip-cinder-logo.png";
+import CinderLogo from "../assets/images/ip/cinder/ip-cinder-logo.png";
 
 import AionBg from "../assets/images/ip/aion/ip-aion-default-bg.png";
 import CinderBg from "../assets/images/ip/cinder/ip-cinder-default-bg.png";
