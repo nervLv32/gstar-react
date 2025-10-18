@@ -11,7 +11,39 @@ import { TapeWrapper } from "./styles";
 import Intro from "../component/main/intro";
 import TicketSection from "../component/main/ticektsection";
 
+import AionImage from "../assets/images/main/main-aion-slide-image.png";
+import CinderImage from "../assets/images/main/main-cinder-slide-image.png";
+import CmImage from "../assets/images/main/main-cm-slide-image.png";
+import LimitImage from "../assets/images/main/main-limit-slide-image.png";
+import TimeImage from "../assets/images/main/main-time-slide-image.png";
+import TitleImage from "../assets/images/main/main-title.png";
+
+import LogoAionImage from "../assets/images/main/main-aion-logo-slide-image.png";
+import LogoCinderImage from "../assets/images/main/main-cinder-logo-slide-image.png";
+import LogoLimitImage from "../assets/images/main/main-limit-logo-slide-image.png";
+import LogoTimeImage from "../assets/images/main/main-time-logo-slide-image.png";
+
 const Main = () => {
+  useEffect(() => {
+    console.log("여기 실행되고 있는 건가?");
+    const preloadImages = [
+      AionImage,
+      CinderImage,
+      CmImage,
+      LimitImage,
+      TimeImage,
+      TitleImage,
+      LogoAionImage,
+      LogoCinderImage,
+      LogoLimitImage,
+      LogoTimeImage,
+    ];
+    preloadImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   const location = useLocation();
   const [introStep, setIntroStep] = useState<"video" | "dim" | "done">(
     Cookies.get("isVideoView") ? "done" : "video"
@@ -78,6 +110,7 @@ const Main = () => {
     ...textList,
     ...textList,
   ];
+
   return (
     <div>
       {/* 🔹 인트로 전체 */}
