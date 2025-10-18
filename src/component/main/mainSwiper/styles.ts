@@ -44,7 +44,7 @@ const textUp = keyframes`
 export const MainSwiperWrapper = styled.div`
   width: 144rem;
 
-  margin: 6rem auto 0;
+  margin: 14rem auto 0;
   /* height: 60rem; */
   position: relative;
   /* &::before {
