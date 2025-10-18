@@ -6,7 +6,19 @@ const VideoSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isActive, setIsActive] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
 
+  useEffect(() => {
+    const preloadVideo = document.createElement("video");
+    preloadVideo.src = "/video/production-gstar.mp4";
+    preloadVideo.preload = "auto";
+    preloadVideo.muted = true;
+    preloadVideo.addEventListener("loadeddata", () => {
+      setVideoReady(true);
+    });
+    // 메모리 누수 방지
+    return () => preloadVideo.remove();
+  }, []);
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
@@ -51,13 +63,10 @@ const VideoSection = () => {
 
         <video
           ref={videoRef}
-          // src="/video/gstar.mp4"
-          src="/video/production-gstar.mp4"
+          src={videoReady ? "/video/production-gstar.mp4" : undefined}
           muted
           playsInline
-          webkit-playsinline="true"
           preload="auto"
-          autoPlay
           loop
           onLoadedData={() => setIsVideoLoaded(true)}
         />
