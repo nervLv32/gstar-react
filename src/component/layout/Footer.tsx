@@ -84,7 +84,7 @@ const Footer = () => {
               <ul className="sns-wrap">
                 <li>
                   <Link
-                    to="/https://www.facebook.com/NCSOFT.Korea"
+                    to="https://www.facebook.com/NCSOFT.Korea"
                     target="_blank"
                   >
                     <i>
@@ -94,7 +94,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to="/https://www.instagram.com/ncsoft.official/"
+                    to="https://www.instagram.com/ncsoft.official/"
                     target="_blank"
                   >
                     <i>
@@ -104,7 +104,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to="/https://www.youtube.com/user/ncsoft"
+                    to="https://www.youtube.com/user/ncsoft"
                     target="_blank"
                   >
                     <i>

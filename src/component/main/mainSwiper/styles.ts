@@ -473,7 +473,7 @@ export const MainSwiperWrapper = styled.div`
           .char-image {
             &::before {
               width: calc(100% + 12vw);
-              height: calc(100% + 14vw);
+              height: calc(100% + 13vw);
             }
           }
           .text-wrap {

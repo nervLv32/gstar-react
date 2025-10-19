@@ -61,14 +61,11 @@ export const HeaderWrapper = styled.header`
   }
   @media all and (max-width: 1024px) {
     height: 9.4rem;
-    ul {
-      li {
-        a,
-        button {
-          font-size: 2rem;
-          width: 14.5rem;
-        }
-      }
+    .link-wrap {
+      right: 2rem;
+    }
+    .nav {
+      gap: 3.5rem;
     }
   }
   @media all and (max-width: 768px) {
@@ -448,7 +445,7 @@ export const SideMenuWrapper = styled.div`
     }
   }
   .inner {
-    padding-bottom: 6rem;
+    padding-bottom: 9rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -459,10 +456,22 @@ export const SideMenuWrapper = styled.div`
       max-width: 31.5rem;
       margin: 0 auto;
       width: 100%;
+      padding: 2.4rem 0;
+      margin-bottom: 2.4rem;
+      position: relative;
 
       .point-icon {
         display: block;
-        width: 100%;
+        width: 31.5rem;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        &.top {
+          top: -2.8rem;
+        }
+        &.bottom {
+          bottom: -2.8rem;
+        }
         img {
           display: block;
           width: 100%;
@@ -535,6 +544,21 @@ export const SideMenuWrapper = styled.div`
           position: unset;
           &:hover {
             color: rgba(255, 255, 255, 0.8);
+          }
+        }
+      }
+    }
+    .small-icon-wrap {
+      li {
+        i {
+          display: block;
+          width: 2.5rem;
+          height: 2.5rem;
+          opacity: 0.6;
+          cursor: pointer;
+          img {
+            display: block;
+            width: 100%;
           }
         }
       }
