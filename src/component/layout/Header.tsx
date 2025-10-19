@@ -4,8 +4,6 @@ import { HeaderWrapper, SideMenuWrapper } from "./styles";
 import MoPoint from "../../assets/images/mobile/mobile-menu-point.png";
 import MoMenuLogo from "../../assets/images/mobile/mobile-menu-logo.png";
 
-import XLogo from "../../assets/images/common/header-x-icon.png";
-import FacebookLogo from "../../assets/images/common/header-facebook-icon.png";
 import LinkLogo from "../../assets/images/common/header-link-icon.png";
 
 const Header = () => {

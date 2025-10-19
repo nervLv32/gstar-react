@@ -5,8 +5,6 @@ import ScrollTopIcon from "../../assets/images/media/media-scoll-top.png";
 import InstagramIcon from "../../assets/images/common/footer-instagram-logo.svg";
 import FacebookIcon from "../../assets/images/common/footer-facebook-logo.svg";
 import YoutubeIcon from "../../assets/images/common/footer-youtube-logo.svg";
-import TikTokIcon from "../../assets/images/common/footer-tiktok-logo.svg";
-import LinkdInIcon from "../../assets/images/common/footer-linkdin-logo.svg";
 
 import SmallLogo01 from "../../assets/images/common/footer-logo01.png";
 import SmallLogo02 from "../../assets/images/common/footer-logo02.png";
