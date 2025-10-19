@@ -55,4 +55,7 @@ export const VideoSectionWrapper = styled.section`
     height: 100vh;
     object-fit: cover;
   }
+  @media all and (max-width: 768px) {
+    display: none;
+  }
 `;

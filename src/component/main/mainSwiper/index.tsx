@@ -140,16 +140,17 @@ const MainSwiper = () => {
         <Swiper
           onSwiper={(s: SwiperCore) => (swiperRef.current = s)}
           onSlideChange={(s: SwiperCore) => setMoActiveIndex(s.realIndex)}
-          slidesPerView={5}
-          spaceBetween={16}
+          slidesPerView={2.2}
+          spaceBetween={10}
           centeredSlides={true}
           loop={true}
           speed={800}
           breakpoints={{
             1200: { slidesPerView: 5, spaceBetween: 16 },
             1024: { slidesPerView: 4.5, spaceBetween: 14 },
-            768: { slidesPerView: 3.6, spaceBetween: 14 },
-            640: { slidesPerView: 3 },
+            900: { slidesPerView: 3.9, spaceBetween: 14 },
+            768: { slidesPerView: 3.1, spaceBetween: 12 },
+            500: { slidesPerView: 2.7, spaceBetween: 10 },
           }}
         >
           {list.map((item, idx) => {

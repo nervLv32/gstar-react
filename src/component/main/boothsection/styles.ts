@@ -1,10 +1,57 @@
-import { styled } from "styled-components";
+import { keyframes, styled } from "styled-components";
 import BoothBg from "../../../assets/images/main/main-booth-bg.png";
+
+/* ✅ fade-in 애니메이션 정의 */
+const fadeUp = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 export const BoothSectionWrapper = styled.div`
   width: 100vw;
-
   background: #fff;
+
+  /* ✅ 초기 상태 */
+  .fade-item {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  /* ✅ 활성화되면 페이드 인 */
+  .fade-item.active {
+    animation: ${fadeUp} 0.8s ease forwards;
+  }
+
+  /* ✅ 자식 요소 순차 등장 */
+  .fade-child {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-item.active .fade-child {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-child.delay-0 {
+    transition-delay: 0s;
+  }
+  .fade-child.delay-1 {
+    transition-delay: 0.2s;
+  }
+  .fade-child.delay-2 {
+    transition-delay: 0.4s;
+  }
+
+  /* ✅ 기본 레이아웃 */
   .booth-banner-wrap {
     padding: 12.3rem;
     background: url(${BoothBg}) no-repeat center / cover;
@@ -13,10 +60,12 @@ export const BoothSectionWrapper = styled.div`
     align-items: center;
     width: 100%;
     gap: 5rem;
+
     .banner-title-wrap {
       display: flex;
       flex-direction: column;
       gap: 1.6rem;
+
       span {
         font-size: 3.4rem;
         font-weight: 900;
@@ -25,6 +74,7 @@ export const BoothSectionWrapper = styled.div`
         display: block;
         height: 4rem;
       }
+
       h6 {
         font-size: 6.8rem;
         font-weight: 900;
@@ -33,6 +83,7 @@ export const BoothSectionWrapper = styled.div`
         height: 9rem;
       }
     }
+
     .button-wrap {
       a {
         border-radius: 10rem;
@@ -49,12 +100,15 @@ export const BoothSectionWrapper = styled.div`
       }
     }
   }
+
+  /* ✅ 반응형 */
   @media all and (max-width: 1200px) {
     .booth-banner-wrap {
       padding: 10rem;
       gap: 4rem;
     }
   }
+
   @media all and (max-width: 900px) {
     .booth-banner-wrap {
       padding: 9rem;
@@ -70,6 +124,7 @@ export const BoothSectionWrapper = styled.div`
       }
     }
   }
+
   @media all and (max-width: 768px) {
     .booth-banner-wrap {
       padding: 6rem 2.4rem;
@@ -94,6 +149,7 @@ export const BoothSectionWrapper = styled.div`
       }
     }
   }
+
   @media all and (max-width: 480px) {
     .booth-banner-wrap {
       .banner-title-wrap {

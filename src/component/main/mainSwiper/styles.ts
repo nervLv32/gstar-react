@@ -120,15 +120,14 @@ export const MainSwiperWrapper = styled.div`
             );
           }
           &.left.hard {
-            background: url(${HardLeftDim}) no-repeat center / cover;
-            /* 
+            /* background: url(${HardLeftDim}) no-repeat center / cover; */
             background: linear-gradient(
               to right,
-              rgba(0, 0, 0, 0.35) 0%,
-              rgba(0, 0, 0, 0.15) 25%,
-              rgba(0, 0, 0, 0.05) 60%,
-              rgba(0, 0, 0, 0) 100%
-            ); */
+              rgba(0, 0, 0, 0.8) 0%,
+              rgba(0, 0, 0, 0.5) 40%,
+              rgba(0, 0, 0, 0.3) 75%,
+              rgba(0, 0, 0, 0.05) 100%
+            );
           }
           &.right.soft {
             background: linear-gradient(
@@ -139,14 +138,14 @@ export const MainSwiperWrapper = styled.div`
             );
           }
           &.right.hard {
-            background: url(${HardRightDim}) no-repeat center / cover;
-            /* background: linear-gradient(
+            /* background: url(${HardRightDim}) no-repeat center / cover; */
+            background: linear-gradient(
               to left,
-              rgba(0, 0, 0, 0.35) 0%,
-              rgba(0, 0, 0, 0.15) 25%,
-              rgba(0, 0, 0, 0.05) 60%,
-              rgba(0, 0, 0, 0) 100%
-            ); */
+              rgba(0, 0, 0, 0.8) 0%,
+              rgba(0, 0, 0, 0.5) 40%,
+              rgba(0, 0, 0, 0.3) 75%,
+              rgba(0, 0, 0, 0.05) 100%
+            );
           }
 
           /* ✅ 방향성 gradient를 덮는 pseudo-layer */
@@ -217,10 +216,6 @@ export const MainSwiperWrapper = styled.div`
       /* ========== ACTIVE 슬라이드 (drop-shadow만 뒤로) ========== */
       &.swiper-slide-active {
         z-index: 10 !important;
-        a {
-          animation: ${smoothPop} 0.9s ease forwards;
-          opacity: 1;
-        }
 
         .dim.left,
         .dim.right {
@@ -229,7 +224,8 @@ export const MainSwiperWrapper = styled.div`
 
         .char-image {
           position: relative;
-
+          animation: ${smoothPop} 0.9s ease forwards;
+          opacity: 1;
           &::before {
             content: "";
             position: absolute;
@@ -253,6 +249,7 @@ export const MainSwiperWrapper = styled.div`
         .logo-image {
           transform: translateX(-50%) scale(1.2) translateZ(0);
           opacity: 1;
+          bottom: -3.4rem;
         }
 
         .text-wrap {
@@ -311,7 +308,7 @@ export const MainSwiperWrapper = styled.div`
         left: 50%;
         transform: translateX(-50%) translateZ(0);
         width: 100%;
-        height: 22.2rem;
+
         transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
           opacity 0.6s ease;
         will-change: transform, opacity;
@@ -320,7 +317,7 @@ export const MainSwiperWrapper = styled.div`
         opacity: 0.9999;
         img {
           display: block;
-          height: 100%;
+          width: 100%;
         }
       }
 
@@ -375,7 +372,7 @@ export const MainSwiperWrapper = styled.div`
   @media all and (max-width: 1200px) {
     margin-top: 5.833vw;
     .title-text {
-      top: -5.5vw;
+      top: -3.5vw;
     }
     .swiper {
       .logo-image {
@@ -385,32 +382,115 @@ export const MainSwiperWrapper = styled.div`
         padding-bottom: 15.333vw;
       }
       .swiper-slide.swiper-slide-active .text-wrap {
-        bottom: -15.5vw;
+        bottom: -15rem;
       }
     }
   }
 
   @media all and (max-width: 1024px) {
-    .swiper-slide.swiper-slide-active {
-      .text-wrap {
-        bottom: -14.5vw;
+    margin-top: 0.977vw;
+    .title-text {
+      top: -4.5vw;
+    }
+    .swiper {
+      .swiper-wrapper {
+        padding-bottom: 22.531vw;
       }
-      .char-image::before {
-        width: calc(100% + 5.556vw);
-        height: calc(100% + 6.25vw);
+      .swiper-slide.swiper-slide-active {
+        .char-image {
+          &::before {
+            width: calc(100% + 6.836vw);
+            height: calc(100% + 6.641vw);
+          }
+        }
+        .text-wrap {
+          bottom: -16.5vw;
+        }
+        .char-image::before {
+          width: calc(100% + 5.556vw);
+          height: calc(100% + 6.25vw);
+        }
       }
     }
   }
+  @media all and (max-width: 900px) {
+    margin-top: 8.889vw;
 
-  @media all and (max-width: 768px) {
-    margin-top: 17rem;
     .title-text {
-      .pc-image {
-        display: none;
+      top: -1vw;
+    }
+    .swiper {
+      .swiper-wrapper {
+        padding-bottom: 23.333vw;
+        padding-top: 13.333vw;
       }
-      .mo-image {
-        display: block;
+      .swiper-slide.swiper-slide-active {
+        .char-image {
+          &::before {
+            width: calc(100% + 6.667vw);
+            height: calc(100% + 10vw);
+          }
+        }
       }
+    }
+  }
+  @media all and (max-width: 768px) {
+    margin-top: 10.813vw;
+    margin-bottom: 7.813vw;
+    .swiper {
+      .swiper-wrapper {
+        padding-bottom: 26.042vw;
+      }
+      .swiper-slide {
+        &.swiper-slide-active {
+          .text-wrap {
+            bottom: -20.833vw;
+            h2 {
+              font-size: 2.6rem;
+            }
+            h4 {
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+    }
+    .title-text {
+      width: 95vw;
+      top: -2.5vw;
+    }
+  }
+  @media all and (max-width: 500px) {
+    margin-top: 8vw;
+    margin-bottom: 12vw;
+    .swiper {
+      .swiper-wrapper {
+        padding-top: 16vw;
+        padding-bottom: 28vw;
+      }
+      .swiper-slide {
+        &.swiper-slide-active {
+          .char-image {
+            &::before {
+              width: calc(100% + 12vw);
+              height: calc(100% + 14vw);
+            }
+          }
+          .text-wrap {
+            bottom: -28vw;
+            h2 {
+              font-size: 2.4rem;
+            }
+            h4 {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+    .title-text {
+      width: 97vw;
+      top: -3.5vw;
     }
   }
 `;
