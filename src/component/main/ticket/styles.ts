@@ -1,35 +1,62 @@
 import { keyframes, styled } from "styled-components";
 
-/* 왼쪽 티켓이 확 퍼지면서 회전 */
+/* ================================
+   🎬 PC용 애니메이션
+================================ */
 const moveLeft = keyframes`
   0% {
     transform: translateX(0) rotate(0deg) scale(1);
     opacity: 0;
   }
-  50% {
-    opacity: 1;
-  }
+  50% { opacity: 1; }
   100% {
     transform: translateX(-2rem) rotate(-18deg) scale(1.05);
     opacity: 1;
   }
 `;
 
-/* 오른쪽 티켓이 확 퍼지면서 회전 */
 const moveRight = keyframes`
   0% {
     transform: translateX(0) rotate(0deg) scale(1);
     opacity: 0;
   }
-  50% {
-    opacity: 1;
-  }
+  50% { opacity: 1; }
   100% {
     transform: translateX(2rem) rotate(18deg) scale(1.05);
     opacity: 1;
   }
 `;
 
+/* ================================
+   📱 모바일용 애니메이션
+================================ */
+const moveLeftMo = keyframes`
+  0% {
+    transform: translateX(0) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  50% { opacity: 1; }
+  100% {
+    transform: translateX(-3vw) rotate(-14deg) scale(1.05);
+    opacity: 1;
+  }
+`;
+
+const moveRightMo = keyframes`
+  0% {
+    transform: translateX(0) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  50% { opacity: 1; }
+  100% {
+    transform: translateX(3vw) rotate(14deg) scale(1.05);
+    opacity: 1;
+  }
+`;
+
+/* ================================
+   🎟️ 티켓 컴포넌트 스타일
+================================ */
 export const TicketWrapper = styled.div`
   position: relative;
   width: 54rem;
@@ -56,23 +83,55 @@ export const TicketWrapper = styled.div`
     opacity: 0;
   }
 
+  /* ✅ active 상태일 때만 애니메이션 실행 */
   &.active {
     .ticket.left {
       animation: ${moveLeft} 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      z-index: 2;
+      z-index: 3; /* 항상 위 (PC + Mobile 동일) */
     }
 
     .ticket.right {
       animation: ${moveRight} 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
       animation-delay: 0.1s;
-      z-index: 1;
+      z-index: 2; /* 항상 아래 */
     }
   }
 
-  /* ✅ active가 해제될 때 다시 가운데로 복귀 */
+  /* ✅ active 해제 시 초기 상태 복귀 */
   &:not(.active) .ticket {
     transform: translateX(0) rotate(0deg) scale(1);
     opacity: 0;
     transition: all 0.6s ease;
+  }
+
+  /* ================================
+     💻 PC 반응형
+  ================================= */
+  @media all and (max-width: 1024px) {
+    width: 49rem;
+    height: 59rem;
+    margin: 6rem auto;
+  }
+
+  /* ================================
+     📱 모바일 반응형
+  ================================= */
+  @media all and (max-width: 768px) {
+    width: 66.406vw;
+    height: 80.729vw;
+    margin: 5.208vw auto;
+
+    &.active {
+      .ticket.left {
+        animation: ${moveLeftMo} 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        z-index: 3; /* 모바일에서도 왼쪽이 위 */
+      }
+
+      .ticket.right {
+        animation: ${moveRightMo} 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        animation-delay: 0.1s;
+        z-index: 2; /* 모바일에서도 오른쪽이 아래 */
+      }
+    }
   }
 `;

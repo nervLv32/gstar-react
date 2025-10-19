@@ -49,4 +49,72 @@ export const BoothSectionWrapper = styled.div`
       }
     }
   }
+  @media all and (max-width: 1200px) {
+    .booth-banner-wrap {
+      padding: 10rem;
+      gap: 4rem;
+    }
+  }
+  @media all and (max-width: 900px) {
+    .booth-banner-wrap {
+      padding: 9rem;
+      gap: 3.4rem;
+      .banner-title-wrap {
+        span {
+          font-size: 3.2rem;
+        }
+        h6 {
+          font-size: 6rem;
+          height: 8rem;
+        }
+      }
+    }
+  }
+  @media all and (max-width: 768px) {
+    .booth-banner-wrap {
+      padding: 6rem 2.4rem;
+      gap: 3.4rem;
+      .banner-title-wrap {
+        gap: 0.2rem;
+        span {
+          font-size: 2.2rem;
+          height: 3.4rem;
+        }
+        h6 {
+          font-size: 4.4rem;
+          height: 4rem;
+        }
+      }
+      .button-wrap {
+        a {
+          font-size: 2rem;
+          line-height: 3.2rem;
+          width: 18rem;
+        }
+      }
+    }
+  }
+  @media all and (max-width: 480px) {
+    .booth-banner-wrap {
+      .banner-title-wrap {
+        gap: 1.2rem;
+        span {
+          font-size: 2rem;
+          height: auto;
+        }
+        h6 {
+          font-size: 3.8rem;
+          height: auto;
+        }
+      }
+      .button-wrap {
+        a {
+          font-size: 1.8rem;
+          line-height: 1;
+          width: 15rem;
+          height: 5.2rem;
+        }
+      }
+    }
+  }
 `;

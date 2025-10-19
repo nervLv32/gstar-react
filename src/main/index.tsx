@@ -1,7 +1,6 @@
 import Cookies from "js-cookie";
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import MainSection from "../component/main/mainsection";
 
 import BoothSection from "../component/main/boothsection";
 import GstarBoothSection from "../component/main/gstarboothsection";
@@ -61,9 +60,9 @@ const Main = () => {
     setIntroStep("done");
   };
 
-  // useEffect(() => {
-  //   handleDimEnd();
-  // }, []);
+  useEffect(() => {
+    handleDimEnd();
+  }, []);
 
   const textList = ["NC 2025 G-STAR", "무한한 세계, 하나의 여정"];
 
@@ -92,10 +91,12 @@ const Main = () => {
       {/* 🔹 메인 컨텐츠 */}
       {introStep === "done" && (
         <>
-          <MainSection />
+          {/* <MainSection /> */}
+
           <VideoSection />
           <GstarSection />
-          {/* <TicketParallaxSection /> */}
+
+          {/* 제외 <TicketParallaxSection /> */}
 
           <GstarBoothSection />
           <BoothSection />

@@ -31,42 +31,42 @@ const Footer = () => {
         <div className="footer-wrapper">
           <div className="logo-wrap">
             <ul>
-              <li>
+              <li className="w-123px">
                 <i>
                   <img src={SmallLogo01} alt="" />
                 </i>
               </li>
-              <li>
+              <li className="w-146px">
                 <i>
                   <img src={SmallLogo02} alt="" />
                 </i>
               </li>
-              <li>
+              <li className="w-72px">
                 <i>
                   <img src={SmallLogo03} alt="" />
                 </i>
               </li>
-              <li>
+              <li className="w-348px">
                 <i>
                   <img src={SmallLogo04} alt="" />
                 </i>
               </li>
-              <li>
+              <li className="w-130px">
                 <i>
                   <img src={SmallLogo05} alt="" />
                 </i>
               </li>
-              <li>
+              <li className="w-162px">
                 <i>
                   <img src={SmallLogo06} alt="" />
                 </i>
               </li>
-              <li>
+              <li className="w-88px">
                 <i>
                   <img src={SmallLogo07} alt="" />
                 </i>
               </li>
-              <li>
+              <li className="w-103px">
                 <i>
                   <img src={SmallLogo08} alt="" />
                 </i>

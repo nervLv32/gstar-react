@@ -36,4 +36,9 @@ export const TapeWrapper = styled.div`
       margin-right: 5rem; /* 텍스트 간격 */
     }
   }
+  @media all and (max-width: 500px) {
+    font-size: 1.4rem;
+    margin-right: 4rem;
+    padding: 2.2rem 0;
+  }
 `;

@@ -117,11 +117,13 @@ const TicketSection = () => {
               className={`text-wrap fade-item ${textVisible ? "active" : ""}`}
             >
               <h4 className="vitro fade-child delay-1">
-                2025 G-STAR는 NC와 함께!
+                2025 G-STAR는 <br className="mo-br" />
+                NC와 함께!
               </h4>
               <p className="fade-child delay-2">
                 NC G-STAR 사전 이벤트 참여자 중<br />
-                200명을 추첨하여 G-STAR 초대권(1일권) 2매를 드립니다.
+                200명을 추첨하여 G-STAR 초대권(1일권) <br className="mo-br" />
+                2매를 드립니다.
               </p>
             </div>
 
@@ -137,7 +139,8 @@ const TicketSection = () => {
                 <div className="info-wrap">
                   <div className="title-info-wrap">
                     <h5 className="vitro">
-                      2025 <span className="point">G-STAR 초대권</span> 400장
+                      2025 <br className="mo-br" />
+                      <span className="point">G-STAR 초대권</span> 400장
                     </h5>
                     <span>
                       {"("}200명 X 20장{")"}
@@ -146,16 +149,25 @@ const TicketSection = () => {
                   <div className="dl-info-wrap">
                     <dl>
                       <dt>기간</dt>
-                      <dd>10/20(월) 10:00:00 ~ 10/31(금) 23:59:59</dd>
+                      <dd>
+                        2025년 10/21(화) 12:00:00 ~ <br className="mo-br" />
+                        2025년 10/31(금) 23:59:59
+                      </dd>
                     </dl>
                     <dl>
                       <dt>당첨자 발표</dt>
-                      <dd>11/3(월) 12:00:00 , 개별 SMS 안내</dd>
+                      <dd>
+                        2025년 11/4(화) 12:00:00
+                        <span className="pc-text">, </span>
+                        <br className="mo-br" />
+                        개별 SMS 안내
+                      </dd>
                     </dl>
                     <dl>
                       <dt>티켓 발송</dt>
                       <dd>
-                        당첨자 발표 후 개별 SMS를 통해 초대권 난수 번호 전달
+                        당첨자 발표 후 <br className="mo-br" />
+                        개별 SMS를 통해 초대권 난수 번호 전달
                       </dd>
                     </dl>
                     <dl>
@@ -170,14 +182,18 @@ const TicketSection = () => {
                   </Link>
                 </div>
               </div>
+            </div>
 
-              <div className="modal-event-wrap fade-item">
-                <p>
-                  초대권 이벤트 참여 및 이벤트 안내를 위한 개인정보 수집/이용
-                  동의
-                </p>
-                <button onClick={() => setIsModalOpen(true)}>유의사항</button>
-              </div>
+            <div
+              className={`${
+                infoVisible ? "active" : ""
+              } modal-event-wrap fade-opacity
+              `}
+            >
+              <p>
+                초대권 이벤트 참여 및 이벤트 안내를 위한 개인정보 수집/이용 동의
+              </p>
+              <button onClick={() => setIsModalOpen(true)}>유의사항</button>
             </div>
           </div>
         </div>

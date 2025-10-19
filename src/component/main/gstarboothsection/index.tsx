@@ -1,19 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import { GstarBoothSectionWrapper } from "./styles";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
 import GstarListBg01HoverImage01 from "../../../assets/images/main/gstar-booth-list01-hover-img01.png";
 import GstarListBg01HoverImage02 from "../../../assets/images/main/gstar-booth-list01-hover-img02.png";
-
 import GstarListBg02HoverImage01 from "../../../assets/images/main/gstar-booth-list02-hover-img01.png";
 import GstarListBg02HoverImage02 from "../../../assets/images/main/gstar-booth-list02-hover-img02.png";
 
-// preload
 import GstarListBg01Hover from "../../../assets/images/main/gstar-booth-list01-hover-bg.png";
 import GstarListBg02Hover from "../../../assets/images/main/gstar-booth-list02-hover-bg.png";
 import GstarListBg03Hover from "../../../assets/images/main/gstar-booth-list03-hover-bg.png";
 
 const ENTER_RATIO = 0.5;
 
-// ✅ hash 변경 함수 복사
 function setHash(hash: string) {
   const base = window.location.pathname + window.location.search;
   if (hash) {
@@ -30,7 +30,14 @@ function setHash(hash: string) {
 const GstarBoothSection = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1440);
   const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1440);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const preloadImages = [
@@ -48,13 +55,12 @@ const GstarBoothSection = () => {
     const target = sectionRef.current;
     if (!target) return;
 
-    // ✅ 1. gstar hash 설정용 observer
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && entry.intersectionRatio >= ENTER_RATIO) {
           setHash("#gstar");
         } else if (!entry.isIntersecting && window.location.hash === "#gstar") {
-          setHash(""); // 빠져나오면 hash 제거하거나 이전 섹션 hash로 변경
+          setHash("");
         }
       },
       {
@@ -67,7 +73,6 @@ const GstarBoothSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  // ✅ 2. 기존 애니메이션 observer
   useEffect(() => {
     const target = sectionRef.current;
     if (!target) return;
@@ -88,87 +93,164 @@ const GstarBoothSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  const boothList = [
+    {
+      id: "cinder",
+      title: "신더시티 시연존",
+      desc: "파괴된 서울에서 펼쳐지는 또 하나의 21세기.\n[신더시티] 세계의 시작을 경험하라!",
+      img1: GstarListBg01HoverImage01,
+      img2: GstarListBg01HoverImage02,
+      hoverText: (
+        <>
+          Part 1,2로 나뉘어진 캠페인 공략
+          <br />
+          <b>G-STAR CINDER CITY</b> 시연 플레이
+        </>
+      ),
+    },
+    {
+      id: "nc",
+      title: "NC CINEMA",
+      desc: "G-STAR 최초 파노라마 상영관에서\n경험하는 NC 신작 트레일러의 짜릿한 몰입감!",
+    },
+    {
+      id: "aion",
+      title: "AION2 시연존",
+      desc: "11월 19일 AION2 출시 전 경험할 수 있는 기회!\n두 개의 하늘을 선점하라!",
+      img1: GstarListBg02HoverImage01,
+      img2: GstarListBg02HoverImage02,
+      hoverText: (
+        <>
+          커스터마이징부터 우루구구 던전 플레이까지
+          <br />
+          <b>G-STAR AION2</b> 시연 플레이
+        </>
+      ),
+    },
+  ];
+
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const handleClick = (id: string) => {
+    setActiveId((prev) => (prev === id ? null : id)); // 같은 id 클릭 시 토글
+  };
+
   return (
     <GstarBoothSectionWrapper
       ref={sectionRef}
-      id="gstar" // ✅ 앵커 ID 지정
+      id="gstar"
       className={isVisible ? "active" : ""}
     >
       <div className="inner">
         <div className="section-wrapper">
           <div className="title-wrap">
-            <h4 className="vitro">NC G-STAR 행사 안내</h4>
-            <p>
+            <h4 className="vitro">
+              NC G-STAR <br className="mo-br" />
+              행사 안내
+            </h4>
+            <p className="pc-text">
               NC G-STAR 2025 Main Sponsor NCSOFT
               <br />
               시연존에서 AION2와 신더시티를 플레이 하고,
               <br />
               NC CINEMA에서 처음 공개되는 신작 트레일러를 만나보세요!
             </p>
+            <p className="mo-text">
+              NC G-STAR 2025 <br />
+              Main Sponsor NCSOFT
+              <br />
+              시연존에서 AION2와 신더시티를 플레이 하고,
+              <br />
+              NC CINEMA에서 처음 공개되는
+              <br />
+              신작 트레일러를 만나보세요!
+            </p>
           </div>
 
-          <div className="list-wrap">
-            <ul>
-              <li className="cinder hover-list">
-                <div className="text-box">
-                  <h6 className="vitro">신더시티 시연존</h6>
-                  <p>
-                    파괴된 서울에서 펼쳐지는 또 하나의 21세기.
-                    <br />
-                    [신더시티] 세계의 시작을 경험하라!
-                  </p>
-                </div>
-                <div className="hover-image-wrap">
-                  <i>
-                    <img src={GstarListBg01HoverImage01} alt="" />
-                  </i>
-                  <i>
-                    <img src={GstarListBg01HoverImage02} alt="" />
-                  </i>
-                  <p>
-                    Part 1,2로 나뉘어진 캠페인 공략
-                    <br />
-                    <b>G-STAR CINDER CITY</b> 시연 플레이
-                  </p>
-                </div>
-              </li>
-              <li className="nc hover-list">
-                <div className="text-box">
-                  <h6 className="vitro">NC CINEMA</h6>
-                  <p>
-                    G-STAR 최초 파노라마 상영관에서
-                    <br />
-                    경험하는  NC 신작 트레일러의 짜릿한 몰입감!
-                  </p>
-                </div>
-              </li>
+          {/* ✅ 1440px 이상에서는 기존 리스트 */}
+          {!isMobile && (
+            <div className="list-wrap">
+              <ul>
+                {boothList.map((item) => (
+                  <li key={item.id} className={`${item.id} hover-list`}>
+                    <div className="text-box">
+                      <h6 className="vitro">{item.title}</h6>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: item.desc.replace(/\n/g, "<br />"),
+                        }}
+                      />
+                    </div>
 
-              <li className="aion hover-list">
-                <div className="text-box">
-                  <h6 className="vitro">AION2 시연존</h6>
-                  <p>
-                    11월 19일 AION2 출시 전 경험할 수 있는 기회!
-                    <br />두 개의 하늘을 선점하라!
-                  </p>
-                </div>
-                <div className="hover-image-wrap">
-                  <i>
-                    <img src={GstarListBg02HoverImage01} alt="" />
-                  </i>
-                  <i>
-                    <img src={GstarListBg02HoverImage02} alt="" />
-                  </i>
-                  <p>
-                    커스터마이징부터 우루구구 던전 플레이까지
-                    <br />
-                    <b>G-STAR AION2</b> 시연 플레이
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
+                    {item.img1 && (
+                      <div className="hover-image-wrap">
+                        <i>
+                          <img src={item.img1} alt="" />
+                        </i>
+                        <i>
+                          <img src={item.img2} alt="" />
+                        </i>
+                        <p>{item.hoverText}</p>
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
+
+      {isMobile && (
+        <div className={`mo-list-wrapper ${isVisible ? "active" : ""}`}>
+          <div className="mo-list-inner">
+            <div className="list-swiper">
+              <Swiper
+                spaceBetween={8}
+                slidesPerView={1.05}
+                className="mySwiper"
+                breakpoints={{
+                  1024: { slidesPerView: 2, spaceBetween: 20 },
+                  800: { slidesPerView: 1.7, spaceBetween: 16 },
+                  640: { slidesPerView: 1.3, spaceBetween: 16 },
+                  500: { slidesPerView: 1.2, spaceBetween: 14 },
+                }}
+              >
+                {boothList.map((item) => (
+                  <SwiperSlide key={item.id}>
+                    <div
+                      className={`${item.id} click-list ${
+                        activeId === item.id ? "active" : ""
+                      }`}
+                      onClick={() => handleClick(item.id)}
+                    >
+                      <div className="text-box">
+                        <h6 className="vitro">{item.title}</h6>
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: item.desc.replace(/\n/g, "<br />"),
+                          }}
+                        />
+                      </div>
+
+                      {item.img1 && (
+                        <div className="click-image-wrap">
+                          <i>
+                            <img src={item.img1} alt="" />
+                          </i>
+                          <i>
+                            <img src={item.img2} alt="" />
+                          </i>
+                          <p>{item.hoverText}</p>
+                        </div>
+                      )}
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
+        </div>
+      )}
     </GstarBoothSectionWrapper>
   );
 };

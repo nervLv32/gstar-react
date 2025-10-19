@@ -17,7 +17,7 @@ const ticketZoom = keyframes`
 const fadeUp = keyframes`
   0% {
     opacity: 0;
-    transform: translateY(12rem);
+    transform: translateY(40%);
   }
   100% {
     opacity: 1;
@@ -28,7 +28,7 @@ const fadeUp = keyframes`
 const fadeDown = keyframes`
   0% {
     opacity: 0;
-    transform: translateY(-12rem);
+    transform: translateY(-40%);
   }
   100% {
     opacity: 1;
@@ -78,18 +78,16 @@ export const GstarSectionWrapper = styled.section`
       }
     }
 
-    /* 🔹 위 텍스트: 티켓 뒤쪽에 겹치기 */
     .top-text {
       position: relative;
       z-index: 2;
-      margin-bottom: -2.4rem; /* 티켓과 겹치도록 위쪽으로 밀착 */
+      margin-bottom: -2.4rem;
     }
 
-    /* 🔹 아래 텍스트: 티켓 앞쪽에 겹치기 */
     .bottom-text {
       position: relative;
       z-index: 2;
-      margin-top: -2.4rem; /* 티켓과 겹치도록 아래쪽으로 밀착 */
+      margin-top: -2.4rem;
     }
   }
 
@@ -106,6 +104,52 @@ export const GstarSectionWrapper = styled.section`
     .bottom-text {
       animation: ${fadeDown} 0.8s ease forwards;
       animation-delay: 1s;
+    }
+  }
+  @media all and (max-width: 1680px) {
+    .text-wrap {
+      .ticket-wrap {
+        width: 90rem;
+        height: 45rem;
+      }
+      .top-text {
+        font-size: 20rem;
+      }
+      .bottom-text {
+        font-size: 20rem;
+      }
+    }
+  }
+  @media all and (max-width: 1200px) {
+    padding: 20rem 0 4rem;
+    .text-wrap {
+      .ticket-wrap {
+        width: 80rem;
+        height: 40rem;
+      }
+      .top-text {
+        font-size: 16rem;
+      }
+      .bottom-text {
+        font-size: 16rem;
+      }
+    }
+  }
+  @media all and (max-width: 900px) {
+    padding: 22.222vw 0 4.444vw;
+    .text-wrap {
+      .ticket-wrap {
+        width: 83.33vw;
+        height: 41.667vw;
+      }
+      .top-text {
+        margin-bottom: -2vw;
+        font-size: 16.667vw;
+      }
+      .bottom-text {
+        font-size: 16.667vw;
+        margin-top: -2vw;
+      }
     }
   }
 `;

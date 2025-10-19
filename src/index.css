@@ -302,6 +302,12 @@ button {
   margin: 0 auto;
 }
 
+@media all and (max-width: 1600px) {
+  .big-inner {
+    padding: 0 2rem;
+  }
+}
+
 .inner {
   max-width: 1440px;
   width: 100%;
@@ -320,6 +326,20 @@ button {
   }
 }
 
+@media all and (max-width: 768px) {
+  .inner {
+    padding: 0 3.125vw;
+  }
+  .small-inner {
+    padding: 0 3.125vw;
+  }
+}
+
+@media all and (max-width: 968px) {
+  .small-inner {
+    padding: 0 2rem;
+  }
+}
 .montserrat-bold {
   font-family: "Montserrat";
   font-weight: 700;
