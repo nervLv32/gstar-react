@@ -10,6 +10,8 @@ import { TapeWrapper } from "./styles";
 import Intro from "../component/main/intro";
 import TicketSection from "../component/main/ticektsection";
 import MainSection from "../component/main/mainsection";
+import TapeImage01 from "../assets/images/main/main-tape-image01.png";
+import TapeImage02 from "../assets/images/main/main-tape-image02.png";
 
 const Main = () => {
   const location = useLocation();
@@ -65,18 +67,6 @@ const Main = () => {
     handleDimEnd();
   }, []);
 
-  const textList = ["NC 2025 G-STAR", "무한한 세계, 하나의 여정"];
-
-  const repeated = [
-    ...textList,
-    ...textList,
-    ...textList,
-    ...textList,
-    ...textList,
-    ...textList,
-    ...textList,
-  ];
-
   return (
     <div>
       {/* 🔹 인트로 전체 */}
@@ -103,9 +93,26 @@ const Main = () => {
           <BoothSection />
           <TicketSection />
           <TapeWrapper>
-            <div className="tape vitro">
-              {repeated.map((text, idx) => (
-                <p key={idx}>{text}</p>
+            <div className="tape">
+              {[
+                TapeImage01,
+                TapeImage02,
+                TapeImage01,
+                TapeImage02,
+                TapeImage01,
+                TapeImage02,
+                TapeImage01,
+                TapeImage02,
+                TapeImage01,
+                TapeImage02,
+                TapeImage01,
+                TapeImage02,
+                TapeImage01,
+                TapeImage02,
+                TapeImage01,
+                TapeImage02,
+              ].map((img, i) => (
+                <img key={i} src={img} alt={`tape${i}`} />
               ))}
             </div>
           </TapeWrapper>

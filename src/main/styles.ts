@@ -20,7 +20,7 @@ const moveTape = keyframes`
 export const TapeWrapper = styled.div`
   width: 100%;
   overflow: hidden;
-  background: #2020ff; /* 네이비나 블루 계열 */
+  background: #005aff;
   padding: 2.8rem 0;
   position: relative;
 
@@ -28,17 +28,19 @@ export const TapeWrapper = styled.div`
     display: flex;
     white-space: nowrap;
     animation: ${moveTape} 20s linear infinite;
-
-    p {
-      font-weight: 700;
-      font-size: 1.6rem;
-      color: #fff;
-      margin-right: 5rem; /* 텍스트 간격 */
+    gap: 5.7rem;
+    img {
+      height: 1.9rem;
+      display: block;
     }
   }
   @media all and (max-width: 500px) {
-    font-size: 1.4rem;
-    margin-right: 4rem;
     padding: 2.2rem 0;
+    .tape {
+      gap: 4.5rem;
+      img {
+        height: 1.7rem;
+      }
+    }
   }
 `;

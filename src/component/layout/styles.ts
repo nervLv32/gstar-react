@@ -461,7 +461,7 @@ export const SideMenuWrapper = styled.div`
         li {
           display: flex;
           flex-direction: column;
-          a,
+          > a,
           button {
             font-size: 2.2rem;
             font-weight: 700;
@@ -510,7 +510,7 @@ export const SideMenuWrapper = styled.div`
         margin-top: 1.4rem;
         display: flex;
         flex-direction: column;
-        gap: 1.2rem;
+        gap: 1.4rem;
         span {
           font-size: 1.6rem;
           font-weight: 500;

@@ -48,7 +48,7 @@ export const InfoWrapper = styled.div`
     }
   }
   .nc-section {
-    padding: 10rem 14rem;
+    padding: 10rem 0;
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
@@ -142,6 +142,116 @@ export const InfoWrapper = styled.div`
           }
           &.next {
             right: -7.3rem;
+          }
+        }
+      }
+    }
+  }
+  @media all and (max-width: 1800px) {
+    .nc-section {
+      .slide-wrapper {
+        .arrow-btn-wrap {
+          .slide-arrow {
+            z-index: 10;
+            &.prev {
+              left: 8rem;
+            }
+            &.next {
+              right: 8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media all and (max-width: 1520px) {
+    .nc-section {
+      overflow: hidden;
+      .swiper-wrapper {
+      }
+      .slide-inner {
+        padding: 0 2rem;
+        margin: 0 -2rem;
+        width: calc(100% + 4rem);
+      }
+    }
+  }
+  @media all and (max-width: 1200px) {
+    .nc-section {
+      .slide-wrapper {
+        .arrow-btn-wrap {
+          .slide-arrow {
+            display: none;
+          }
+        }
+        .swiper-pagination-bullets {
+          swiper-pagination-bullet {
+            margin: 0 0.8rem;
+          }
+          bottom: 5rem;
+        }
+      }
+    }
+  }
+  @media all and (max-width: 1024px) {
+    .nc-section {
+      gap: 2rem;
+      .tab-wrapper {
+        ul {
+          gap: 1.8rem;
+          li {
+            font-size: 2.4rem;
+            height: 5.4rem;
+            width: 18rem;
+          }
+        }
+      }
+    }
+  }
+  @media all and (max-width: 780px) {
+    .info-visual-section {
+      padding: 12rem 0 0;
+      h3 {
+        font-size: 3.6rem;
+      }
+      .info-inner {
+        gap: 4rem;
+        padding: 0 2rem;
+        width: 100%;
+        .img-text-wrap {
+          gap: 3rem;
+          i {
+            width: 100%;
+          }
+          p {
+            font-size: 1.6rem;
+          }
+        }
+      }
+    }
+    .nc-section {
+      padding: 12.821vw 0 15.385vw;
+      gap: 3.59vw;
+      .tab-wrapper {
+        ul {
+          gap: 2.821vw;
+          li {
+            font-size: 3.59vw;
+            height: 8.205vw;
+            width: 24.359vw;
+          }
+        }
+      }
+      .swiper-wrapper {
+        padding-bottom: 5.128vw;
+      }
+      .slide-wrapper {
+        .swiper-pagination-bullets {
+          bottom: 0;
+          .swiper-pagination-bullet {
+            width: 2.051vw;
+            height: 2.051vw;
+            margin: 0 1.538vw;
           }
         }
       }
