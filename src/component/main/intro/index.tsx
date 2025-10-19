@@ -15,7 +15,7 @@ const Intro = ({
 }) => {
   return (
     <IntroVideoWrapper>
-      {/* {step === "video" && (
+      {step === "video" && (
         <video
           ref={videoRef}
           src="/video/gstar-intro.mp4"
@@ -25,7 +25,7 @@ const Intro = ({
           onEnded={onVideoEnd}
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
-      )} */}
+      )}
 
       {step === "dim" && (
         <DimOverlay onAnimationEnd={onDimEnd}>

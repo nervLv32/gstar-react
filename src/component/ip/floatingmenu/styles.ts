@@ -273,4 +273,23 @@ export const FloatingMenuWrapper = styled.div`
       }
     }
   }
+  @media all and (max-width: 1440px) {
+    top: 34rem;
+    .inner {
+      .title-text {
+        padding: 2.4rem 3.2rem 1.4rem 1.4rem;
+      }
+    }
+    .home {
+      padding: 1.4rem 3.2rem 0 1.4rem;
+    }
+    ul {
+      padding: 1.4rem 0 1.6rem 1.4rem;
+      li {
+        a {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
 `;

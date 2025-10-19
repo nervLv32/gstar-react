@@ -22,6 +22,15 @@ export const IpWrapper = styled.div`
     .ip-section {
       background: url(${AionBg}) no-repeat left bottom / cover;
     }
+    @media (max-width: 1024px) {
+      .ip-section {
+        background-position-x: 9%;
+        background-position-y: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed; /* 🔥 뷰포트 기준으로 고정 */
+      }
+    }
   }
   &.cinder {
     .ip-section {
@@ -194,7 +203,6 @@ export const IpWrapper = styled.div`
           i {
             display: block;
             height: 100%;
-            background: red;
             img {
               display: block;
               width: 100%;
@@ -218,6 +226,65 @@ export const IpWrapper = styled.div`
             height: 0.3rem;
             background: rgba(43, 188, 255, 1);
           }
+        }
+      }
+    }
+  }
+  @media all and (max-width: 1660px) {
+    .ip-section {
+      .logo-text-wrap {
+        right: 10rem;
+      }
+    }
+  }
+  @media all and (max-width: 1540px) {
+    .ip-section {
+      .logo-text-wrap {
+        right: 8rem;
+        gap: 3rem;
+        top: 60%;
+        i {
+          max-width: 45rem;
+        }
+        .text-button-wrapper {
+          gap: 6rem;
+          .text-info-wrap {
+            .text-wrap {
+              h2 {
+                font-size: 4.4rem;
+                gap: 1.2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media all and (max-width: 1440px) {
+    .ip-section {
+      .logo-text-wrap {
+        right: 5rem;
+        .text-button-wrapper {
+          gap: 4rem;
+          .text-info-wrap {
+            gap: 3rem;
+          }
+          .button-wrap {
+            gap: 2rem;
+          }
+        }
+      }
+    }
+  }
+  @media all and (max-width: 1200px) {
+    .ip-section {
+      .logo-text-wrap {
+        top: unset;
+        bottom: 6rem;
+        left: 50%;
+        transform: translateY(0) translateX(-50%);
+        i {
+          max-width: 40rem;
         }
       }
     }

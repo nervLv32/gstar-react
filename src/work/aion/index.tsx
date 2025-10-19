@@ -211,7 +211,7 @@ const Aion = () => {
         <div className="big-inner">
           <div className="section-wrapper">
             <div className="text-wrap">
-              <h2 data-anim>AION 2</h2>
+              <h2 data-anim>AION2</h2>
               <span data-anim>MMORPG</span>
               <p data-anim>
                 하나의 게임을 넘어, 수많은 추억이 살아 숨 쉬는 세계 AION

@@ -63,9 +63,9 @@ const Main = () => {
     setIntroStep("done");
   };
 
-  useEffect(() => {
-    handleDimEnd();
-  }, []);
+  // useEffect(() => {
+  //   handleDimEnd();
+  // }, []);
 
   return (
     <div>
