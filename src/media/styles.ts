@@ -41,7 +41,7 @@ export const MediaWrapper = styled.div`
       }
     }
   }
-  .scoll-top {
+  .scroll-top {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -55,6 +55,53 @@ export const MediaWrapper = styled.div`
       img {
         display: block;
         width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  @media all and (max-width: 1600px) {
+    .scroll-top {
+      padding: 4rem 8rem 4rem;
+    }
+  }
+  @media all and (max-width: 1024px) {
+    .sub-visual-wrap {
+      padding: 18rem 0 10rem;
+      gap: 5rem;
+      h2 {
+        font-size: 6rem;
+      }
+      .sub-tab {
+        gap: 3rem;
+        li {
+          font-size: 2rem;
+          width: 25rem;
+          height: 5rem;
+        }
+      }
+    }
+  }
+  @media all and (max-width: 780px) {
+    .sub-visual-wrap {
+      padding: 25.641vw 0 12.821vw;
+      gap: 10.256vw;
+      h2 {
+        font-size: 8.205vw;
+      }
+      .sub-tab {
+        gap: 2.051vw;
+        li {
+          font-size: 3.59vw;
+          width: 41.026vw;
+          height: 8.205vw;
+        }
+      }
+    }
+    .scroll-top {
+      padding: 4rem;
+      i {
+        width: 2.4rem;
+        height: 3.6rem;
       }
     }
   }
@@ -73,7 +120,7 @@ export const ContentsWrapper = styled.div`
       dl {
         display: flex;
         gap: 4rem;
-        cursor: pointer; /* 마우스 포인터 */
+
         transition: transform 0.4s ease;
 
         dt {
@@ -84,6 +131,7 @@ export const ContentsWrapper = styled.div`
             width: 100%;
             overflow: hidden;
             border-radius: 0.8rem;
+            cursor: pointer;
 
             img {
               display: block;
@@ -129,9 +177,11 @@ export const ContentsWrapper = styled.div`
         }
 
         /* ✅ hover 시 메인 이미지 확대 효과 */
-        &:hover {
-          i img {
-            transform: scale(1.08);
+        i {
+          &:hover {
+            img {
+              transform: scale(1.08);
+            }
           }
         }
       }
@@ -231,6 +281,169 @@ export const ContentsWrapper = styled.div`
           font-size: 2.4rem;
           line-height: 5.8rem;
           font-weight: 700;
+          color: #000;
+        }
+      }
+    }
+  }
+  @media all and (max-width: 1440px) {
+    .list-wrapper {
+      .list-wrap {
+        ul {
+          li {
+            .text-wrap {
+              .title {
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /* 표시할 최대 줄 수 */
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                word-break: keep-all;
+                min-height: 6.8rem;
+                br {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media all and (max-width: 1200px) {
+    padding: 13rem 0;
+    .list-wrapper {
+      .main {
+        padding-bottom: 13rem;
+        dl {
+          dd {
+            gap: 4rem;
+          }
+        }
+      }
+      .list-wrap {
+        padding-top: 11rem;
+        ul {
+          gap: 1.6rem;
+          li {
+            width: calc(50% - 0.8rem);
+            margin-top: 2rem !important;
+            &:nth-child(-n + 2) {
+              margin-top: 0 !important;
+            }
+            .img-wrap {
+              i {
+                height: 24.167vw;
+                img {
+                  object-fit: cover;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media all and (max-width: 1024px) {
+    padding: 12rem 0;
+    .list-wrapper {
+      .main {
+        padding-bottom: 12rem;
+        dl {
+          flex-direction: column;
+          align-items: center;
+          dt {
+            width: 100%;
+          }
+          dd {
+            width: 100%;
+            .text-wrap {
+              h4 {
+                word-break: keep-all;
+
+                br {
+                  display: none;
+                }
+              }
+              p {
+                word-break: keep-all;
+                min-height: 1rem;
+                br {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+      .list-wrap {
+        padding-top: 10rem;
+      }
+    }
+  }
+  @media all and (max-width: 768px) {
+    padding: 10.417vw 0;
+    .list-wrapper {
+      .main {
+        padding-bottom: 10.417vw;
+        dl {
+          gap: 5.208vw;
+          dd {
+            gap: 6.51vw;
+            .text-wrap {
+              h4 {
+                font-size: 5.469vw;
+                line-height: 1.5;
+              }
+              p {
+                font-size: 3.646vw;
+                line-height: 1.6;
+              }
+            }
+            span {
+              font-size: 3.385vw;
+              line-height: 1;
+            }
+          }
+        }
+      }
+      .list-wrap {
+        padding-top: 10.417vw;
+        ul {
+          li {
+            width: 100%;
+            margin-top: 0 !important;
+            padding-bottom: 3.906vw;
+            .img-wrap {
+              i {
+                height: auto;
+              }
+            }
+            .text-wrap {
+              padding-top: 3.385vw;
+              gap: 3.125vw;
+              .title {
+                min-height: 1.302vw;
+                font-size: 4.167vw;
+                line-height: 1.7;
+              }
+              span {
+                font-size: 3.125vw;
+                line-height: 1;
+              }
+            }
+          }
+        }
+        .viewmore-wrap {
+          margin-top: 7.813vw;
+          gap: 2.604vw;
+          font-size: 3.906vw;
+          line-height: 1;
+
+          button {
+            font-size: 3.906vw;
+            line-height: 1;
+          }
         }
       }
     }

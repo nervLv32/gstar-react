@@ -31,7 +31,7 @@ const list = [
     img: MaterialImage02,
     textChild: (
       <h6 className="title">
-        엔씨(NC) ‘리밋 제로 브레이커스’, TGS 2025 출격 ∙∙∙ <br />
+        엔씨(NC) ‘리밋 제로 브레이커스’, TGS 2025 출격 <br />
         신규 홍보 영상 공개
       </h6>
     ),

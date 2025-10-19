@@ -138,7 +138,7 @@ const Footer = () => {
                 </i>
               </h4>
               <div
-                className={`scoll-top`}
+                className={`scroll-top`}
                 onClick={scrollToTop}
                 aria-label="Scroll to top"
               >

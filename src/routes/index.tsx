@@ -15,10 +15,6 @@ export const routes = [
     path: "/info",
     element: <Info />,
   },
-  {
-    path: "/media",
-    element: <Media />,
-  },
 ];
 
 export const ipRoutes = [
@@ -37,5 +33,9 @@ export const ipRoutes = [
   {
     path: "/work/breakers",
     element: <Breakers />,
+  },
+  {
+    path: "/media",
+    element: <Media />,
   },
 ];

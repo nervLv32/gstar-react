@@ -33,12 +33,8 @@ const Media = () => {
         </ul>
       </div>
       {isMedia === "material" ? <MaterialSection /> : <MediaSection />}
-      <div
-        className={`scoll-top`}
-        onClick={scrollToTop}
-        aria-label="Scroll to top"
-      >
-        <i>
+      <div className={`scroll-top`} aria-label="Scroll to top">
+        <i onClick={scrollToTop}>
           <img src={ScrollTopIcon} alt="" />
         </i>
       </div>

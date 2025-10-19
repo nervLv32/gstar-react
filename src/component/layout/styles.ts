@@ -205,7 +205,7 @@ export const FooterWrapper = styled.footer`
               }
             }
           }
-          .scoll-top {
+          .scroll-top {
             display: flex;
             align-items: center;
             justify-content: flex-end;
@@ -345,7 +345,7 @@ export const FooterWrapper = styled.footer`
                 height: 4.7rem;
               }
             }
-            .scoll-top {
+            .scroll-top {
               i {
                 width: 2.4rem;
                 height: 3.6rem;
