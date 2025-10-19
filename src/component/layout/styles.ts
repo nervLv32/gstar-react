@@ -10,12 +10,19 @@ export const HeaderWrapper = styled.header`
   top: 0;
   left: 0;
   width: 100%;
-  /* background: linear-gradient(to bottom, #00000080, #0000); */
   background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(7px);
   height: 10.4rem;
   display: flex;
   justify-content: center;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+
+  &.hide {
+    opacity: 0;
+    transform: translateY(-40px);
+    pointer-events: none; /* 클릭 막기 */
+  }
   .logo {
     i {
       display: block;

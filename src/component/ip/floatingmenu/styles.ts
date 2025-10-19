@@ -29,12 +29,11 @@ export const FloatingMenuWrapper = styled.div`
   width: 22rem;
   height: 34.8rem;
   margin: 0 auto;
-  z-index: 21;
 
   transition: left 2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease;
 
   background: url(${FloatingBgImage}) no-repeat center / cover;
-  z-index: 1;
+  z-index: 21;
 
   &.open {
     left: -1rem;
@@ -291,5 +290,11 @@ export const FloatingMenuWrapper = styled.div`
         }
       }
     }
+  }
+  @media all and (max-width: 1024px) {
+    top: 20rem;
+  }
+  @media all and (max-width: 768px) {
+    display: none;
   }
 `;

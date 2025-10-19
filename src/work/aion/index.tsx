@@ -1,12 +1,17 @@
-import gsap from "gsap";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { Swiper as SwiperCore } from "swiper";
+import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import { useFullpage } from "../../hooks/useFullpage";
 import { IpWrapper } from "../styles";
+
+import FloatingMenu from "../../component/ip/floatingmenu";
+import Header from "../../component/layout/Header";
 
 import ButtonIcon from "../../assets/images/ip/aion/ip-aion-button-icon.png";
 import AionLogo from "../../assets/images/ip/aion/ip-aion-logo.png";
-import FloatingMenu from "../../component/ip/floatingmenu";
 
 import Slide01 from "../../assets/images/ip/aion/ip-aion-slide01.png";
 import Slide02 from "../../assets/images/ip/aion/ip-aion-slide02.png";
@@ -14,164 +19,30 @@ import Slide03 from "../../assets/images/ip/aion/ip-aion-slide03.jpg";
 import Slide04 from "../../assets/images/ip/aion/ip-aion-slide04.jpg";
 import Slide05 from "../../assets/images/ip/aion/ip-aion-slide05.jpg";
 
-import { Swiper as SwiperCore } from "swiper";
-import { Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-gsap.registerPlugin(ScrollToPlugin);
-
 const Aion = () => {
-  const [currentSection, setCurrentSection] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const sectionsRef = useRef<HTMLElement[]>([]);
-  const isFirstRender = useRef(true);
-  const initialAnimPlayed = useRef(false); // ✅ 초기 애니메이션 2회 방지용
-
-  // ✅ 섹션 등록 및 초기 세팅
-  useEffect(() => {
-    sectionsRef.current = Array.from(document.querySelectorAll(".section"));
-    const y = window.scrollY;
-    const index = Math.round(y / window.innerHeight);
-    setCurrentSection(index);
-
-    // 초기 상태 세팅
-    sectionsRef.current.forEach((sec, i) => {
-      const items = sec.querySelectorAll("[data-anim]");
-      gsap.set(items, { opacity: 0, y: 40 });
-
-      if (i === index && !initialAnimPlayed.current) {
-        gsap.to(items, {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          stagger: 0.2,
-          ease: "power3.out",
-          delay: 0.2,
-        });
-        sec.classList.add("active");
-        initialAnimPlayed.current = true; // ✅ 초기 렌더 시 1회만 실행
-      }
-    });
-  }, []);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      sectionsRef.current = Array.from(document.querySelectorAll(".section"));
-      const y = window.scrollY;
-      const index = Math.round(y / window.innerHeight);
-      setCurrentSection(index);
-
-      sectionsRef.current.forEach((sec, i) => {
-        const items = sec.querySelectorAll("[data-anim]");
-        gsap.set(items, { opacity: 0, y: 40 });
-
-        if (i === index) {
-          gsap.to(items, {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            stagger: 0.2,
-            ease: "power3.out",
-            delay: 0.2,
-          });
-          sec.classList.add("active");
-        }
-      });
-    });
-
-    return () => ctx.revert(); // ✅ cleanup 시점에 기존 트윈 제거
-  }, []);
-
-  // ✅ 휠 이벤트 제어
-  useEffect(() => {
-    let ticking = false;
-
-    const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      if (isAnimating || ticking) return;
-      ticking = true;
-
-      requestAnimationFrame(() => {
-        if (e.deltaY > 0) setCurrentSection((prev) => Math.min(prev + 1, 1));
-        else setCurrentSection((prev) => Math.max(prev - 1, 0));
-        ticking = false;
-      });
-    };
-
-    window.addEventListener("wheel", handleWheel, {
-      passive: false,
-      capture: true,
-    });
-    return () => window.removeEventListener("wheel", handleWheel, true);
-  }, [isAnimating]);
-
-  // ✅ 섹션 전환 시 애니메이션
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-
-    const allSections = sectionsRef.current;
-    const targetY = window.innerHeight * currentSection;
-    const prevSections = allSections.filter((_, i) => i !== currentSection);
-    const next = allSections[currentSection];
-
-    if (!next) return;
-
-    setIsAnimating(true);
-    gsap.killTweensOf(window);
-
-    // 🔥 이전 섹션 전부 초기화 (진행중 트윈 포함)
-    prevSections.forEach((sec) => {
-      const items = sec.querySelectorAll("[data-anim]");
-      gsap.killTweensOf(items);
-      gsap.set(items, { opacity: 0, y: 40 });
-    });
-
-    // scrollTo 부드럽게 이동
-    gsap.to(window, {
-      duration: 0.8,
-      scrollTo: { y: targetY },
-      ease: "power3.inOut",
-      onComplete: () => {
-        const nextItems = next.querySelectorAll("[data-anim]");
-        gsap.killTweensOf(nextItems);
-        gsap.fromTo(
-          nextItems,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.9,
-            stagger: 0.15,
-            ease: "power3.out",
-            delay: 0.1,
-          }
-        );
-        setIsAnimating(false);
-      },
-    });
-
-    // active class 토글
-    allSections.forEach((sec, i) =>
-      sec.classList.toggle("active", i === currentSection)
-    );
-  }, [currentSection]);
-
-  // ✅ Swiper
-  const [, setMoActiveIndex] = useState(0);
+  const { currentSection, isFullpageEnabled } = useFullpage();
   const swiperRef = useRef<SwiperCore | null>(null);
+  const [, setMoActiveIndex] = useState(0);
+  useEffect(() => {
+    const header = document.querySelector("header");
+    if (!header) return;
 
+    if (isFullpageEnabled && currentSection === 1) {
+      header.classList.add("hide");
+    } else {
+      header.classList.remove("hide");
+    }
+  }, [currentSection, isFullpageEnabled]);
   return (
     <IpWrapper className="aion">
+      <Header />
       <FloatingMenu />
 
       {/* SECTION 1 */}
       <section className="section ip-section">
         <div className="logo-text-wrap">
           <i data-anim>
-            <img src={AionLogo} alt="" />
+            <img src={AionLogo} alt="AION2 로고" />
           </i>
 
           <div className="text-button-wrapper">
@@ -187,7 +58,8 @@ const Aion = () => {
               </div>
 
               <div className="info-text" data-anim>
-                NC G-STAR 2025에서 AION2를 더욱 빠르게 만나보세요.
+                NC G-STAR 2025에서 <br className="mo-br" />
+                AION2를 더욱 빠르게 만나보세요.
               </div>
             </div>
 
@@ -197,7 +69,7 @@ const Aion = () => {
               </Link>
               <Link to="/" className="point">
                 <i>
-                  <img src={ButtonIcon} alt="" />
+                  <img src={ButtonIcon} alt="버튼 아이콘" />
                 </i>
                 <p>공식 유튜브 바로가기</p>
               </Link>
@@ -214,11 +86,11 @@ const Aion = () => {
               <h2 data-anim>AION2</h2>
               <span data-anim>MMORPG</span>
               <p data-anim>
-                하나의 게임을 넘어, 수많은 추억이 살아 숨 쉬는 세계 AION
-                <br />
+                하나의 게임을 넘어, 수많은 추억이 살아 숨 쉬는 세계 AION <br />
                 그 유산 위에, 마침내 완전판으로 돌아온 AION2가 그려낸 새로운
                 하늘이 펼쳐집니다.
                 <br />
+                <br className="mo-br" />
                 각자의 개성이 더욱 뚜렷해진 {"<"}8종의 오리지널 클래스{">"},
                 무한한 가능성을 담아낸 {"<"}극한의 커스터마이징{">"}, <br />
                 원작 대비 36배 확장된 거대한 월드에서 펼쳐지는 {"<"}경계 없는
@@ -226,11 +98,11 @@ const Aion = () => {
                 세대를 이어온 전투의 심장 {"<"}대규모 RvR전장 어비스{">"}까지
                 완전한 MMORPG의 세계가 눈앞에 펼쳐집니다.
                 <br />
+                <br className="mo-br" />
                 11월 19일, AION2의 새로운 여정을 준비하세요.
               </p>
             </div>
 
-            {/* ✅ Swiper에 감싸는 div 추가 + data-anim 적용 */}
             <div className="swiper-box" data-anim>
               <Swiper
                 modules={[Pagination]}
@@ -239,35 +111,21 @@ const Aion = () => {
                 onSlideChange={(swiper: SwiperCore) =>
                   setMoActiveIndex(swiper.activeIndex)
                 }
-                spaceBetween={22}
-                slidesPerView={2}
+                spaceBetween={14}
+                slidesPerView={1}
+                breakpoints={{
+                  1200: { slidesPerView: 2, spaceBetween: 22 },
+                  768: { slidesPerView: 1.4, spaceBetween: 14 },
+                  500: { slidesPerView: 1.1, spaceBetween: 10 },
+                }}
               >
-                <SwiperSlide>
-                  <i>
-                    <img src={Slide01} alt="" />
-                  </i>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <i>
-                    <img src={Slide02} alt="" />
-                  </i>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <i>
-                    <img src={Slide03} alt="" />
-                  </i>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <i>
-                    <img src={Slide04} alt="" />
-                  </i>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <i>
-                    <img src={Slide05} alt="" />
-                  </i>
-                </SwiperSlide>
-                <div className="swiper-pagination-progressbar" />
+                {[Slide01, Slide02, Slide03, Slide04, Slide05].map((img, i) => (
+                  <SwiperSlide key={i}>
+                    <i>
+                      <img src={img} alt={`AION2 슬라이드 ${i + 1}`} />
+                    </i>
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
           </div>

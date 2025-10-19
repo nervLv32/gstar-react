@@ -1,8 +1,12 @@
 import { styled } from "styled-components";
 import AionBg from "../assets/images/ip/aion/ip-aion-default-bg.png";
+import AionMoBg from "../assets/images/ip/aion/ip-aion-mo-bg.png";
 import CinderBg from "../assets/images/ip/cinder/ip-cinder-default-bg.png";
+import CinderMoBg from "../assets/images/ip/cinder/ip-cinder-mo-bg.png";
 import TimeTakersBg from "../assets/images/ip/timetakers/ip-timetakers-default-bg.png";
+import TimeTakersMoBg from "../assets/images/ip/timetakers/ip-timetakers-mo-bg.png";
 import BreakersBg from "../assets/images/ip/breakers/ip-breakers-default-bg.png";
+import BreakersMoBg from "../assets/images/ip/breakers/ip-breakers-mo-bg.png";
 
 export const IpWrapper = styled.div`
   width: 100vw;
@@ -18,34 +22,71 @@ export const IpWrapper = styled.div`
       pointer-events: none;
     } */
   }
+  .ip-section {
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        will-change: opacity;
+        z-index: 0;
+        pointer-events: none;
+      }
+      @media (max-width: 1024px) {
+        &::after {
+          opacity: 1;
+        }
+      }
+  }
   &.aion {
     .ip-section {
-      background: url(${AionBg}) no-repeat left bottom / cover;
-    }
-    @media (max-width: 1024px) {
-      .ip-section {
-        background-position-x: 9%;
-        background-position-y: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed; /* 🔥 뷰포트 기준으로 고정 */
+      position: relative;
+      background: url(${AionBg}) no-repeat center / cover;
+      transition: background-position 0.4s ease, background-size 0.4s ease;
+      overflow: hidden;
+      &::after {
+        background: url(${AionMoBg}) no-repeat center / cover;
       }
     }
   }
   &.cinder {
     .ip-section {
+        position: relative;
+      transition: background-position 0.4s ease, background-size 0.4s ease;
+      overflow: hidden;
       background: url(${CinderBg}) no-repeat left bottom / cover;
+      &::after {
+        background: url(${CinderMoBg}) no-repeat top / cover;
+      }
     }
   }
   &.timetakers {
     .ip-section {
+      position: relative;
+      transition: background-position 0.4s ease, background-size 0.4s ease;
+      overflow: hidden;
       background: url(${TimeTakersBg}) no-repeat center / 110%;
       background-position-y: 55%;
+      
+       &::after {
+        background: url(${TimeTakersMoBg}) no-repeat top / cover;
+      }
     }
   }
   &.breakers {
     .ip-section {
-      background: url(${BreakersBg}) no-repeat bottom / cover;
+        position: relative;
+      transition: background-position 0.4s ease, background-size 0.4s ease;
+      overflow: hidden;
+      background: url(${BreakersBg}) no-repeat center / cover;
+      
+       &::after {
+        background: url(${BreakersMoBg}) no-repeat bottom / cover;
+      }
+
+      
     }
   }
 
@@ -53,6 +94,7 @@ export const IpWrapper = styled.div`
     color: #fff;
     .logo-text-wrap {
       position: absolute;
+      z-index: 10;
       top: 50%;
       right: 15rem;
       transform: translateY(-50%);
@@ -71,6 +113,8 @@ export const IpWrapper = styled.div`
         }
       }
       .text-button-wrapper {
+        position: relative;
+        z-index; 10;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -94,18 +138,29 @@ export const IpWrapper = styled.div`
               display: flex;
               justify-content: center;
               gap: 1.6rem;
+              p {
+                .mo-br {
+                  display: none;
+                }
+              }
             }
             span {
               font-weight: bold;
               font-size: 3.2rem;
               letter-spacing: -0.48px;
               text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+              .mo-br {
+                display: none;
+              }
             }
           }
           .info-text {
             font-size: 1.8rem;
             letter-spacing: -0.27px;
             font-weight: 400;
+            .mo-br {
+              display: none;
+            }
           }
         }
         .button-wrap {
@@ -113,6 +168,8 @@ export const IpWrapper = styled.div`
           justify-content: center;
           align-items: center;
           gap: 2.8rem;
+          position: relative;
+          z-index: 10;
           a {
             display: flex;
             width: 24rem;
@@ -130,6 +187,7 @@ export const IpWrapper = styled.div`
             p {
               font-size: 1.6rem;
               font-weight: 600;
+              
             }
             &.default {
               background: #fff;
@@ -160,7 +218,8 @@ export const IpWrapper = styled.div`
 
   .info-section {
     background: #003769;
-    padding-top: 14rem;
+    padding-top: 8rem;
+    /* padding-top: 14rem; */
     .big-inner {
       height: 100%;
       padding: 0 8rem;
@@ -192,6 +251,9 @@ export const IpWrapper = styled.div`
           line-height: 1.75;
           font-weight: 300;
           color: #fff;
+          .mo-br {
+                display: none;
+              }
         }
       }
       .swiper {
@@ -277,16 +339,230 @@ export const IpWrapper = styled.div`
     }
   }
   @media all and (max-width: 1200px) {
+  .ip-section {
+    .logo-text-wrap {
+      width: 100%;
+      top: unset;
+      right: unset;
+      bottom: 12%;
+      left: 50%;
+      transform: translateY(0) translateX(-50%);
+      i {
+        max-width: 40rem;
+      }
+    }
+  }
+  .info-section {
+    .section-wrapper {
+      .text-wrap {
+        gap: 1.4rem;
+      }
+      .swiper {
+        .swiper-pagination-progressbar {
+          bottom: -4rem;
+        }
+      }
+    }
+    .big-inner {
+      padding: 0 5rem;
+    }
+  }
+}
+  @media all and (max-width: 1024px) {
+    height: auto;
     .ip-section {
       .logo-text-wrap {
-        top: unset;
-        bottom: 6rem;
-        left: 50%;
-        transform: translateY(0) translateX(-50%);
+        width: 100%;
+        gap: 3rem;
         i {
-          max-width: 40rem;
+          max-width: 36rem;
+        }
+        .text-button-wrapper {
+          .button-wrap {
+            a {
+              width: 20rem;
+              height: 3.8rem;
+            }
+          }
+          .text-info-wrap {
+            .text-wrap {
+              h2 {
+                font-size: 4.4rem;
+              }
+            }
+           
+          }
+        }
+      }
+    }
+   .info-section {
+    height: auto;
+    padding: 12rem 0 16rem;
+    .section-wrapper {
+      .text-wrap {
+        p {
+          br {
+            display: none;
+          }
+          .mo-br {
+            display: block;
+          }
+        }
+      }
+    }
+   }
+  }
+
+  @media all and (max-width: 768px) {
+    &.cinder {
+      .ip-section {
+        .logo-text-wrap {
+          .text-button-wrapper {
+            .text-info-wrap {
+              .text-wrap {
+                span {
+                  line-height: 1.2;
+                  .mo-br {
+                    display: block;
+                  }
+                }
+              }
+            }
+          }
+        } 
+      }
+    }
+    &.breakers {
+       .ip-section {
+        .logo-text-wrap {
+          .text-button-wrapper {
+            .text-info-wrap {
+              h2 {
+                line-height: 1.3;
+                p {
+                  .mo-br {
+                  display: block;
+                }
+                }
+              }
+            }
+          }
+        } 
+      }
+    }
+    .info-section {
+      padding: 15.625vw 0 20.833vw;
+      .big-inner {
+        padding: 0 2rem;
+      }
+      .section-wrapper {
+        .text-wrap {
+          p {
+            word-break: keep-all;
+          }
         }
       }
     }
   }
+  @media all and (max-width: 640px) {
+    .ip-section {
+      .logo-text-wrap {
+        bottom: 22vh;
+        gap: 6.25vw;
+        i {
+          max-width: 56.25vw;
+        }
+        .text-button-wrapper {
+          gap: 6.25vw;
+          .text-info-wrap {
+            gap: 4.688vw;
+            .text-wrap {
+              gap: 3.75vw;
+              h2 {
+                font-size: 7.813vw;
+              }
+              span {
+                font-size: 5.313vw;
+              }
+            }
+            .info-text {
+              font-size: 4.063vw;
+              text-align: center;
+              line-height: 1.3;
+              .mo-br {
+                display: block;
+              }
+            }
+          }
+           .button-wrap {
+            gap: 1rem;
+            a {
+              
+              width: 40.625vw;
+              height: 7.187vw;
+              &.point {
+                i {
+                  width: 1.3rem;
+                  height: auto;
+                }
+              }
+              p {
+                font-size: 2.5vw;
+              }
+            }
+          }
+        }
+      }
+    }
+    .info-section {
+      padding: 18.75vw 0 28.438vw;
+      .section-wrapper {
+        .text-wrap {
+          gap: 3.438vw;
+          h2 {
+            font-size: 10.625vw;
+          }
+          span {
+            font-size: 4.688vw;
+            line-height: 6.563vw;
+          }
+          p {
+            font-size: 4.063vw;
+          }
+        }
+        .swiper {
+          margin-top: 7.813vw;
+         .swiper-pagination-progressbar {
+            bottom: -3.125vw;
+            height: 0.2rem;
+          } 
+        }
+      }
+    }
+  }
+  @media all and (max-width: 500px) {
+    .ip-section {
+      .logo-text-wrap {
+        .text-button-wrapper {
+          .button-wrap {
+            a {
+              width: 16rem;
+              height: 3.6rem;
+              &.point {
+                i {
+                  display: none;
+                }
+              }
+              p {
+                font-size: 1.4rem;
+                
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
 `;

@@ -139,8 +139,7 @@ const TicketSection = () => {
                 <div className="info-wrap">
                   <div className="title-info-wrap">
                     <h5 className="vitro">
-                      2025
-                      <span className="point">G-STAR 초대권</span>{" "}
+                      2025 <span className="point">G-STAR 초대권</span>{" "}
                       <br className="mo-br" />
                       400장
                     </h5>
