@@ -40,7 +40,12 @@ const FloatingMenu = () => {
               key={menu.to}
               className={location.pathname === menu.to ? "active" : ""}
             >
-              <Link to={menu.to}>
+              <Link
+                to={menu.to}
+                onClick={(e) => {
+                  if (menu.to === "/") e.preventDefault();
+                }}
+              >
                 {menu.name !== "COMING SOON" && (
                   <i className="point-image">
                     <img src={FloatingPoint} alt="" />

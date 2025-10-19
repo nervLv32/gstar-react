@@ -24,10 +24,10 @@ export const HeaderWrapper = styled.header`
       background: url(${MainHeaderLogo}) no-repeat center / cover;
     }
   }
-  ul {
+  .nav {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 5.7rem;
     li {
       a,
       button {
@@ -35,7 +35,24 @@ export const HeaderWrapper = styled.header`
         font-weight: 700;
         font-size: 2.2rem;
         color: #fff;
-        width: 16.2rem;
+      }
+    }
+  }
+  .link-wrap {
+    position: absolute;
+    top: 50%;
+    right: 5rem;
+    transform: translateY(-50%);
+    gap: 3rem;
+    li {
+      i {
+        display: block;
+        width: 2.5rem;
+        height: 2.5rem;
+        img {
+          display: block;
+          width: 100%;
+        }
       }
     }
   }

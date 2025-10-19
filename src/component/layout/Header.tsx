@@ -4,6 +4,10 @@ import { HeaderWrapper, SideMenuWrapper } from "./styles";
 import MoPoint from "../../assets/images/mobile/mobile-menu-point.png";
 import MoMenuLogo from "../../assets/images/mobile/mobile-menu-logo.png";
 
+import XLogo from "../../assets/images/common/header-x-icon.png";
+import FacebookLogo from "../../assets/images/common/header-facebook-icon.png";
+import LinkLogo from "../../assets/images/common/header-link-icon.png";
+
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -38,6 +42,17 @@ const Header = () => {
     }
   };
 
+  // ✅ 링크 복사 함수
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText("https://naver.com");
+      alert("링크가 복사되었습니다!");
+    } catch (err) {
+      console.error("클립보드 복사 실패:", err);
+      alert("복사에 실패했습니다. 직접 복사해주세요.");
+    }
+  };
+
   // ✅ body 스크롤 제어
   useEffect(() => {
     if (isOpen) {
@@ -45,8 +60,6 @@ const Header = () => {
     } else {
       document.body.style.overflow = "auto";
     }
-
-    // cleanup: unmount 시 원복 (예방용)
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -55,7 +68,7 @@ const Header = () => {
   return (
     <>
       <HeaderWrapper className={isOpen ? "mo-open" : ""}>
-        <ul>
+        <ul className="nav">
           <li>
             <button onClick={() => scrollToSection("#video")}>
               출품작 안내
@@ -77,7 +90,15 @@ const Header = () => {
           </li>
         </ul>
 
-        {/* ✅ 햄버거 버튼 */}
+        {/* ✅ 여기 수정 부분 */}
+        <ul className="link-wrap">
+          <li>
+            <i onClick={handleCopyLink}>
+              <img src={LinkLogo} alt="링크 복사" />
+            </i>
+          </li>
+        </ul>
+
         <div
           className={`mo-ham-wrap ${isOpen ? "active" : ""}`}
           onClick={() => setIsOpen(!isOpen)}
@@ -88,7 +109,6 @@ const Header = () => {
         </div>
       </HeaderWrapper>
 
-      {/* ✅ 사이드 메뉴 */}
       <SideMenuWrapper className={isOpen ? "open" : ""}>
         <div className="inner">
           <Link to="/" className="logo" onClick={() => setIsOpen(false)}>
@@ -118,14 +138,13 @@ const Header = () => {
                     <Link
                       to={menu.to}
                       key={menu.to}
-                      onClick={() => setIsOpen(false)} // ✅ 메뉴 닫기 추가
+                      onClick={() => setIsOpen(false)}
                     >
                       <span>{menu.name}</span>
                     </Link>
                   ))}
                 </div>
               </li>
-
               <li>
                 <button
                   onClick={() => {

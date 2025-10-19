@@ -414,6 +414,7 @@ export const TicketSectionWrapper = styled.div`
               gap: 1.823vw;
               dl {
                 flex-direction: column;
+                align-items: center;
                 gap: 2.344vw;
                 &:first-child {
                   dd {
@@ -423,9 +424,11 @@ export const TicketSectionWrapper = styled.div`
                   }
                 }
                 dt {
+                  text-align: center;
                   font-size: 3.385vw;
                 }
                 dd {
+                  text-align: center;
                   min-width: 100%;
                   word-break: keep-all;
                   font-size: 3.385vw;

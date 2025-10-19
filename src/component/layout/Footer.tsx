@@ -112,23 +112,6 @@ const Footer = () => {
                     </i>
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/https://www.linkedin.com/company/ncsoft/"
-                    target="_blank"
-                  >
-                    <i>
-                      <img src={LinkdInIcon} alt="" />
-                    </i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/https://www.tiktok.com/@ncsoft" target="_blank">
-                    <i>
-                      <img src={TikTokIcon} alt="" />
-                    </i>
-                  </Link>
-                </li>
               </ul>
             </div>
             <div className="footer-logo-wrap">

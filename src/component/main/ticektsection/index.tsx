@@ -121,7 +121,7 @@ const TicketSection = () => {
                 NC와 함께!
               </h4>
               <p className="fade-child delay-2">
-                NC G-STAR 사전 이벤트 참여자 중<br />
+                NC G-STAR 2025 사전 이벤트 참여자 중<br />
                 200명을 추첨하여 G-STAR 초대권(1일권) <br className="mo-br" />
                 2매를 드립니다.
               </p>
@@ -139,8 +139,10 @@ const TicketSection = () => {
                 <div className="info-wrap">
                   <div className="title-info-wrap">
                     <h5 className="vitro">
-                      2025 <br className="mo-br" />
-                      <span className="point">G-STAR 초대권</span> 400장
+                      2025
+                      <span className="point">G-STAR 초대권</span>{" "}
+                      <br className="mo-br" />
+                      400장
                     </h5>
                     <span>
                       {"("}200명 X 20장{")"}

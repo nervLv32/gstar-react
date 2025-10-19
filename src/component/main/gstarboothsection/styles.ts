@@ -162,6 +162,7 @@ export const GstarBoothSectionWrapper = styled.section`
                 bottom: 12rem;
                 left: 6.6rem;
                 transform: translateY(3rem) scale(0.96);
+                z-index: 1;
               }
 
               &:last-of-type {
@@ -411,6 +412,7 @@ export const GstarBoothSectionWrapper = styled.section`
                 bottom: 12rem;
                 left: 6.6rem;
                 transform: translateY(3rem) scale(0.96);
+                z-index: 1;
               }
 
               &:last-of-type {
