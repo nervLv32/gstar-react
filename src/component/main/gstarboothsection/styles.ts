@@ -72,7 +72,7 @@ export const GstarBoothSectionWrapper = styled.section`
           position: relative;
           width: calc(33.333% - (4rem / 3));
           padding: 3.6rem;
-          border-radius: 1.2rem;
+          /* border-radius: 1.2rem; */
           min-height: 52rem;
           overflow: hidden;
           opacity: 0;

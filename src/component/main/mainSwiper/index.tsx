@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Swiper as SwiperCore } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Link } from "react-router-dom";
 
 import { MainSwiperWrapper } from "./styles";
 
@@ -13,6 +12,7 @@ import TimeImage from "../../../assets/images/main/main-time-slide-image.png";
 import TitleImage from "../../../assets/images/main/main-title.png";
 import MoTitleImage from "../../../assets/images/main/main-mo-title.png";
 
+import { Link } from "react-router-dom";
 import LogoAionImage from "../../../assets/images/main/main-aion-logo-slide-image.png";
 import LogoCinderImage from "../../../assets/images/main/main-cinder-logo-slide-image.png";
 import LogoLimitImage from "../../../assets/images/main/main-limit-logo-slide-image.png";
@@ -39,6 +39,7 @@ const list = [
     title: "신더시티",
     subTitle: "새로운 슈터 장르의 시작",
   },
+
   { link: "", uid: 3, img: CmImage, logoImg: null },
   {
     link: "timetakers",
@@ -46,7 +47,7 @@ const list = [
     img: TimeImage,
     logoImg: LogoTimeImage,
     title: "타임 테이커즈",
-    subTitle: "“시간”으로 진화한 차세대 서바이벌 슈터",
+    subTitle: `“시간”으로 진화한 차세대 서바이벌 슈터`,
   },
   {
     link: "breakers",
@@ -73,6 +74,7 @@ const list = [
     title: "신더시티",
     subTitle: "새로운 슈터 장르의 시작",
   },
+
   { link: "", uid: 8, img: CmImage, logoImg: null },
   {
     link: "timetakers",
@@ -80,7 +82,7 @@ const list = [
     img: TimeImage,
     logoImg: LogoTimeImage,
     title: "타임 테이커즈",
-    subTitle: "“시간”으로 진화한 차세대 서바이벌 슈터",
+    subTitle: `“시간”으로 진화한 차세대 서바이벌 슈터`,
   },
   {
     link: "breakers",
@@ -94,18 +96,19 @@ const list = [
 
 const MainSwiper = () => {
   const [moActiveIndex, setMoActiveIndex] = useState(0);
+
   const swiperRef = useRef<SwiperCore | null>(null);
+
   const [isFirstRender, setIsFirstRender] = useState(true);
 
   useEffect(() => {
-    const preload = [
+    const preloadImages = [
       AionImage,
       CinderImage,
       CmImage,
       LimitImage,
       TimeImage,
       TitleImage,
-      MoTitleImage,
       LogoAionImage,
       LogoCinderImage,
       LogoLimitImage,
@@ -114,15 +117,15 @@ const MainSwiper = () => {
       HardLeftDim,
       HardRightDim,
     ];
-    preload.forEach((src) => {
-      const i = new Image();
-      i.src = src;
+    preloadImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
     });
   }, []);
 
   useEffect(() => {
-    const t = setTimeout(() => setIsFirstRender(false), 1500);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => setIsFirstRender(false), 1500);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -134,65 +137,64 @@ const MainSwiper = () => {
         <i>
           <img src={MoTitleImage} alt="" className="mo-image" />
         </i>
+        {/* <span className="dim"></span> */}
       </h2>
-
       <div className="swiper-box">
         <Swiper
-          onSwiper={(s: SwiperCore) => (swiperRef.current = s)}
-          onSlideChange={(s: SwiperCore) => setMoActiveIndex(s.realIndex)}
+          onSwiper={(swiper: SwiperCore) => (swiperRef.current = swiper)}
+          onSlideChange={(swiper: SwiperCore) =>
+            setMoActiveIndex(swiper.realIndex)
+          }
           slidesPerView={5}
           spaceBetween={16}
           centeredSlides={true}
           loop={true}
           speed={800}
           breakpoints={{
-            1200: { slidesPerView: 5, spaceBetween: 16 },
-            1024: { slidesPerView: 4.5, spaceBetween: 14 },
-            768: { slidesPerView: 3.6, spaceBetween: 14 },
-            640: { slidesPerView: 3 },
+            1200: {
+              slidesPerView: 5,
+              spaceBetween: 16,
+            },
+            1024: {
+              slidesPerView: 4.5,
+              spaceBetween: 14,
+            },
+            768: {
+              slidesPerView: 3.6,
+              spaceBetween: 14,
+            },
+            640: {
+              slidesPerView: 3,
+            },
           }}
+
+          // loopAdditionalSlides={10}
+          // grapCursor={true}
         >
           {list.map((item, idx) => {
+            let positionClass = "";
             const total = list.length;
-            const stepsRight = (idx - moActiveIndex + total) % total; // 0..total-1
-            let side: "center" | "left" | "right" = "center";
-            let dist = 0;
+            const diff = (idx - moActiveIndex + total) % total;
 
-            if (stepsRight === 0) {
-              side = "center";
-              dist = 0;
-            } else if (stepsRight <= total / 2) {
-              side = "right";
-              dist = Math.min(stepsRight, 2); // 1: 가까움(soft), 2: 멀리(hard)
-            } else {
-              side = "left";
-              dist = Math.min(total - stepsRight, 2);
-            }
+            if (diff === 0) positionClass = "center";
+            else if (diff <= total / 2) positionClass = "right";
+            else positionClass = "left";
 
             return (
               <SwiperSlide
                 key={item.uid}
-                className={`contents-0${idx + 1} ${side} dist-${dist}`}
+                className={`contents-0${idx + 1} ${positionClass}`}
               >
                 <Link to={item.link ? `/work/${item.link}` : "/"}>
                   <i className="char-image">
                     <img src={item.img} alt="" />
                   </i>
-
-                  {/* dim 레이어를 고정(배경 교체 없음) */}
-                  <div className="dim-wrap">
-                    <span className="dim left soft" />
-                    <span className="dim left hard" />
-                    <span className="dim right soft" />
-                    <span className="dim right hard" />
-                  </div>
-
+                  <span className="dim"></span>
                   {item.logoImg && (
-                    <i className="logo-image">
+                    <i className={`logo-image`}>
                       <img src={item.logoImg} alt="" />
                     </i>
                   )}
-
                   {item.title && item.subTitle && (
                     <div className="text-wrap">
                       <h2>{item.title}</h2>

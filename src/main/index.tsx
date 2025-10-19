@@ -9,6 +9,7 @@ import VideoSection from "../component/main/videosection";
 import { TapeWrapper } from "./styles";
 import Intro from "../component/main/intro";
 import TicketSection from "../component/main/ticektsection";
+import MainSection from "../component/main/mainsection";
 
 const Main = () => {
   const location = useLocation();
@@ -91,7 +92,7 @@ const Main = () => {
       {/* 🔹 메인 컨텐츠 */}
       {introStep === "done" && (
         <>
-          {/* <MainSection /> */}
+          <MainSection />
 
           <VideoSection />
           <GstarSection />
