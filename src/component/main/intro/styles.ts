@@ -29,10 +29,14 @@ const textMove = keyframes`
 
 export const IntroVideoWrapper = styled.div`
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
   z-index: 2000;
+  video {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 /* 🔹 dim 오버레이 */
