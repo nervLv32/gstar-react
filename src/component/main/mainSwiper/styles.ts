@@ -1,8 +1,6 @@
 import { keyframes, styled } from "styled-components";
-import SlideBorderImage from "../../../assets/images/main/main-border-slide-image.png";
-import ActiveShadowImage from "../../../assets/images/main/main-slide-active-shadow.png";
-import HardLeftDim from "../../../assets/images/main/main-slide-hard-left-dim.png";
-import HardRightDim from "../../../assets/images/main/main-slide-hard-right-dim.png";
+import SlideBorderImage from "../../../assets/images/main/main-border-slide-image.webp";
+import ActiveShadowImage from "../../../assets/images/main/main-slide-active-shadow.webp";
 
 const titleFadeIn = keyframes`
   0% { opacity: 0; }
@@ -120,7 +118,6 @@ export const MainSwiperWrapper = styled.div`
             );
           }
           &.left.hard {
-            /* background: url(${HardLeftDim}) no-repeat center / cover; */
             background: linear-gradient(
               to right,
               rgba(0, 0, 0, 0.8) 0%,
@@ -138,7 +135,6 @@ export const MainSwiperWrapper = styled.div`
             );
           }
           &.right.hard {
-            /* background: url(${HardRightDim}) no-repeat center / cover; */
             background: linear-gradient(
               to left,
               rgba(0, 0, 0, 0.8) 0%,

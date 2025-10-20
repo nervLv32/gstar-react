@@ -18,10 +18,7 @@ import LogoCinderImage from "./assets/images/main/main-cinder-logo-slide-image.w
 import LogoLimitImage from "./assets/images/main/main-limit-logo-slide-image.webp";
 import LogoTimeImage from "./assets/images/main/main-time-logo-slide-image.webp";
 
-import ActiveShadowImage from "./assets/images/main/main-slide-active-shadow.png";
-import HardLeftDim from "./assets/images/main/main-slide-hard-left-dim.png";
-import HardRightDim from "./assets/images/main/main-slide-hard-right-dim.png";
-import SoftLeftDim from "./assets/images/main/main-slide-soft-left-dim.png";
+import ActiveShadowImage from "./assets/images/main/main-slide-active-shadow.webp";
 
 import AionLogo from "./assets/images/ip/aion/ip-aion-logo.webp";
 import TimeTakersLogo from "./assets/images/ip/timetakers/ip-timetakers-logo.webp";
@@ -59,9 +56,7 @@ function App() {
       LogoLimitImage,
       LogoTimeImage,
       ActiveShadowImage,
-      HardLeftDim,
-      HardRightDim,
-      SoftLeftDim,
+
       // ip 상세 배경, 로고이미지도 preload 필요
       AionLogo,
       TimeTakersLogo,
