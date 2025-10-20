@@ -27,15 +27,17 @@ const Intro = ({
         />
       )}
 
-      {step === "dim" && (
-        <DimOverlay onAnimationEnd={onDimEnd}>
+      {/* {step === "dim" && ( */}
+      <DimOverlay onAnimationEnd={onDimEnd}>
+        <div className="dim-box">
           <h2 className="intro-text">
             <i className="title">
               <img src={TitleImage} alt="title" />
             </i>
           </h2>
-        </DimOverlay>
-      )}
+        </div>
+      </DimOverlay>
+      {/* )} */}
     </IntroVideoWrapper>
   );
 };

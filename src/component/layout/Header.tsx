@@ -39,7 +39,7 @@ const Header = () => {
       navigate("/");
     }
   };
-  const handleCopyLink = (text = "https://naver.com") => {
+  const handleCopyLink = (text = "https://about.ncsoft.com/gstar2025") => {
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard
         .writeText(text)

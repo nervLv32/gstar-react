@@ -15,8 +15,81 @@ const textMove = keyframes`
     transform: translate(-50%, -50%) scale(1);
   }
   100% {
-    top: 11rem;
+    top: -3.5rem;
     transform: translate(-50%, 0) scale(0.79);
+  }
+`;
+
+const pcTextMove = keyframes`
+  0% {
+    width: 90vw;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    top: -2.431vw;
+    transform: translate(-50%, 0);
+    width: 79.167vw;
+  }
+`;
+
+const smallPcTextMove = keyframes`
+  0% {
+    width: 90vw;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    width: 79.167vw;
+    top: -3.5vw;
+    transform: translate(-50%, 0);
+  }
+`;
+
+const tinyPcTextMove = keyframes`
+  0% {
+    width: 95vw;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    width: 79.167vw;
+    top: -4.5vw;
+    transform: translate(-50%, 0);
+  }
+`;
+
+const tabletTextMove = keyframes`
+  0% {
+    width: 90vw;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    width: 79.167vw;
+    top: -1vw;
+    transform: translate(-50%, 0);
+  }
+`;
+
+const smallTabletTextMove = keyframes`
+  0% {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    top: -2.5vw;
+    transform: translate(-50%, 0);
+  }
+  `;
+const moTextMove = keyframes`
+  0% {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    top: -3.5vw;
+    transform: translate(-50%, 0);
   }
 `;
 
@@ -43,6 +116,12 @@ export const DimOverlay = styled.div`
   animation: ${dimFadeOut} 3s ease forwards;
   pointer-events: none;
   z-index: 600;
+  .dim-box {
+    width: 144rem;
+    margin: 14rem auto 0;
+    position: relative;
+    height: 83rem;
+  }
   .left {
     display: block;
     width: 80rem;
@@ -54,8 +133,8 @@ export const DimOverlay = styled.div`
   }
 
   .intro-text {
-    position: fixed;
-    width: 145rem;
+    position: absolute;
+    width: 144rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -72,6 +151,72 @@ export const DimOverlay = styled.div`
         display: block;
         width: 100%;
       }
+    }
+  }
+  @media all and (max-width: 1440px) {
+    .dim-box {
+      width: 100%;
+      margin: 7.639vw auto 0;
+      position: relative;
+      height: 58.542vw;
+    }
+    .intro-text {
+      width: 90vw;
+      /* width: 79.167vw; */
+      animation: ${pcTextMove} 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+  }
+  @media all and (max-width: 1200px) {
+    .dim-box {
+      margin-top: 5.833vw;
+      height: 66.083vw;
+    }
+    .intro-text {
+      animation: ${smallPcTextMove} 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+  }
+  @media all and (max-width: 1023px) {
+    .dim-box {
+      margin-top: 0.977vw;
+      height: 79.941vw;
+    }
+    .intro-text {
+      animation: ${tinyPcTextMove} 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+  }
+  @media all and (max-width: 899px) {
+    .dim-box {
+      margin-top: 8.889vw;
+      height: 99.221vw;
+    }
+    .intro-text {
+      animation: ${tabletTextMove} 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      animation-delay: 1s;
+    }
+  }
+  @media all and (max-width: 767px) {
+    .dim-box {
+      margin-top: 10.813vw;
+      margin-bottom: 7.813vw;
+      height: 111.473vw;
+    }
+    .intro-text {
+      width: 95vw;
+      animation: ${smallTabletTextMove} 2s cubic-bezier(0.25, 1, 0.5, 1)
+        forwards;
+      animation-delay: 1s;
+    }
+  }
+  @media all and (max-width: 499px) {
+    .dim-box {
+      margin-top: 8vw;
+      margin-bottom: 12vw;
+      height: 132.465vw;
+    }
+    .intro-text {
+      width: 95vw;
+      animation: ${moTextMove} 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      animation-delay: 1s;
     }
   }
 `;
