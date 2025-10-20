@@ -124,7 +124,7 @@ export const useFullpage = () => {
     };
   }, []);
 
-  /** ✅ 초기 세팅 */
+  /** ✅ 초기 세팅 (수정된 부분 포함) */
   useLayoutEffect(() => {
     collectSections();
 
@@ -134,17 +134,17 @@ export const useFullpage = () => {
       gsap.set(items, { opacity: 0, y: 40 });
     });
 
-    const y = window.scrollY;
-    const index = Math.round(y / window.innerHeight);
-    setCurrentSection(index);
+    // ✅ 항상 첫 섹션(1섹션)에서 시작하도록 강제
+    window.scrollTo(0, 0);
+    setCurrentSection(0);
 
     if (isFullpageEnabled) {
-      setupDesktopInitial(index);
+      setupDesktopInitial(0);
 
-      // ✅ 첫 섹션에서 새로고침 시만 애니메이션 실행
-      if (index === 0 && sectionsRef.current[index]) {
-        const items =
-          sectionsRef.current[index].querySelectorAll("[data-anim]");
+      // ✅ 첫 섹션 애니메이션 실행
+      const first = sectionsRef.current[0];
+      if (first) {
+        const items = first.querySelectorAll("[data-anim]");
         gsap.fromTo(
           items,
           { opacity: 0, y: 40 },

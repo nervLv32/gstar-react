@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import Bg from "../assets/images/info/info-bg.png";
+import Bg from "../assets/images/info/info-bg.webp";
 
 export const InfoWrapper = styled.div`
   .info-visual-section {

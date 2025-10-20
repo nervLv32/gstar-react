@@ -7,17 +7,17 @@ import { InfoWrapper } from "./styles";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import BoothImage from "../assets/images/info/info-booth.png";
-import MainImage01 from "../assets/images/info/info-main-slide-image01.png";
-import MainImage02 from "../assets/images/info/info-main-slide-image02.png";
-import MainImage03 from "../assets/images/info/info-main-slide-image03.png";
-import MainImage04 from "../assets/images/info/info-main-slide-image04.png";
+import BoothImage from "../assets/images/info/info-booth.webp";
+import MainImage01 from "../assets/images/info/info-main-slide-image01.webp";
+import MainImage02 from "../assets/images/info/info-main-slide-image02.webp";
+import MainImage03 from "../assets/images/info/info-main-slide-image03.webp";
+import MainImage04 from "../assets/images/info/info-main-slide-image04.webp";
 
-import RestImage01 from "../assets/images/info/info-rest-slide-image01.png";
-import RestImage02 from "../assets/images/info/info-rest-slide-image02.png";
+import RestImage01 from "../assets/images/info/info-rest-slide-image01.webp";
+import RestImage02 from "../assets/images/info/info-rest-slide-image02.webp";
 
-import BoothImage01 from "../assets/images/info/info-booth-slide-image01.png";
-import BoothImage02 from "../assets/images/info/info-booth-slide-image02.png";
+import BoothImage01 from "../assets/images/info/info-booth-slide-image01.webp";
+import BoothImage02 from "../assets/images/info/info-booth-slide-image02.webp";
 
 import NextIcon from "../assets/images/info/info-slide-next-arrow.png";
 import PrevIcon from "../assets/images/info/info-slide-prev-arrow.png";
