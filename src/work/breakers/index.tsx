@@ -110,11 +110,11 @@ const Breakers = () => {
                   setMoActiveIndex(swiper.activeIndex)
                 }
                 spaceBetween={14}
-                slidesPerView={1}
+                slidesPerView={1.05}
                 breakpoints={{
                   1200: { slidesPerView: 2, spaceBetween: 22 },
                   768: { slidesPerView: 1.4, spaceBetween: 14 },
-                  500: { slidesPerView: 1.1, spaceBetween: 10 },
+                  500: { slidesPerView: 1.05, spaceBetween: 10 },
                 }}
               >
                 {[Slide01, Slide02, Slide03, Slide04, Slide05].map((img, i) => (

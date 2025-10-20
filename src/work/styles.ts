@@ -562,6 +562,15 @@ export const IpWrapper = styled.div`
         }
       }
     }
+    .info-section {
+      .section-wrapper {
+        .swiper {
+          .swiper-pagination-progressbar {
+            width: calc(100% - 4.4vw)
+          }
+        }
+      }
+    }
   }
 
 
