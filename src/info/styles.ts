@@ -67,12 +67,13 @@ export const InfoWrapper = styled.div`
           width: 23.5rem;
           height: 6.5rem;
           border-radius: 10rem;
-          background: #cacaca;
+          background: #7d7d7d;
           font-size: 2.8rem;
           display: flex;
           align-items: center;
           justify-content: center;
           color: rgba(255, 255, 255, 0.7);
+
           cursor: pointer;
           &.active {
             background: linear-gradient(

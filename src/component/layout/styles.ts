@@ -42,6 +42,7 @@ export const HeaderWrapper = styled.header`
         font-weight: 700;
         font-size: 2.2rem;
         color: #fff;
+        min-width: 10.3rem;
       }
     }
   }
@@ -72,7 +73,7 @@ export const HeaderWrapper = styled.header`
       right: 2rem;
     }
     .nav {
-      gap: 3.5rem;
+      gap: 2.4rem;
     }
   }
   @media all and (max-width: 768px) {

@@ -117,7 +117,7 @@ const TicketSection = () => {
               className={`text-wrap fade-item ${textVisible ? "active" : ""}`}
             >
               <h4 className="vitro fade-child delay-1">
-                2025 G-STAR는 <br className="mo-br" />
+                G-STAR 2025는 <br className="mo-br" />
                 NC와 함께!
               </h4>
               <p className="fade-child delay-2">
@@ -139,7 +139,7 @@ const TicketSection = () => {
                 <div className="info-wrap">
                   <div className="title-info-wrap">
                     <h5 className="vitro">
-                      2025 <span className="point">G-STAR 초대권</span>{" "}
+                      <span className="point">G-STAR 2025 초대권</span>{" "}
                       <br className="mo-br" />
                       400장
                     </h5>
@@ -158,9 +158,7 @@ const TicketSection = () => {
                     <dl>
                       <dt>당첨자 발표</dt>
                       <dd>
-                        2025년 11/4(화) 12:00:00
-                        <span className="pc-text">, </span>
-                        <br className="mo-br" />
+                        2025년 11/4(화) 12:00:00 <br className="mo-br" />
                         개별 SMS 안내
                       </dd>
                     </dl>

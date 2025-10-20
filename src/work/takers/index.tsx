@@ -60,10 +60,18 @@ const TimeTakers = () => {
             </div>
 
             <div className="button-wrap" data-anim>
-              <Link to="/" className="default">
-                <p>공식홈페이지 바로가기</p>
+              <Link
+                to="https://store.steampowered.com/app/3596040/Time_Takers/"
+                className="default"
+                target="_blank"
+              >
+                <p>게임 상세 페이지 바로가기</p>
               </Link>
-              <Link to="/" className="point">
+              <Link
+                to="https://youtube.com/@timetakersgg?si=OzZ61J7eMDzzqBSg"
+                className="point"
+                target="_blank"
+              >
                 <i>
                   <img src={ButtonIcon} alt="버튼 아이콘" />
                 </i>

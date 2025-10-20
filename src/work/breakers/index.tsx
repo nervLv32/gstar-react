@@ -60,10 +60,18 @@ const Breakers = () => {
             </div>
 
             <div className="button-wrap" data-anim>
-              <Link to="/" className="default">
+              <Link
+                to="https://breakers.plaync.com/ko-kr/conts/teasing?redirect=false&newsletter=true"
+                className="default"
+                target="_blank"
+              >
                 <p>공식홈페이지 바로가기</p>
               </Link>
-              <Link to="/" className="point">
+              <Link
+                to="https://www.youtube.com/@BREAKERS_KRofficial"
+                className="point"
+                target="_blank"
+              >
                 <i>
                   <img src={ButtonIcon} alt="버튼 아이콘" />
                 </i>

@@ -395,7 +395,7 @@ export const TicketSectionWrapper = styled.div`
             padding: 3.906vw 6.51vw;
 
             .title-info-wrap {
-              padding-bottom: 5.729vw;
+              padding-bottom: 3.906vw;
               margin-bottom: 3.906vw;
               h5 {
                 line-height: 1.5;
@@ -405,7 +405,8 @@ export const TicketSectionWrapper = styled.div`
                 }
               }
               > span {
-                bottom: 1.563vw;
+                right: 9.115vw;
+                bottom: 4.948vw;
                 font-size: 3.125vw;
                 line-height: 4.427vw;
               }

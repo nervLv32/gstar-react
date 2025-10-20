@@ -61,15 +61,23 @@ const Cinder = () => {
               </div>
 
               <div className="info-text" data-anim>
-                2025 NC G-STAR에서 신더시티를 더 빠르게 만나보세요.
+                NC G-STAR 2025에서 신더시티를 더 빠르게 만나보세요.
               </div>
             </div>
 
             <div className="button-wrap" data-anim>
-              <Link to="/" className="default">
+              <Link
+                to="https://cinder-city.com/"
+                className="default"
+                target="_blank"
+              >
                 <p>공식홈페이지 바로가기</p>
               </Link>
-              <Link to="/" className="point">
+              <Link
+                to="https://www.youtube.com/@CINDERCITYGAME"
+                className="point"
+                target="_blank"
+              >
                 <i>
                   <img src={ButtonIcon} alt="버튼 아이콘" />
                 </i>

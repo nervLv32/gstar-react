@@ -64,10 +64,18 @@ const Aion = () => {
             </div>
 
             <div className="button-wrap" data-anim>
-              <Link to="/" className="default">
+              <Link
+                to="https://aion2.plaync.com/"
+                className="default"
+                target="_blank"
+              >
                 <p>공식홈페이지 바로가기</p>
               </Link>
-              <Link to="/" className="point">
+              <Link
+                to="https://www.youtube.com/@AION2"
+                className="point"
+                target="_blank"
+              >
                 <i>
                   <img src={ButtonIcon} alt="버튼 아이콘" />
                 </i>

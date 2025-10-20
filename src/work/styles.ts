@@ -546,8 +546,8 @@ export const IpWrapper = styled.div`
         .text-button-wrapper {
           .button-wrap {
             a {
-              width: 16rem;
-              height: 3.6rem;
+              width: 17rem;
+              height: 3.8rem;
               &.point {
                 i {
                   display: none;

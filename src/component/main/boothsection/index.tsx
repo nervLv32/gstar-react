@@ -60,7 +60,7 @@ const BoothSection = () => {
   const rafId = useRef<number | null>(null);
 
   const { ref: bannerRef, visible: bannerVisible } = useFadeInObserver(
-    0.5,
+    0.1,
     false
   );
 
