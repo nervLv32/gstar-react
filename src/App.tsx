@@ -23,15 +23,22 @@ import HardLeftDim from "./assets/images/main/main-slide-hard-left-dim.png";
 import HardRightDim from "./assets/images/main/main-slide-hard-right-dim.png";
 import SoftLeftDim from "./assets/images/main/main-slide-soft-left-dim.png";
 
-import AionLogo from "./assets/images/ip/aion/ip-aion-logo.png";
-import TimeTakersLogo from "./assets/images/ip/timetakers/ip-timetakers-logo.png";
-import BreakersLogo from "./assets/images/ip/breakers/ip-breakers-logo.png";
-import CinderLogo from "./assets/images/ip/cinder/ip-cinder-logo.png";
+import AionLogo from "./assets/images/ip/aion/ip-aion-logo.webp";
+import TimeTakersLogo from "./assets/images/ip/timetakers/ip-timetakers-logo.webp";
+import BreakersLogo from "./assets/images/ip/breakers/ip-breakers-logo.webp";
+import CinderLogo from "./assets/images/ip/cinder/ip-cinder-logo.webp";
 
 import AionBg from "./assets/images/ip/aion/ip-aion-default-bg.webp";
+import AionMoBg from "./assets/images/ip/aion/ip-aion-mo-bg.webp";
+
 import CinderBg from "./assets/images/ip/cinder/ip-cinder-default-bg.webp";
+import CinderMoBg from "./assets/images/ip/cinder/ip-cinder-mo-bg.webp";
+
 import TimeTakersBg from "./assets/images/ip/timetakers/ip-timetakers-default-bg.webp";
+import TimeTakersMoBg from "./assets/images/ip/timetakers/ip-timetakers-mo-bg.webp";
+
 import BreakersBg from "./assets/images/ip/breakers/ip-breakers-default-bg.webp";
+import BreakersMoBg from "./assets/images/ip/breakers/ip-breakers-mo-bg.webp";
 import IntroBg from "./assets/images/intro/intro-bg.png";
 import { useEffect } from "react";
 // E ::: Preload IMages ::: E
@@ -61,9 +68,13 @@ function App() {
       BreakersLogo,
       CinderLogo,
       AionBg,
+      AionMoBg,
       CinderBg,
+      CinderMoBg,
       TimeTakersBg,
+      TimeTakersMoBg,
       BreakersBg,
+      BreakersMoBg,
       IntroBg,
     ];
     preloadImages.forEach((src) => {

@@ -11,12 +11,12 @@ import Header from "../../component/layout/Header";
 import FloatingMenu from "../../component/ip/floatingmenu";
 
 import ButtonIcon from "../../assets/images/ip/aion/ip-aion-button-icon.png";
-import TimeTakersLogo from "../../assets/images/ip/timetakers/ip-timetakers-logo.png";
+import TimeTakersLogo from "../../assets/images/ip/timetakers/ip-timetakers-logo.webp";
 
-import Slide01 from "../../assets/images/ip/timetakers/ip-timetakers-slide01.png";
-import Slide02 from "../../assets/images/ip/timetakers/ip-timetakers-slide02.png";
-import Slide03 from "../../assets/images/ip/timetakers/ip-timetakers-slide03.png";
-import Slide04 from "../../assets/images/ip/timetakers/ip-timetakers-slide04.png";
+import Slide01 from "../../assets/images/ip/timetakers/ip-timetakers-slide01.webp";
+import Slide02 from "../../assets/images/ip/timetakers/ip-timetakers-slide02.webp";
+import Slide03 from "../../assets/images/ip/timetakers/ip-timetakers-slide03.webp";
+import Slide04 from "../../assets/images/ip/timetakers/ip-timetakers-slide04.webp";
 import { useViewportHeight } from "../../hooks/useViewportHeight";
 
 const TimeTakers = () => {

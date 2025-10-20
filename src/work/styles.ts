@@ -1,12 +1,12 @@
 import { styled } from "styled-components";
 import AionBg from "../assets/images/ip/aion/ip-aion-default-bg.webp";
-import AionMoBg from "../assets/images/ip/aion/ip-aion-mo-bg.png";
+import AionMoBg from "../assets/images/ip/aion/ip-aion-mo-bg.webp";
 import CinderBg from "../assets/images/ip/cinder/ip-cinder-default-bg.webp";
-import CinderMoBg from "../assets/images/ip/cinder/ip-cinder-mo-bg.png";
+import CinderMoBg from "../assets/images/ip/cinder/ip-cinder-mo-bg.webp";
 import TimeTakersBg from "../assets/images/ip/timetakers/ip-timetakers-default-bg.webp";
-import TimeTakersMoBg from "../assets/images/ip/timetakers/ip-timetakers-mo-bg.png";
+import TimeTakersMoBg from "../assets/images/ip/timetakers/ip-timetakers-mo-bg.webp";
 import BreakersBg from "../assets/images/ip/breakers/ip-breakers-default-bg.webp";
-import BreakersMoBg from "../assets/images/ip/breakers/ip-breakers-mo-bg.png";
+import BreakersMoBg from "../assets/images/ip/breakers/ip-breakers-mo-bg.webp";
 interface IpWrapperProps {
   $isVh?: string;
 }

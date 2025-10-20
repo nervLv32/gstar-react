@@ -11,13 +11,13 @@ import FloatingMenu from "../../component/ip/floatingmenu";
 import Header from "../../component/layout/Header";
 
 import ButtonIcon from "../../assets/images/ip/aion/ip-aion-button-icon.png";
-import AionLogo from "../../assets/images/ip/aion/ip-aion-logo.png";
+import AionLogo from "../../assets/images/ip/aion/ip-aion-logo.webp";
 
-import Slide01 from "../../assets/images/ip/aion/ip-aion-slide01.png";
-import Slide02 from "../../assets/images/ip/aion/ip-aion-slide02.png";
-import Slide03 from "../../assets/images/ip/aion/ip-aion-slide03.jpg";
-import Slide04 from "../../assets/images/ip/aion/ip-aion-slide04.jpg";
-import Slide05 from "../../assets/images/ip/aion/ip-aion-slide05.jpg";
+import Slide01 from "../../assets/images/ip/aion/ip-aion-slide01.webp";
+import Slide02 from "../../assets/images/ip/aion/ip-aion-slide02.webp";
+import Slide03 from "../../assets/images/ip/aion/ip-aion-slide03.webp";
+import Slide04 from "../../assets/images/ip/aion/ip-aion-slide04.webp";
+import Slide05 from "../../assets/images/ip/aion/ip-aion-slide05.webp";
 import { useViewportHeight } from "../../hooks/useViewportHeight";
 
 const Aion = () => {

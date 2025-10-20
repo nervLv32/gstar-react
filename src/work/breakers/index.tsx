@@ -11,13 +11,13 @@ import FloatingMenu from "../../component/ip/floatingmenu";
 import Header from "../../component/layout/Header";
 
 import ButtonIcon from "../../assets/images/ip/aion/ip-aion-button-icon.png";
-import BreakersLogo from "../../assets/images/ip/breakers/ip-breakers-logo.png";
+import BreakersLogo from "../../assets/images/ip/breakers/ip-breakers-logo.webp";
 
-import Slide01 from "../../assets/images/ip/breakers/ip-breakers-slide01.jpg";
-import Slide02 from "../../assets/images/ip/breakers/ip-breakers-slide02.png";
-import Slide03 from "../../assets/images/ip/breakers/ip-breakers-slide03.jpg";
-import Slide04 from "../../assets/images/ip/breakers/ip-breakers-slide04.png";
-import Slide05 from "../../assets/images/ip/breakers/ip-breakers-slide05.jpg";
+import Slide01 from "../../assets/images/ip/breakers/ip-breakers-slide01.webp";
+import Slide02 from "../../assets/images/ip/breakers/ip-breakers-slide02.webp";
+import Slide03 from "../../assets/images/ip/breakers/ip-breakers-slide03.webp";
+import Slide04 from "../../assets/images/ip/breakers/ip-breakers-slide04.webp";
+import Slide05 from "../../assets/images/ip/breakers/ip-breakers-slide05.webp";
 import { useViewportHeight } from "../../hooks/useViewportHeight";
 
 const Breakers = () => {

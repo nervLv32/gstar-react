@@ -11,13 +11,13 @@ import Header from "../../component/layout/Header";
 import FloatingMenu from "../../component/ip/floatingmenu";
 
 import ButtonIcon from "../../assets/images/ip/aion/ip-aion-button-icon.png";
-import CinderLogo from "../../assets/images/ip/cinder/ip-cinder-logo.png";
+import CinderLogo from "../../assets/images/ip/cinder/ip-cinder-logo.webp";
 
-import Slide01 from "../../assets/images/ip/cinder/ip-cinder-slide01.png";
-import Slide02 from "../../assets/images/ip/cinder/ip-cinder-slide02.png";
-import Slide03 from "../../assets/images/ip/cinder/ip-cinder-slide03.png";
-import Slide04 from "../../assets/images/ip/cinder/ip-cinder-slide04.png";
-import Slide05 from "../../assets/images/ip/cinder/ip-cinder-slide05.png";
+import Slide01 from "../../assets/images/ip/cinder/ip-cinder-slide01.webp";
+import Slide02 from "../../assets/images/ip/cinder/ip-cinder-slide02.webp";
+import Slide03 from "../../assets/images/ip/cinder/ip-cinder-slide03.webp";
+import Slide04 from "../../assets/images/ip/cinder/ip-cinder-slide04.webp";
+import Slide05 from "../../assets/images/ip/cinder/ip-cinder-slide05.webp";
 import { useViewportHeight } from "../../hooks/useViewportHeight";
 
 const Cinder = () => {
