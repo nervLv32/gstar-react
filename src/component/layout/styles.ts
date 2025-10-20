@@ -199,9 +199,9 @@ export const FooterWrapper = styled.footer`
                 width: 348px;
               }
             }
-            &.w-130px {
+            &.w-175px {
               i {
-                width: 130px;
+                width: 175px;
               }
             }
             &.w-162px {
@@ -325,8 +325,8 @@ export const FooterWrapper = styled.footer`
               &.w-348px i {
                 width: calc(348px * 0.9);
               }
-              &.w-130px i {
-                width: calc(130px * 0.9);
+              &.w-175px i {
+                width: calc(175px * 0.9);
               }
               &.w-162px i {
                 width: calc(162px * 0.9);
@@ -374,8 +374,8 @@ export const FooterWrapper = styled.footer`
               &.w-348px i {
                 width: calc(348px * 0.8);
               }
-              &.w-130px i {
-                width: calc(130px * 0.8);
+              &.w-175px i {
+                width: calc(175px * 0.8);
               }
               &.w-162px i {
                 width: calc(162px * 0.8);
@@ -449,8 +449,8 @@ export const FooterWrapper = styled.footer`
               &.w-348px i {
                 width: calc(348px * 0.7);
               }
-              &.w-130px i {
-                width: calc(130px * 0.7);
+              &.w-175px i {
+                width: calc(175px * 0.7);
               }
               &.w-162px i {
                 width: calc(162px * 0.7);

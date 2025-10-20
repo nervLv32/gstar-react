@@ -443,6 +443,7 @@ export const IpWrapper = styled.div<IpWrapperProps>`
     height: auto;
     .ip-section {
       .logo-text-wrap {
+        right: 0;
         width: 100%;
         gap: 3rem;
        .logo-wrap {
@@ -550,8 +551,12 @@ export const IpWrapper = styled.div<IpWrapperProps>`
     .ip-section {
       height: calc(${(props) => props.$isVh || "100vh"}) !important;
       .logo-text-wrap {
+        top: unset;
+                left: 50%;
+        transform: translateX(-50%);
         bottom: 5rem;
         gap: 6.25vw;
+
         .logo-wrap {
           height: 32.813vw;
           > i {
@@ -600,6 +605,7 @@ export const IpWrapper = styled.div<IpWrapperProps>`
           }
         }
       }
+      
     }
     .info-section {
       padding: 18.75vw 0 28.438vw;
@@ -631,6 +637,7 @@ export const IpWrapper = styled.div<IpWrapperProps>`
     .ip-section {
         
       .logo-text-wrap {
+        min-width: 1rem;
         .text-button-wrapper {
           .button-wrap {
             a {

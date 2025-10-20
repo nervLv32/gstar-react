@@ -77,8 +77,8 @@ export const TicketSectionWrapper = styled.div`
               line-height: 4.4rem;
               color: #003769;
               position: absolute;
-              bottom: 0;
-              right: 8rem;
+              bottom: 0.6rem;
+              right: 9.2rem;
             }
           }
           .dl-info-wrap {

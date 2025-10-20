@@ -216,6 +216,7 @@ export const GstarBoothSectionWrapper = styled.section`
 
             h6 {
               height: 8rem;
+              line-height: 8rem;
               font-size: 3.8rem;
               color: #fff;
             }
@@ -470,6 +471,7 @@ export const GstarBoothSectionWrapper = styled.section`
 
             h6 {
               height: 8rem;
+              line-height: 8rem;
               font-size: 3.8rem;
               color: #fff;
             }
@@ -508,6 +510,7 @@ export const GstarBoothSectionWrapper = styled.section`
               min-height: 58rem;
               .text-box {
                 h6 {
+                  line-height: 6rem;
                   height: 6rem;
                 }
               }
@@ -585,6 +588,7 @@ export const GstarBoothSectionWrapper = styled.section`
               .text-box {
                 h6 {
                   height: 7.8125vw;
+                  line-height: 7.8125vw;
                   font-size: 4.427vw;
                 }
                 p {
@@ -695,6 +699,7 @@ export const GstarBoothSectionWrapper = styled.section`
               .text-box {
                 h6 {
                   height: 12vw;
+                  line-height: 12vw;
                   font-size: 6.4vw;
                 }
                 p {

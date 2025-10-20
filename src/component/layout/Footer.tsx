@@ -49,7 +49,7 @@ const Footer = () => {
                   <img src={SmallLogo04} alt="" />
                 </i>
               </li>
-              <li className="w-130px">
+              <li className="w-175px">
                 <i>
                   <img src={SmallLogo05} alt="" />
                 </i>
