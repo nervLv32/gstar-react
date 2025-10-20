@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { TicketWrapper } from "./styles";
-import TicketImage from "../../../assets/images/main/main-ticket.png";
+import TicketImage from "../../../assets/images/main/main-ticket.webp";
 
 const Ticket = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);

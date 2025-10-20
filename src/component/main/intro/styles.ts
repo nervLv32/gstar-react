@@ -1,5 +1,5 @@
 import { styled, keyframes } from "styled-components";
-import IntroBg from "../../../assets/images/intro/intro-bg.png";
+import IntroBg from "../../../assets/images/intro/intro-bg.webp";
 
 /* 🔹 dim 유지 후 서서히 사라짐 (5초 유지, 2초 페이드아웃) */
 const dimFadeOut = keyframes`

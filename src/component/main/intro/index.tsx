@@ -1,5 +1,5 @@
 import React from "react";
-import TitleImage from "../../../assets/images/main/main-title.png";
+import TitleImage from "../../../assets/images/main/main-title.webp";
 import { DimOverlay, IntroVideoWrapper } from "./styles";
 
 const Intro = ({

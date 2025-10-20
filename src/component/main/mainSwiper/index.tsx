@@ -5,22 +5,17 @@ import { Link } from "react-router-dom";
 
 import { MainSwiperWrapper } from "./styles";
 
-import AionImage from "../../../assets/images/main/main-aion-slide-image.png";
-import CinderImage from "../../../assets/images/main/main-cinder-slide-image.png";
-import CmImage from "../../../assets/images/main/main-cm-slide-image.png";
-import LimitImage from "../../../assets/images/main/main-limit-slide-image.png";
-import TimeImage from "../../../assets/images/main/main-time-slide-image.png";
-import TitleImage from "../../../assets/images/main/main-title.png";
-import MoTitleImage from "../../../assets/images/main/main-mo-title.png";
+import AionImage from "../../../assets/images/main/main-aion-slide-image.webp";
+import CinderImage from "../../../assets/images/main/main-cinder-slide-image.webp";
+import CmImage from "../../../assets/images/main/main-cm-slide-image.webp";
+import LimitImage from "../../../assets/images/main/main-limit-slide-image.webp";
+import TimeImage from "../../../assets/images/main/main-time-slide-image.webp";
+import TitleImage from "../../../assets/images/main/main-title.webp";
 
-import LogoAionImage from "../../../assets/images/main/main-aion-logo-slide-image.png";
-import LogoCinderImage from "../../../assets/images/main/main-cinder-logo-slide-image.png";
-import LogoLimitImage from "../../../assets/images/main/main-limit-logo-slide-image.png";
-import LogoTimeImage from "../../../assets/images/main/main-time-logo-slide-image.png";
-
-import ActiveShadowImage from "../../../assets/images/main/main-slide-active-shadow.png";
-import HardLeftDim from "../../../assets/images/main/main-slide-hard-left-dim.png";
-import HardRightDim from "../../../assets/images/main/main-slide-hard-right-dim.png";
+import LogoAionImage from "../../../assets/images/main/main-aion-logo-slide-image.webp";
+import LogoCinderImage from "../../../assets/images/main/main-cinder-logo-slide-image.webp";
+import LogoLimitImage from "../../../assets/images/main/main-limit-logo-slide-image.webp";
+import LogoTimeImage from "../../../assets/images/main/main-time-logo-slide-image.webp";
 
 const list = [
   {
@@ -98,29 +93,6 @@ const MainSwiper = () => {
   const [isFirstRender, setIsFirstRender] = useState(true);
 
   useEffect(() => {
-    const preload = [
-      AionImage,
-      CinderImage,
-      CmImage,
-      LimitImage,
-      TimeImage,
-      TitleImage,
-      MoTitleImage,
-      LogoAionImage,
-      LogoCinderImage,
-      LogoLimitImage,
-      LogoTimeImage,
-      ActiveShadowImage,
-      HardLeftDim,
-      HardRightDim,
-    ];
-    preload.forEach((src) => {
-      const i = new Image();
-      i.src = src;
-    });
-  }, []);
-
-  useEffect(() => {
     const t = setTimeout(() => setIsFirstRender(false), 1500);
     return () => clearTimeout(t);
   }, []);
@@ -130,9 +102,6 @@ const MainSwiper = () => {
       <h2 className="title-text">
         <i>
           <img src={TitleImage} alt="" className="pc-image" />
-        </i>
-        <i>
-          <img src={MoTitleImage} alt="" className="mo-image" />
         </i>
       </h2>
 

@@ -6,17 +6,17 @@ import ScrollToTop from "./component/scrolltop";
 import { ipRoutes, routes } from "./routes";
 
 // S ::: Preload IMages ::: S
-import AionImage from "./assets/images/main/main-aion-slide-image.png";
-import CinderImage from "./assets/images/main/main-cinder-slide-image.png";
-import CmImage from "./assets/images/main/main-cm-slide-image.png";
-import LimitImage from "./assets/images/main/main-limit-slide-image.png";
-import TimeImage from "./assets/images/main/main-time-slide-image.png";
-import TitleImage from "./assets/images/main/main-title.png";
+import AionImage from "./assets/images/main/main-aion-slide-image.webp";
+import CinderImage from "./assets/images/main/main-cinder-slide-image.webp";
+import CmImage from "./assets/images/main/main-cm-slide-image.webp";
+import LimitImage from "./assets/images/main/main-limit-slide-image.webp";
+import TimeImage from "./assets/images/main/main-time-slide-image.webp";
+import TitleImage from "./assets/images/main/main-title.webp";
 
-import LogoAionImage from "./assets/images/main/main-aion-logo-slide-image.png";
-import LogoCinderImage from "./assets/images/main/main-cinder-logo-slide-image.png";
-import LogoLimitImage from "./assets/images/main/main-limit-logo-slide-image.png";
-import LogoTimeImage from "./assets/images/main/main-time-logo-slide-image.png";
+import LogoAionImage from "./assets/images/main/main-aion-logo-slide-image.webp";
+import LogoCinderImage from "./assets/images/main/main-cinder-logo-slide-image.webp";
+import LogoLimitImage from "./assets/images/main/main-limit-logo-slide-image.webp";
+import LogoTimeImage from "./assets/images/main/main-time-logo-slide-image.webp";
 
 import ActiveShadowImage from "./assets/images/main/main-slide-active-shadow.png";
 import HardLeftDim from "./assets/images/main/main-slide-hard-left-dim.png";
@@ -39,7 +39,7 @@ import TimeTakersMoBg from "./assets/images/ip/timetakers/ip-timetakers-mo-bg.we
 
 import BreakersBg from "./assets/images/ip/breakers/ip-breakers-default-bg.webp";
 import BreakersMoBg from "./assets/images/ip/breakers/ip-breakers-mo-bg.webp";
-import IntroBg from "./assets/images/intro/intro-bg.png";
+import IntroBg from "./assets/images/intro/intro-bg.webp";
 import { useEffect } from "react";
 // E ::: Preload IMages ::: E
 

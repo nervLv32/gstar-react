@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { VideoSectionWrapper } from "./styles";
-import TitleImage from "../../../assets/images/main/main-title.png";
+import TitleImage from "../../../assets/images/main/main-title.webp";
 
 const VideoSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
