@@ -72,7 +72,8 @@ const Main = () => {
       {/* 🔹 인트로 전체 */}
       {location.pathname === "/" && introStep !== "done" && (
         <Intro
-          step={introStep}
+          // step={introStep}
+          step={"dim"}
           onVideoEnd={handleVideoEnd}
           onDimEnd={handleDimEnd}
           videoRef={videoRef}

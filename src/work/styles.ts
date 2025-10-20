@@ -92,10 +92,13 @@ export const IpWrapper = styled.div<IpWrapperProps>`
     }
   }
   &.breakers {
-        .ip-section {
-            background: url(${BreakersBg}) no-repeat center / center;
+      .ip-section {
+        background: url(${BreakersBg}) no-repeat center / cover;
       @media all and (max-width: 1024px) {
         background: url(${BreakersMoBg}) no-repeat bottom / cover;
+      }
+      .tablet-br {
+        display: none;
       }
     }
     /* .ip-section {
@@ -124,11 +127,28 @@ export const IpWrapper = styled.div<IpWrapperProps>`
       flex-direction: column;
       align-items: center;
       gap: 4rem;
+      min-width: 70rem;
+      .logo-wrap {
+        width: 100%;
+        height: 40rem;
+        position: relative;
+        > i {
+          display: block;
+          width: 82rem;
+          position: absolute;
+          top: -40%;
+          left: 50%;
+          margin-left: -41rem; 
+          right: 0;
+          img {
+            width: 100%;
+            display: block;
+          }
+        }
+      }
 
       i {
         display: block;
-
-        max-width: 70rem;
         img {
           width: 100%;
           display: block;
@@ -324,11 +344,16 @@ export const IpWrapper = styled.div<IpWrapperProps>`
   @media all and (max-width: 1540px) {
     .ip-section {
       .logo-text-wrap {
+        min-width: 50rem;
         right: 8rem;
         gap: 3rem;
         top: 60%;
-        i {
-          max-width: 45rem;
+        .logo-wrap {
+          height: 26rem;
+          > i {
+            width: 54rem;
+            margin-left: -27rem;
+          }
         }
         .text-button-wrapper {
           gap: 6rem;
@@ -361,16 +386,40 @@ export const IpWrapper = styled.div<IpWrapperProps>`
     }
   }
   @media all and (max-width: 1200px) {
+    &.breakers {
   .ip-section {
+      
+     .logo-text-wrap {
+      .text-button-wrapper {
+        .text-info-wrap {
+          .text-wrap {
+            h2 {
+              p {
+                line-height: 1.2;
+                .tablet-br {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+     }
+      
+    }
     .logo-text-wrap {
-      width: 100%;
+      
       top: unset;
       right: unset;
       bottom: 12%;
       left: 50%;
       transform: translateY(0) translateX(-50%);
-      i {
-        max-width: 40rem;
+      .logo-wrap {
+        height: 23rem;
+        > i {
+          width: 49rem;
+          margin-left: -24.5rem;
+        }
       }
     }
   }
@@ -396,8 +445,12 @@ export const IpWrapper = styled.div<IpWrapperProps>`
       .logo-text-wrap {
         width: 100%;
         gap: 3rem;
-        i {
-          max-width: 36rem;
+       .logo-wrap {
+          height: 21rem;
+          > i {
+            width: 44rem;
+            margin-left: -22rem;
+          }
         }
         .text-button-wrapper {
           .button-wrap {
@@ -499,8 +552,12 @@ export const IpWrapper = styled.div<IpWrapperProps>`
       .logo-text-wrap {
         bottom: 5rem;
         gap: 6.25vw;
-        i {
-          max-width: 56.25vw;
+        .logo-wrap {
+          height: 32.813vw;
+          > i {
+            width: 68.75vw;
+            margin-left: -34.375vw;
+          }
         }
         .text-button-wrapper {
           gap: 6.25vw;

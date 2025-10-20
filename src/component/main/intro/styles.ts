@@ -11,19 +11,12 @@ const dimFadeOut = keyframes`
 /* 🔹 intro-text 이동 애니메이션 (중앙 → 상단, 크기 축소) */
 const textMove = keyframes`
   0% {
-    width: 145rem;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  10% {
-    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
   100% {
-    width: 114rem;
     top: 11rem;
-    left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 0) scale(0.79);
   }
 `;
 
@@ -62,16 +55,13 @@ export const DimOverlay = styled.div`
 
   .intro-text {
     position: fixed;
-    width: 145rem; /* 시작 크기 */
+    width: 145rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     animation: ${textMove} 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     animation-delay: 1s;
+    will-change: transform, top;
 
     i {
       display: block;

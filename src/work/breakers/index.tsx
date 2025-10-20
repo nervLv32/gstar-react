@@ -54,16 +54,18 @@ const Breakers = () => {
       {/* SECTION 1 */}
       <section className="section ip-section">
         <div className="logo-text-wrap">
-          <i data-anim>
-            <img src={BreakersLogo} alt="LIMIT ZERO BREAKERS 로고" />
-          </i>
+          <div className="logo-wrap">
+            <i data-anim>
+              <img src={BreakersLogo} alt="LIMIT ZERO BREAKERS 로고" />
+            </i>
+          </div>
 
           <div className="text-button-wrapper">
             <div className="text-info-wrap">
               <div className="text-wrap">
                 <h2>
                   <p data-anim>
-                    세상을 구하지 않는다, <br className="mo-br" />
+                    세상을 구하지 않는다, <br className="tablet-br" />
                     나를 구하는 이야기
                   </p>
                 </h2>

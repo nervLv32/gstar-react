@@ -53,9 +53,11 @@ const Aion = () => {
       {/* SECTION 1 */}
       <section className="section ip-section">
         <div className="logo-text-wrap">
-          <i data-anim>
-            <img src={AionLogo} alt="AION2 로고" />
-          </i>
+          <div className="logo-wrap">
+            <i data-anim>
+              <img src={AionLogo} alt="AION2 로고" />
+            </i>
+          </div>
 
           <div className="text-button-wrapper">
             <div className="text-info-wrap">
