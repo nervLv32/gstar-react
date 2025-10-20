@@ -17,6 +17,7 @@ import Slide01 from "../../assets/images/ip/timetakers/ip-timetakers-slide01.png
 import Slide02 from "../../assets/images/ip/timetakers/ip-timetakers-slide02.png";
 import Slide03 from "../../assets/images/ip/timetakers/ip-timetakers-slide03.png";
 import Slide04 from "../../assets/images/ip/timetakers/ip-timetakers-slide04.png";
+import { useViewportHeight } from "../../hooks/useViewportHeight";
 
 const TimeTakers = () => {
   const { currentSection, isFullpageEnabled } = useFullpage();
@@ -35,8 +36,17 @@ const TimeTakers = () => {
     }
   }, [currentSection, isFullpageEnabled]);
 
+  useViewportHeight(); // ✅ 훅 호출
+
+  const [isVh, setIsVh] = useState("0");
+  useEffect(() => {
+    const vh = getComputedStyle(document.documentElement).getPropertyValue(
+      "--vh"
+    );
+    setIsVh(vh);
+  }, []);
   return (
-    <IpWrapper className="timetakers">
+    <IpWrapper className="timetakers" $isVh={isVh}>
       <Header />
       <FloatingMenu />
 
@@ -112,11 +122,11 @@ const TimeTakers = () => {
                   setMoActiveIndex(swiper.activeIndex)
                 }
                 spaceBetween={14}
-                slidesPerView={1}
+                slidesPerView={1.05}
                 breakpoints={{
                   1200: { slidesPerView: 2, spaceBetween: 22 },
                   768: { slidesPerView: 1.4, spaceBetween: 14 },
-                  500: { slidesPerView: 1.1, spaceBetween: 10 },
+                  500: { slidesPerView: 1.05, spaceBetween: 10 },
                 }}
               >
                 {[Slide01, Slide02, Slide03, Slide04].map((img, i) => (

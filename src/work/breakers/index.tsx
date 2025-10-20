@@ -18,9 +18,11 @@ import Slide02 from "../../assets/images/ip/breakers/ip-breakers-slide02.png";
 import Slide03 from "../../assets/images/ip/breakers/ip-breakers-slide03.jpg";
 import Slide04 from "../../assets/images/ip/breakers/ip-breakers-slide04.png";
 import Slide05 from "../../assets/images/ip/breakers/ip-breakers-slide05.jpg";
+import { useViewportHeight } from "../../hooks/useViewportHeight";
 
 const Breakers = () => {
   const { currentSection, isFullpageEnabled } = useFullpage(); // ✅ 풀페이지 훅 사용
+
   const swiperRef = useRef<SwiperCore | null>(null);
   const [, setMoActiveIndex] = useState(0);
   useEffect(() => {
@@ -34,8 +36,18 @@ const Breakers = () => {
     }
   }, [currentSection, isFullpageEnabled]);
 
+  useViewportHeight(); // ✅ 훅 호출
+
+  const [isVh, setIsVh] = useState("0");
+  useEffect(() => {
+    const vh = getComputedStyle(document.documentElement).getPropertyValue(
+      "--vh"
+    );
+    setIsVh(vh);
+  }, []);
+
   return (
-    <IpWrapper className="breakers">
+    <IpWrapper className="breakers" $isVh={isVh}>
       <Header />
       <FloatingMenu />
 
@@ -83,7 +95,7 @@ const Breakers = () => {
       </section>
 
       {/* SECTION 2 */}
-      <section className="section info-section">
+      <section className={`section info-section`}>
         <div className="big-inner">
           <div className="section-wrapper">
             <div className="text-wrap">

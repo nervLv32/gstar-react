@@ -117,7 +117,7 @@ const TicketSection = () => {
               className={`text-wrap fade-item ${textVisible ? "active" : ""}`}
             >
               <h4 className="vitro fade-child delay-1">
-                G-STAR 2025는 <br className="mo-br" />
+                2025 G-STAR는 <br className="mo-br" />
                 NC와 함께!
               </h4>
               <p className="fade-child delay-2">

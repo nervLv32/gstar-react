@@ -171,6 +171,57 @@ export const FooterWrapper = styled.footer`
           flex-wrap: wrap;
           width: 100%;
           gap: 3rem;
+          li {
+            i {
+              display: block;
+              img {
+                display: block;
+                width: 100%;
+              }
+            }
+            &.w-123px {
+              i {
+                width: 123px;
+              }
+            }
+            &.w-146px {
+              i {
+                width: 146px;
+              }
+            }
+            &.w-72px {
+              i {
+                width: 72px;
+              }
+            }
+            &.w-348px {
+              i {
+                width: 348px;
+              }
+            }
+            &.w-130px {
+              i {
+                width: 130px;
+              }
+            }
+            &.w-162px {
+              i {
+                width: 162px;
+              }
+            }
+            &.w-88px {
+              i {
+                display: block;
+                width: 88px;
+              }
+            }
+            &.w-103px {
+              i {
+                display: block;
+                width: 103px;
+              }
+            }
+          }
         }
       }
       .info-wrap {
@@ -343,6 +394,7 @@ export const FooterWrapper = styled.footer`
           .text-sns-wrap {
             gap: 2.4rem;
             flex-direction: column-reverse;
+            align-items: flex-start;
             .sns-wrap {
               a {
                 i {
@@ -355,7 +407,6 @@ export const FooterWrapper = styled.footer`
             .text-wrap {
               p {
                 font-size: 1.1rem;
-                text-align: center;
                 line-height: 2rem;
               }
             }

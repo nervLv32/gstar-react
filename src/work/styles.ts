@@ -7,8 +7,10 @@ import TimeTakersBg from "../assets/images/ip/timetakers/ip-timetakers-default-b
 import TimeTakersMoBg from "../assets/images/ip/timetakers/ip-timetakers-mo-bg.png";
 import BreakersBg from "../assets/images/ip/breakers/ip-breakers-default-bg.png";
 import BreakersMoBg from "../assets/images/ip/breakers/ip-breakers-mo-bg.png";
-
-export const IpWrapper = styled.div`
+interface IpWrapperProps {
+  $isVh?: string;
+}
+export const IpWrapper = styled.div<IpWrapperProps>`
   width: 100vw;
   height: 200vh;
   overflow: hidden;
@@ -22,7 +24,7 @@ export const IpWrapper = styled.div`
       pointer-events: none;
     } */
   }
-  .ip-section {
+  /* .ip-section {
     &::after {
         content: "";
         position: absolute;
@@ -39,32 +41,46 @@ export const IpWrapper = styled.div`
           opacity: 1;
         }
       }
-  }
+  } */
+      .ip-section {
+        position: relative;
+      }
   &.aion {
     .ip-section {
-      position: relative;
+      /* position: relative; */
       background: url(${AionBg}) no-repeat center / cover;
-      transition: background-position 0.4s ease, background-size 0.4s ease;
-      overflow: hidden;
-      &::after {
+      @media all and (max-width: 1024px) {
         background: url(${AionMoBg}) no-repeat center / cover;
       }
+      /* transition: background-position 0.4s ease, background-size 0.4s ease;
+      overflow: hidden; */
+      /* &::after {
+        background: url(${AionMoBg}) no-repeat center / cover;
+      } */
     }
   }
   &.cinder {
     .ip-section {
-        position: relative;
+      background: url(${CinderBg}) no-repeat left bottom / cover;
+      @media all and (max-width: 1024px) {
+        background: url(${CinderMoBg}) no-repeat center / cover;
+      }
+        /* position: relative;
       transition: background-position 0.4s ease, background-size 0.4s ease;
       overflow: hidden;
       background: url(${CinderBg}) no-repeat left bottom / cover;
       &::after {
         background: url(${CinderMoBg}) no-repeat top / cover;
-      }
+      } */
     }
   }
   &.timetakers {
     .ip-section {
-      position: relative;
+            background: url(${TimeTakersBg}) no-repeat center / 110%;
+      @media all and (max-width: 1024px) {
+        background: url(${TimeTakersMoBg}) no-repeat center / cover;
+      }
+      /* position: relative;
       transition: background-position 0.4s ease, background-size 0.4s ease;
       overflow: hidden;
       background: url(${TimeTakersBg}) no-repeat center / 110%;
@@ -72,11 +88,17 @@ export const IpWrapper = styled.div`
       
        &::after {
         background: url(${TimeTakersMoBg}) no-repeat top / cover;
-      }
+      } */
     }
   }
   &.breakers {
-    .ip-section {
+        .ip-section {
+            background: url(${BreakersBg}) no-repeat center / center;
+      @media all and (max-width: 1024px) {
+        background: url(${BreakersMoBg}) no-repeat bottom / cover;
+      }
+    }
+    /* .ip-section {
         position: relative;
       transition: background-position 0.4s ease, background-size 0.4s ease;
       overflow: hidden;
@@ -87,7 +109,7 @@ export const IpWrapper = styled.div`
       }
 
       
-    }
+    } */
   }
 
   .ip-section {
@@ -386,8 +408,15 @@ export const IpWrapper = styled.div`
           }
           .text-info-wrap {
             .text-wrap {
+              
               h2 {
                 font-size: 4.4rem;
+              }
+              p {
+                text-shadow: 5px 5px 7px rgba(0, 0, 0, 1);
+              }
+              span {
+                text-shadow: 5px 5px 7px rgba(0, 0, 0, 1);
               }
             }
            
@@ -466,8 +495,9 @@ export const IpWrapper = styled.div`
   }
   @media all and (max-width: 640px) {
     .ip-section {
+      height: calc(${(props) => props.$isVh || "100vh"}) !important;
       .logo-text-wrap {
-        bottom: 22vh;
+        bottom: 5rem;
         gap: 6.25vw;
         i {
           max-width: 56.25vw;
@@ -542,6 +572,7 @@ export const IpWrapper = styled.div`
   }
   @media all and (max-width: 500px) {
     .ip-section {
+        
       .logo-text-wrap {
         .text-button-wrapper {
           .button-wrap {
