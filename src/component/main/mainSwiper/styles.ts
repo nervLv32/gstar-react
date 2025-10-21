@@ -18,12 +18,6 @@ const smoothPop = keyframes`
   100% { transform: scale(1.24); }
 `;
 
-// const smoothPop = keyframes`
-//   0%   { width: 27.5rem }
-//   40%  { width: 32rem }
-//   100% { width: 34.1rem }
-// `;
-
 const textUp = keyframes`
   0%   { opacity: 0; transform: translateY(4rem); }
   40%  { opacity: 0; }
@@ -62,7 +56,7 @@ export const MainSwiperWrapper = styled.div`
     }
     width: 114rem;
     position: absolute;
-    top: -3.5rem;
+    top: -4.5rem;
     left: 50%;
     transform: translateX(-50%);
     overflow: hidden;
@@ -87,7 +81,7 @@ export const MainSwiperWrapper = styled.div`
   .swiper {
     .swiper-wrapper {
       padding-top: 12rem;
-      padding-bottom: 16rem;
+      padding-bottom: 22rem;
       display: flex;
       align-items: center;
     }
@@ -343,7 +337,7 @@ export const MainSwiperWrapper = styled.div`
       .text-wrap {
         position: absolute;
         width: 300%;
-        bottom: -14rem;
+        bottom: -7rem;
         left: 50%;
         display: flex;
         flex-direction: column;
@@ -368,7 +362,8 @@ export const MainSwiperWrapper = styled.div`
   /* =================== 반응형 =================== */
   @media all and (max-width: 1440px) {
     width: 100%;
-    margin: 7.639vw auto 0;
+    margin: 0;
+    /* margin: 7.639vw auto 0; margin 관련 */
     .title-text {
       width: 79.167vw;
       top: -2.431vw;
@@ -389,27 +384,28 @@ export const MainSwiperWrapper = styled.div`
   }
 
   @media all and (max-width: 1200px) {
-    margin-top: 5.833vw;
+    /* margin-top: 5.833vw; margin 관련 */
     .title-text {
-      top: -3.5vw;
+      top: 0.5vw;
     }
     .swiper {
       .logo-image {
         height: auto;
       }
       .swiper-wrapper {
-        padding-bottom: 15.333vw;
+        padding-top: 12.333vw;
+        padding-bottom: 20.333vw;
       }
       .swiper-slide.swiper-slide-active .text-wrap {
-        bottom: -15rem;
+        bottom: -8rem;
       }
     }
   }
 
   @media all and (max-width: 1024px) {
-    margin-top: 0.977vw;
+    /* margin-top: 0.977vw; margin 관련 */
     .title-text {
-      top: -4.5vw;
+      top: 0vw;
     }
     .swiper {
       .swiper-wrapper {
@@ -417,13 +413,16 @@ export const MainSwiperWrapper = styled.div`
       }
       .swiper-slide.swiper-slide-active {
         .char-image {
+          &::after {
+            opacity: 1;
+          }
           &::before {
             width: calc(100% + 6.836vw);
             height: calc(100% + 6.641vw);
           }
         }
         .text-wrap {
-          bottom: -16.5vw;
+          bottom: -8.5vw;
         }
         .char-image::before {
           width: calc(100% + 5.556vw);
@@ -433,15 +432,15 @@ export const MainSwiperWrapper = styled.div`
     }
   }
   @media all and (max-width: 900px) {
-    margin-top: 8.889vw;
+    /* margin-top: 8.889vw; margin 관련 */
 
     .title-text {
-      top: -1vw;
+      top: 3.4vw;
     }
     .swiper {
       .swiper-wrapper {
         padding-bottom: 23.333vw;
-        padding-top: 13.333vw;
+        padding-top: 18.333vw;
       }
       .swiper-slide.swiper-slide-active {
         .char-image {
@@ -454,16 +453,17 @@ export const MainSwiperWrapper = styled.div`
     }
   }
   @media all and (max-width: 768px) {
-    margin-top: 10.813vw;
-    margin-bottom: 7.813vw;
+    /* margin-top: 10.813vw; margin 관련 */
+    /* margin-bottom: 7.813vw; */
     .swiper {
       .swiper-wrapper {
-        padding-bottom: 26.042vw;
+        padding-top: 22.042vw;
+        padding-bottom: 22.042vw;
       }
       .swiper-slide {
         &.swiper-slide-active {
           .text-wrap {
-            bottom: -20.833vw;
+            bottom: -10.833vw;
             h2 {
               font-size: 2.6rem;
             }
@@ -476,16 +476,44 @@ export const MainSwiperWrapper = styled.div`
     }
     .title-text {
       width: 95vw;
-      top: -2.5vw;
+      top: 4.5vw;
+    }
+  }
+  @media all and (max-width: 640px) {
+    /* margin-top: 10.813vw; margin 관련 */
+    /* margin-bottom: 7.813vw; */
+    .swiper {
+      .swiper-wrapper {
+        padding-top: 25.042vw;
+        padding-bottom: 30.042vw;
+      }
+      .swiper-slide {
+        &.swiper-slide-active {
+          .text-wrap {
+            bottom: -13.33vw;
+          }
+          .text-wrap {
+            h2 {
+              font-size: 2.2rem;
+            }
+            h4 {
+              font-size: 1.6rem;
+            }
+          }
+        }
+      }
+    }
+    .title-text {
+      top: 7.5vw;
     }
   }
   @media all and (max-width: 500px) {
-    margin-top: 8vw;
-    margin-bottom: 12vw;
+    /* margin-top: 8vw;
+    margin-bottom: 12vw; */
     .swiper {
       .swiper-wrapper {
         padding-top: 16vw;
-        padding-bottom: 28vw;
+        padding-bottom: 32vw;
       }
       .swiper-slide {
         &.swiper-slide-active {
@@ -496,12 +524,12 @@ export const MainSwiperWrapper = styled.div`
             }
           }
           .text-wrap {
-            bottom: -28vw;
+            bottom: -15vw;
             h2 {
-              font-size: 2.4rem;
+              font-size: 2rem;
             }
             h4 {
-              font-size: 1rem;
+              font-size: 0.7rem;
             }
           }
         }
@@ -509,7 +537,7 @@ export const MainSwiperWrapper = styled.div`
     }
     .title-text {
       width: 97vw;
-      top: -3.5vw;
+      top: -4vw;
     }
   }
 `;

@@ -151,7 +151,7 @@ const TicketSection = () => {
                     <dl>
                       <dt>기간</dt>
                       <dd>
-                        2025년 10/21(화) 12:00:00 ~ <br className="mo-br" />
+                        2025년 10/23(목) 12:00:00 ~ <br className="mo-br" />
                         2025년 10/31(금) 23:59:59
                       </dd>
                     </dl>
@@ -176,7 +176,11 @@ const TicketSection = () => {
                   </div>
                 </div>
                 <div className="button-wrap">
-                  <Link to="/" className="vitro">
+                  <Link
+                    to="https://docs.google.com/forms/d/e/1FAIpQLSeFeboKZtHNXg1YYEe_2TY3kmrWp7GbHLsLqg36iW4fryQk3w/viewform"
+                    className="vitro"
+                    target="_blank"
+                  >
                     이벤트 참여하기
                   </Link>
                 </div>

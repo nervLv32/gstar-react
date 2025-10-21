@@ -15,7 +15,7 @@ const textMove = keyframes`
     transform: translate(-50%, -50%) scale(1);
   }
   100% {
-    top: -3.5rem;
+    top: -4.5rem;
     transform: translate(-50%, 0) scale(0.79);
   }
 `;
@@ -54,7 +54,7 @@ const tinyPcTextMove = keyframes`
   }
   100% {
     width: 79.167vw;
-    top: -4.5vw;
+    top: -2vw;
     transform: translate(-50%, 0);
   }
 `;
@@ -67,7 +67,7 @@ const tabletTextMove = keyframes`
   }
   100% {
     width: 79.167vw;
-    top: -1vw;
+    top: 1vw;
     transform: translate(-50%, 0);
   }
 `;
@@ -78,7 +78,17 @@ const smallTabletTextMove = keyframes`
     transform: translate(-50%, -50%);
   }
   100% {
-    top: -2.5vw;
+    top: 1.5vw;
+    transform: translate(-50%, 0);
+  }
+  `;
+const bigMoTextMove = keyframes`
+  0% {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    top: 9vw;
     transform: translate(-50%, 0);
   }
   `;
@@ -88,7 +98,7 @@ const moTextMove = keyframes`
     transform: translate(-50%, -50%);
   }
   100% {
-    top: -3.5vw;
+    top: -5vw;
     transform: translate(-50%, 0);
   }
 `;
@@ -156,7 +166,8 @@ export const DimOverlay = styled.div`
   @media all and (max-width: 1440px) {
     .dim-box {
       width: 100%;
-      margin: 7.639vw auto 0;
+      /* margin: 7.639vw auto 0; margin 관련 */
+      margin: 0;
       position: relative;
       height: 58.542vw;
     }
@@ -168,7 +179,7 @@ export const DimOverlay = styled.div`
   }
   @media all and (max-width: 1200px) {
     .dim-box {
-      margin-top: 5.833vw;
+      /* margin-top: 5.833vw; margin 관련 */
       height: 66.083vw;
     }
     .intro-text {
@@ -177,7 +188,7 @@ export const DimOverlay = styled.div`
   }
   @media all and (max-width: 1023px) {
     .dim-box {
-      margin-top: 0.977vw;
+      /* margin-top: 0.977vw; margin 관련 */
       height: 79.941vw;
     }
     .intro-text {
@@ -186,7 +197,7 @@ export const DimOverlay = styled.div`
   }
   @media all and (max-width: 899px) {
     .dim-box {
-      margin-top: 8.889vw;
+      /* margin-top: 8.889vw; margin 관련 */
       height: 99.221vw;
     }
     .intro-text {
@@ -196,8 +207,8 @@ export const DimOverlay = styled.div`
   }
   @media all and (max-width: 767px) {
     .dim-box {
-      margin-top: 10.813vw;
-      margin-bottom: 7.813vw;
+      /* margin-top: 10.813vw; */
+      /* margin-bottom: 7.813vw; */
       height: 111.473vw;
     }
     .intro-text {
@@ -207,10 +218,19 @@ export const DimOverlay = styled.div`
       animation-delay: 1s;
     }
   }
+  @media all and (max-width: 640px) {
+    .dim-box {
+      height: 131.455vw;
+    }
+    .intro-text {
+      animation: ${bigMoTextMove} 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      animation-delay: 1s;
+    }
+  }
   @media all and (max-width: 499px) {
     .dim-box {
-      margin-top: 8vw;
-      margin-bottom: 12vw;
+      /* margin-top: 8vw;
+      margin-bottom: 12vw; */
       height: 132.465vw;
     }
     .intro-text {

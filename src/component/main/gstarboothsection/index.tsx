@@ -111,19 +111,19 @@ const GstarBoothSection = () => {
     {
       id: "nc",
       title: "NC CINEMA",
-      desc: "G-STAR 최초 파노라마 상영관에서\n경험하는 NC 신작 트레일러의 짜릿한 몰입감!",
+      desc: "G-STAR 초대형 파노라마 상영관에서\n경험하는 NC 신작 트레일러의 짜릿한 몰입감!",
     },
     {
       id: "aion",
       title: "AION2 시연존",
-      desc: "11월 19일 AION2 출시 전 경험할 수 있는 기회!\n두 개의 하늘을 선점하라!",
+      desc: "11월 19일 00시 정식 출시 전\nAION2를 먼저 경험할 수 있는 기회!",
       img1: GstarListBg02HoverImage01,
       img2: GstarListBg02HoverImage02,
       hoverText: (
         <>
-          커스터마이징부터 우루구구 던전 플레이까지
+          커스터마이징과 던전 플레이 체험이 가능한
           <br />
-          <b>G-STAR AION2</b> 시연 플레이
+          <b>G-STAR AION2</b> 시연존을 방문하세요!
         </>
       ),
     },

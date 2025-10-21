@@ -18,6 +18,10 @@ import Slide02 from "../../assets/images/ip/aion/ip-aion-slide02.webp";
 import Slide03 from "../../assets/images/ip/aion/ip-aion-slide03.webp";
 import Slide04 from "../../assets/images/ip/aion/ip-aion-slide04.webp";
 import Slide05 from "../../assets/images/ip/aion/ip-aion-slide05.webp";
+
+import AionBg from "../../assets/images/ip/aion/ip-aion-default-bg.webp";
+import AionMoBg from "../../assets/images/ip/aion/ip-aion-mo-bg.webp";
+
 import { useViewportHeight } from "../../hooks/useViewportHeight";
 
 const Aion = () => {
@@ -43,6 +47,14 @@ const Aion = () => {
       "--vh"
     );
     setIsVh(vh);
+  }, []);
+
+  useEffect(() => {
+    const preloadImages = [AionLogo, AionBg, AionMoBg];
+    preloadImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
   }, []);
 
   return (
@@ -109,6 +121,19 @@ const Aion = () => {
               <span data-anim>MMORPG</span>
               <p data-anim>
                 하나의 게임을 넘어, 수많은 추억이 살아 숨 쉬는 세계 AION <br />
+                그 유산 위에 마침내 완전판으로 돌아온 AION2가 그려낸 새로운
+                하늘이 펼쳐집니다. <br />
+                <br className="mo-br" />
+                각자의 개성이 더욱 뚜렷해진 {"<"}8종의 오리지널 클래스{">"}{" "}
+                무한한 가능성을 담아낸 {"<"}극한의 커스터마이징{">"} <br />
+                원작 대비 36배 확장된 거대한 월드에서 펼쳐지는 {"<"}경계 없는
+                탐험{">"} 그리고 훨씬 {"<"}풍부해진 콘텐츠{">"}와 세대를 이어온
+                전투의 심장 {"<"}대규모 RvR전장 어비스{">"}까지. <br />
+                완전한 MMORPG의 세계가 눈앞에 펼쳐집니다. <br />
+                <br className="mo-br" />
+                11월 19일, AION2의 새로운 여정을 준비하세요. <br />
+                {/* 
+                하나의 게임을 넘어, 수많은 추억이 살아 숨 쉬는 세계 AION <br />
                 그 유산 위에, 마침내 완전판으로 돌아온 AION2가 그려낸 새로운
                 하늘이 펼쳐집니다.
                 <br />
@@ -121,7 +146,7 @@ const Aion = () => {
                 완전한 MMORPG의 세계가 눈앞에 펼쳐집니다.
                 <br />
                 <br className="mo-br" />
-                11월 19일, AION2의 새로운 여정을 준비하세요.
+                11월 19일, AION2의 새로운 여정을 준비하세요. */}
               </p>
             </div>
 

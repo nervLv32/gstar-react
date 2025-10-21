@@ -12,17 +12,11 @@ import LimitImage from "../../../assets/images/main/main-limit-slide-image.webp"
 import TimeImage from "../../../assets/images/main/main-time-slide-image.webp";
 import TitleImage from "../../../assets/images/main/main-title.webp";
 
-import LogoAionImage from "../../../assets/images/main/main-aion-logo-slide-image.webp";
-import LogoCinderImage from "../../../assets/images/main/main-cinder-logo-slide-image.webp";
-import LogoLimitImage from "../../../assets/images/main/main-limit-logo-slide-image.webp";
-import LogoTimeImage from "../../../assets/images/main/main-time-logo-slide-image.webp";
-
 const list = [
   {
     link: "aion2",
     uid: 1,
     img: AionImage,
-    logoImg: LogoAionImage,
     title: "AION2",
     subTitle: "두 개의 하늘, 하나의 영광",
   },
@@ -30,16 +24,14 @@ const list = [
     link: "breakers",
     uid: 2,
     img: LimitImage,
-    logoImg: LogoLimitImage,
     title: "리밋 제로 브레이커스",
     subTitle: "애니메이션 속으로 스며들 순간, 애니메이션 액션 RPG",
   },
-  { link: "", uid: 3, img: CmImage, logoImg: null },
+  { link: "", uid: 3, img: CmImage },
   {
     link: "timetakers",
     uid: 4,
     img: TimeImage,
-    logoImg: LogoTimeImage,
     title: "타임 테이커즈",
     subTitle: "“시간”으로 진화한 차세대 서바이벌 슈터",
   },
@@ -48,7 +40,6 @@ const list = [
     link: "cinder",
     uid: 5,
     img: CinderImage,
-    logoImg: LogoCinderImage,
     title: "신더시티",
     subTitle: "새로운 슈터 장르의 시작",
   },
@@ -57,7 +48,6 @@ const list = [
     link: "aion2",
     uid: 6,
     img: AionImage,
-    logoImg: LogoAionImage,
     title: "AION2",
     subTitle: "두 개의 하늘, 하나의 영광",
   },
@@ -65,16 +55,14 @@ const list = [
     link: "breakers",
     uid: 7,
     img: LimitImage,
-    logoImg: LogoLimitImage,
     title: "리밋 제로 브레이커스",
     subTitle: "애니메이션 속으로 스며들 순간, 애니메이션 액션 RPG",
   },
-  { link: "", uid: 8, img: CmImage, logoImg: null },
+  { link: "", uid: 8, img: CmImage },
   {
     link: "timetakers",
     uid: 9,
     img: TimeImage,
-    logoImg: LogoTimeImage,
     title: "타임 테이커즈",
     subTitle: "“시간”으로 진화한 차세대 서바이벌 슈터",
   },
@@ -83,7 +71,6 @@ const list = [
     link: "cinder",
     uid: 10,
     img: CinderImage,
-    logoImg: LogoCinderImage,
     title: "신더시티",
     subTitle: "새로운 슈터 장르의 시작",
   },
@@ -101,6 +88,8 @@ const MainSwiper = () => {
 
   /** ✅ 마우스 위치에 따른 강한 3D 회전 효과 */
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (window.innerWidth < 1024) return; // 🔹 1024px 미만에서는 아무 동작 안 함
+
     const target = e.currentTarget;
     const rect = target.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -108,36 +97,30 @@ const MainSwiper = () => {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    // 비율 (중앙 기준 -1 ~ 1)
     const percentX = (x - centerX) / centerX;
     const percentY = (y - centerY) / centerY;
 
-    // ✅ 강도 설정
-    const rotateY = percentX * -7; // 좌우 회전 (Y축)
-    const rotateX = percentY * 7; // 상하 회전 (X축)
-    // const rotateZ = percentX * -2; // 살짝 비틀기 (Z축)
-    const scale = 1;
+    const rotateY = percentX * -7;
+    const rotateX = percentY * 7;
 
     target.style.transform = `
     perspective(1000px)
     rotateX(${rotateX}deg)
     rotateY(${rotateY}deg)
-    
-    scale(${scale})
+    scale(1)
   `;
-    // rotateZ(${rotateZ}deg)
   };
 
   const handleMouseLeave = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
+    if (window.innerWidth < 1024) return; // 🔹 모바일에서는 초기화도 스킵
     e.currentTarget.style.transform = `
     perspective(1000px)
     rotateX(0deg)
     rotateY(0deg)
     scale(1)
-    `;
-    // rotateZ(0deg)
+  `;
   };
   return (
     <MainSwiperWrapper className={isFirstRender ? "intro" : ""}>

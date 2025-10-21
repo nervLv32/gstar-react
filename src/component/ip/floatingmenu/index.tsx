@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FloatingMenuWrapper } from "./styles";
-import FloatingPoint from "../../../assets/images/floating/floating-point.png";
-import FloatingLight from "../../../assets/images/floating/floating-light.png";
+
 import FloatingHomeIcon from "../../../assets/images/floating/floating-home-icon.png";
 
 const FloatingMenu = () => {
@@ -26,47 +25,39 @@ const FloatingMenu = () => {
 
   return (
     <FloatingMenuWrapper className={`aion-box ${isOpen ? "open" : ""}`}>
-      <i className="light-image">
-        <img src={FloatingLight} alt="" />
-      </i>
-      <div className="inner">
-        <div className="title-text">
-          <p>출품작 안내</p>
-        </div>
+      <ul>
+        <li className="home">
+          <Link to="/">
+            <i className="point-image">
+              <span></span>
+            </i>
 
-        <ul>
-          {menuList.map((menu) => (
-            <li
-              key={menu.to}
-              className={location.pathname === menu.to ? "active" : ""}
+            <i>
+              <img src={FloatingHomeIcon} alt="" />
+            </i>
+          </Link>
+        </li>
+        {menuList.map((menu) => (
+          <li
+            key={menu.to}
+            className={location.pathname === menu.to ? "active" : ""}
+          >
+            <Link
+              to={menu.to}
+              className={`${menu.name === "COMING SOON" ? "cm" : ""}`}
+              onClick={(e) => {
+                if (menu.to === "/") e.preventDefault();
+              }}
             >
-              <Link
-                to={menu.to}
-                onClick={(e) => {
-                  if (menu.to === "/") e.preventDefault();
-                }}
-              >
-                {menu.name !== "COMING SOON" && (
-                  <i className="point-image">
-                    <img src={FloatingPoint} alt="" />
-                  </i>
-                )}
-                <span>{menu.name}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <div className="home">
-          <div className="icon-wrap">
-            <Link to="/">
-              <i>
-                <img src={FloatingHomeIcon} alt="" />
+              <i className="point-image">
+                <span></span>
               </i>
+
+              <span>{menu.name}</span>
             </Link>
-          </div>
-        </div>
-      </div>
+          </li>
+        ))}
+      </ul>
     </FloatingMenuWrapper>
   );
 };
