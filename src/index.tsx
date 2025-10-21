@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/GSTAR2025">
     {/* <React.StrictMode> */}
     <App />
     {/* </React.StrictMode> */}
