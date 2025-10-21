@@ -18,6 +18,12 @@ const smoothPop = keyframes`
   100% { transform: scale(1.24); }
 `;
 
+// const smoothPop = keyframes`
+//   0%   { width: 27.5rem }
+//   40%  { width: 32rem }
+//   100% { width: 34.1rem }
+// `;
+
 const textUp = keyframes`
   0%   { opacity: 0; transform: translateY(4rem); }
   40%  { opacity: 0; }
@@ -82,6 +88,8 @@ export const MainSwiperWrapper = styled.div`
     .swiper-wrapper {
       padding-top: 12rem;
       padding-bottom: 16rem;
+      display: flex;
+      align-items: center;
     }
 
     .swiper-slide {
@@ -217,11 +225,24 @@ export const MainSwiperWrapper = styled.div`
         .dim.right {
           opacity: 0;
         }
-
+        > a {
+          animation: ${smoothPop} 0.9s ease forwards;
+        }
         .char-image {
           position: relative;
-          animation: ${smoothPop} 0.9s ease forwards;
-          opacity: 1;
+          /* background: red; */
+          transform-style: preserve-3d;
+          transition: transform 0.1s ease-out;
+          will-change: transform;
+          &:hover {
+            transition: transform 0.1s ease-out;
+            transform-style: preserve-3d;
+            will-change: transform;
+            cursor: pointer;
+            &::after {
+              opacity: 1;
+            }
+          }
           &::before {
             content: "";
             position: absolute;
@@ -284,8 +305,10 @@ export const MainSwiperWrapper = styled.div`
           top: 0;
           left: 0;
           background: url(${SlideBorderImage}) no-repeat center / cover;
-          clip-path: circle(0% at 50% 50%);
-          transition: clip-path 0.5s ease-in-out;
+
+          opacity: 0;
+
+          transition: opacity 0.3s ease;
           z-index: 2;
           pointer-events: none;
         }
@@ -328,13 +351,13 @@ export const MainSwiperWrapper = styled.div`
         opacity: 0;
         transform: translateX(-50%) translateY(4rem);
         h2 {
-          font-size: 3rem;
+          font-size: 2.8rem;
           line-height: 1;
           font-weight: 900;
           color: #fff;
         }
         h4 {
-          font-size: 2.2rem;
+          font-size: 2.1rem;
           line-height: 1;
           color: #fff;
         }

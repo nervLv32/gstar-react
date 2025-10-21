@@ -103,7 +103,8 @@ const Main = () => {
       {/* 🔹 인트로 */}
       {location.pathname === "/" && introStep !== "done" && (
         <Intro
-          step={"dim"}
+          // step={"dim"}
+          step={introStep}
           onVideoEnd={handleVideoEnd}
           onDimEnd={handleDimEnd}
           videoRef={videoRef}

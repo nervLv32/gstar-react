@@ -88,6 +88,7 @@ const list = [
     subTitle: "새로운 슈터 장르의 시작",
   },
 ];
+
 const MainSwiper = () => {
   const [moActiveIndex, setMoActiveIndex] = useState(0);
   const swiperRef = useRef<SwiperCore | null>(null);
@@ -98,6 +99,46 @@ const MainSwiper = () => {
     return () => clearTimeout(t);
   }, []);
 
+  /** ✅ 마우스 위치에 따른 강한 3D 회전 효과 */
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const target = e.currentTarget;
+    const rect = target.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    // 비율 (중앙 기준 -1 ~ 1)
+    const percentX = (x - centerX) / centerX;
+    const percentY = (y - centerY) / centerY;
+
+    // ✅ 강도 설정
+    const rotateY = percentX * -7; // 좌우 회전 (Y축)
+    const rotateX = percentY * 7; // 상하 회전 (X축)
+    // const rotateZ = percentX * -2; // 살짝 비틀기 (Z축)
+    const scale = 1;
+
+    target.style.transform = `
+    perspective(1000px)
+    rotateX(${rotateX}deg)
+    rotateY(${rotateY}deg)
+    
+    scale(${scale})
+  `;
+    // rotateZ(${rotateZ}deg)
+  };
+
+  const handleMouseLeave = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    e.currentTarget.style.transform = `
+    perspective(1000px)
+    rotateX(0deg)
+    rotateY(0deg)
+    scale(1)
+    `;
+    // rotateZ(0deg)
+  };
   return (
     <MainSwiperWrapper className={isFirstRender ? "intro" : ""}>
       <h2 className="title-text">
@@ -109,7 +150,23 @@ const MainSwiper = () => {
       <div className="swiper-box">
         <Swiper
           onSwiper={(s: SwiperCore) => (swiperRef.current = s)}
-          onSlideChange={(s: SwiperCore) => setMoActiveIndex(s.realIndex)}
+          onSlideChange={(s: SwiperCore) => {
+            setMoActiveIndex(s.realIndex);
+
+            // ✅ 모든 회전 초기화
+            const images = document.querySelectorAll(
+              ".char-image"
+            ) as NodeListOf<HTMLDivElement>;
+            images.forEach((el) => {
+              el.style.transform = `
+        perspective(1000px)
+        rotateX(0deg)
+        rotateY(0deg)
+        rotateZ(0deg)
+        scale(1)
+      `;
+            });
+          }}
           slidesPerView={2.2}
           spaceBetween={10}
           centeredSlides={true}
@@ -146,7 +203,17 @@ const MainSwiper = () => {
                 className={`contents-0${idx + 1} ${side} dist-${dist}`}
               >
                 <Link to={item.link ? `/work/${item.link}` : "/"}>
-                  <i className="char-image">
+                  <i
+                    className="char-image"
+                    onMouseMove={
+                      moActiveIndex === idx // ✅ active 슬라이드일 때만 작동
+                        ? handleMouseMove
+                        : undefined
+                    }
+                    onMouseLeave={
+                      moActiveIndex === idx ? handleMouseLeave : undefined
+                    }
+                  >
                     <img src={item.img} alt="" />
                   </i>
 
@@ -158,11 +225,11 @@ const MainSwiper = () => {
                     <span className="dim right hard" />
                   </div>
 
-                  {item.logoImg && (
+                  {/* {item.logoImg && (
                     <i className="logo-image">
                       <img src={item.logoImg} alt="" />
                     </i>
-                  )}
+                  )} */}
 
                   {item.title && item.subTitle && (
                     <div className="text-wrap">
