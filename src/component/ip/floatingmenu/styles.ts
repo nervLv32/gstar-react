@@ -128,7 +128,7 @@ export const FloatingMenuWrapper = styled.div`
           &::after {
             opacity: 1;
             z-index: -1;
-            /* background: url(${FloatingPoingBg}); */
+            background: url(${FloatingPoingBg});
           }
           .point-image {
             animation: pointFadeIn 0.4s ease forwards;
@@ -148,7 +148,11 @@ export const FloatingMenuWrapper = styled.div`
           color: #fff;
           text-shadow: 0px 0px 5px #2bbcff;
           opacity: 1;
-
+          &::after {
+            opacity: 1;
+            z-index: -1;
+            background: url(${FloatingPoingBg});
+          }
           .point-image {
             animation: pointFadeIn 0.4s ease forwards;
             background: url(${FloatingStarPointIcon}) no-repeat center / cover;
@@ -195,11 +199,12 @@ export const FloatingMenuWrapper = styled.div`
         &::after {
           content: "";
           display: block;
-          width: calc(100% + 4rem);
-          height: 100%;
-          left: -4rem;
-          top: 0;
+          width: 14rem;
+          height: 9rem;
+          left: -2.6rem;
+          top: -4rem;
           position: absolute;
+          pointer-events: none; /* ✅ 추가 */
 
           opacity: 0;
           z-index: -1;
