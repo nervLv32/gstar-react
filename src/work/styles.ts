@@ -291,6 +291,7 @@ export const IpWrapper = styled.div<IpWrapperProps>`
           text-align: left;
           font-size: 1.8rem;
           line-height: 1.75;
+          word-break: keep-all;
           font-weight: 300;
           color: #fff;
           .mo-br {

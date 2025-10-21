@@ -139,6 +139,9 @@ export const FloatingMenuWrapper = styled.div`
           }
         }
       }
+      .cm {
+        cursor: default;
+      }
       &:hover {
         a:not(.cm) {
           font-weight: 800;
