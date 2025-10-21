@@ -19,6 +19,9 @@ export const TicketSectionWrapper = styled.div`
         letter-spacing: -1.02px;
         font-weight: 900;
         height: 11.2rem;
+        background: linear-gradient(to top, #0f268e 0%, #1942f4 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         .mo-br {
           display: none;
         }
