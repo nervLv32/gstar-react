@@ -13,7 +13,7 @@ import Image09 from "../../assets/images/media/media/media-media-image09.png";
 import { ContentsWrapper } from "../styles";
 const ITEMS_PER_PAGE = 9; // ✅ 한 페이지당 아이템 수
 
-const list = [
+export const mediaList = [
   {
     link: "/",
     img: Image01,
@@ -34,7 +34,7 @@ const list = [
         신규 홍보 영상 공개
       </h6>
     ),
-    date: "2025. 09. 25",
+    date: "2025. 09. 23",
   },
   {
     link: "/",
@@ -46,7 +46,7 @@ const list = [
         ‘스포일러 TALK’ 진행 예고
       </h6>
     ),
-    date: "2025. 09. 25",
+    date: "2025. 09. 22",
   },
   {
     link: "/",
@@ -57,7 +57,7 @@ const list = [
         ‘라프텔’ 서비스 시작
       </h6>
     ),
-    date: "2025. 09. 25",
+    date: "2025. 09. 22",
   },
   {
     link: "/",
@@ -69,7 +69,7 @@ const list = [
         업데이트 진행
       </h6>
     ),
-    date: "2025. 09. 25",
+    date: "2025. 09. 21",
   },
   {
     link: "/",
@@ -80,7 +80,7 @@ const list = [
         신규 무기 ‘마력구’ 도입
       </h6>
     ),
-    date: "2025. 09. 25",
+    date: "2025. 09. 20",
   },
   {
     link: "/",
@@ -92,7 +92,7 @@ const list = [
         사전예약 시작
       </h6>
     ),
-    date: "2025. 09. 25",
+    date: "2025. 09. 19",
   },
   {
     link: "/",
@@ -104,7 +104,7 @@ const list = [
         TGS 2025 프로그램 정보 공개
       </h6>
     ),
-    date: "2025. 09. 25",
+    date: "2025. 09. 18",
   },
   {
     link: "/",
@@ -115,7 +115,7 @@ const list = [
         업데이트 상세정보 공개
       </h6>
     ),
-    date: "2025. 09. 25",
+    date: "2025. 09. 17",
   },
   {
     link: "/",
@@ -126,7 +126,7 @@ const list = [
         ‘라프텔’ 서비스 시작
       </h6>
     ),
-    date: "2025. 09. 25",
+    date: "2025. 09. 16",
   },
   {
     link: "/",
@@ -138,7 +138,7 @@ const list = [
         업데이트 진행
       </h6>
     ),
-    date: "2025. 09. 25",
+    date: "2025. 09. 15",
   },
   {
     link: "/",
@@ -150,7 +150,7 @@ const list = [
         ‘스포일러 TALK’ 진행 예고
       </h6>
     ),
-    date: "2025. 09. 25",
+    date: "2025. 09. 14",
   },
 ];
 const MediaSection = () => {
@@ -162,9 +162,9 @@ const MediaSection = () => {
 
   // ✅ 페이지 계산
   const currentPage = Math.ceil(visibleCount / ITEMS_PER_PAGE);
-  const totalPages = Math.ceil(list.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(mediaList.length / ITEMS_PER_PAGE);
 
-  const visibleItems = list.slice(0, visibleCount);
+  const visibleItems = mediaList.slice(0, visibleCount);
   return (
     <ContentsWrapper>
       <div className="inner">
@@ -212,7 +212,7 @@ const MediaSection = () => {
 
             <div className="viewmore-wrap">
               {/* 버튼은 더 보여줄게 있을 때만 표시 */}
-              {visibleCount < list.length && (
+              {visibleCount < mediaList.length && (
                 <div className="button-wrap">
                   <span>+</span>
                   <button onClick={handleViewMore}>VIEW MORE</button>

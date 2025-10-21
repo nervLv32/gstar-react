@@ -144,7 +144,7 @@ const TicketSection = () => {
                       400장
                     </h5>
                     <span>
-                      {"("}200명 X 20장{")"}
+                      {"("}200명 X 2장{")"}
                     </span>
                   </div>
                   <div className="dl-info-wrap">
@@ -171,7 +171,7 @@ const TicketSection = () => {
                     </dl>
                     <dl>
                       <dt>사용 방법</dt>
-                      <dd>개별 문자 안내</dd>
+                      <dd>개별 문자 안내 예정</dd>
                     </dl>
                   </div>
                 </div>

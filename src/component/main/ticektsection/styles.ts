@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const TicketSectionWrapper = styled.div`
   background: #fff;
 
-  padding: 23.6rem 0 17.3rem;
+  padding: 20rem 0 17.3rem;
   .contents-wrap {
     overflow: hidden;
   }
@@ -294,7 +294,7 @@ export const TicketSectionWrapper = styled.div`
   }
 
   @media all and (max-width: 1440px) {
-    padding: 20rem 0 16rem;
+    padding: 14rem 0 16rem;
     .contents-wrapper {
       .text-wrap {
         h4 {

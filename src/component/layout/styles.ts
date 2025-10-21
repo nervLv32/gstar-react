@@ -21,7 +21,11 @@ export const HeaderWrapper = styled.header`
   &.hide {
     opacity: 0;
     transform: translateY(-40px);
-    pointer-events: none; /* 클릭 막기 */
+    pointer-events: none;
+  }
+  &.fixed {
+    opacity: 1;
+    transform: translateY(0);
   }
   .logo {
     i {

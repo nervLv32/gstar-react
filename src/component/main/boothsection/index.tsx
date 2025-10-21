@@ -18,8 +18,8 @@ function setHash(hash: string) {
   }
 }
 
-// ✅ fade-in IntersectionObserver 훅
-const useFadeInObserver = (threshold = 0.4, once = false) => {
+// ✅ fade-in IntersectionObserver (한 번만 실행)
+const useFadeInObserver = (threshold = 0.4, once = true) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
   const hasAnimated = useRef(false);
@@ -31,17 +31,11 @@ const useFadeInObserver = (threshold = 0.4, once = false) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          if (once) {
-            if (!hasAnimated.current) {
-              setVisible(true);
-              hasAnimated.current = true;
-              observer.unobserve(target);
-            }
-          } else {
+          if (!hasAnimated.current) {
             setVisible(true);
+            hasAnimated.current = true; // ✅ 한 번만 활성화
+            if (once) observer.unobserve(target); // ✅ 다시 관찰하지 않음
           }
-        } else if (!once) {
-          setVisible(false);
         }
       },
       { threshold }
@@ -59,9 +53,10 @@ const BoothSection = () => {
   const location = useLocation();
   const rafId = useRef<number | null>(null);
 
+  // ✅ 한 번만 fade-in
   const { ref: bannerRef, visible: bannerVisible } = useFadeInObserver(
     0.1,
-    false
+    true
   );
 
   // ✅ hash 관리 (#booth)
@@ -146,7 +141,7 @@ const BoothSection = () => {
         }`}
       >
         <div className="banner-title-wrap">
-          <span className="vitro fade-child delay-0">NC 2025 G-STAR</span>
+          <span className="vitro fade-child delay-0">NC G-STAR 2025</span>
           <h6 className="vitro fade-child delay-1">부스 위치 안내</h6>
         </div>
         <div className="button-wrap fade-child delay-2">

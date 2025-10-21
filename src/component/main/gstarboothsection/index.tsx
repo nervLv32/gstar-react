@@ -148,11 +148,11 @@ const GstarBoothSection = () => {
               행사 안내
             </h4>
             <p className="pc-text">
-              NC G-STAR 2025 Main Sponsor NCSOFT
+              G-STAR 2025 메인 스폰서 NCSOFT 부스에서
               <br />
-              시연존에서 AION2와 신더시티를 플레이 하고,
+              AION2와 신더시티를 직접 플레이하고,
               <br />
-              NC CINEMA에서 처음 공개되는 신작 트레일러를 만나보세요!
+              NC CINEMA에서 최초 공개되는 신작 트레일러들을 만나보세요!
             </p>
             <p className="mo-text">
               NC G-STAR 2025 <br />
