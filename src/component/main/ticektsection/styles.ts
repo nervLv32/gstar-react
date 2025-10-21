@@ -28,9 +28,13 @@ export const TicketSectionWrapper = styled.div`
       }
       p {
         font-size: 3.4rem;
-        font-weight: 700;
-        color: #00162a;
-        line-height: 1.6;
+        font-weight: 600;
+        color: #6f6f6f;
+        line-height: 1.4;
+        .point {
+          color: #005aff;
+          font-weight: 800;
+        }
         .mo-br {
           display: none;
         }

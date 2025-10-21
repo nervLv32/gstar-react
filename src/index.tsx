@@ -2,7 +2,7 @@ import "aos/dist/aos.css";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -13,11 +13,11 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <BrowserRouter basename="/GSTAR2025">
+  <HashRouter basename="/GSTAR2025">
     {/* <React.StrictMode> */}
     <App />
     {/* </React.StrictMode> */}
-  </BrowserRouter>
+  </HashRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
