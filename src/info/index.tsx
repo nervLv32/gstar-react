@@ -21,6 +21,7 @@ import BoothImage02 from "../assets/images/info/info-booth-slide-image02.webp";
 
 import NextIcon from "../assets/images/info/info-slide-next-arrow.png";
 import PrevIcon from "../assets/images/info/info-slide-prev-arrow.png";
+import Header from "../component/layout/Header";
 
 // ✅ 카테고리별 슬라이드 데이터
 const slideData = {
@@ -73,89 +74,92 @@ const Info = () => {
   const currentSlides = slideData[isCategory];
 
   return (
-    <InfoWrapper>
-      <div className="info-visual-section">
-        <div className="info-inner">
-          <h3 className="vitro">부스 위치 안내</h3>
-          <div className="img-text-wrap">
-            <i>
-              <img src={BoothImage} alt="" />
-            </i>
-            <p>
-              NC 부스는 제1 전시장 메인부스 A06, 휴게공간 C13,
-              <br />
-              벡스코 2홀 정문 앞에 야외부스가 마련되어 있습니다.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="nc-section">
-        <div className="big-inner">
-          <div className="tab-wrapper">
-            <ul>
-              {(["main", "rest", "booth"] as const).map((key) => (
-                <li
-                  key={key}
-                  className={`${isCategory === key ? "active" : ""} vitro`}
-                  onClick={() => setIsCategory(key)}
-                >
-                  {key === "main"
-                    ? "메인 부스"
-                    : key === "rest"
-                    ? "휴게 공간"
-                    : "야외 부스"}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="slide-wrapper">
-          <div className="slide-inner">
-            <Swiper
-              modules={[Pagination]}
-              pagination={{ clickable: true }}
-              onSwiper={(swiper: SwiperCore) => (swiperRef.current = swiper)}
-              onSlideChange={(swiper: SwiperCore) =>
-                setActiveIndex(swiper.activeIndex)
-              }
-              slidesPerView={1}
-              spaceBetween={0}
-            >
-              {currentSlides.map((item, idx) => (
-                <SwiperSlide key={idx}>
-                  <i>
-                    <img src={item.img} alt="" />
-                  </i>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-
-            <div className="arrow-btn-wrap">
-              <button
-                className="slide-arrow prev"
-                onClick={handlePrev}
-                disabled={activeIndex === 0}
-              >
-                <i>
-                  <img src={PrevIcon} alt="" />
-                </i>
-              </button>
-              <button
-                className="slide-arrow next"
-                onClick={handleNext}
-                disabled={activeIndex === currentSlides.length - 1}
-              >
-                <i>
-                  <img src={NextIcon} alt="" />
-                </i>
-              </button>
+    <>
+      <Header />
+      <InfoWrapper>
+        <div className="info-visual-section">
+          <div className="info-inner">
+            <h3 className="vitro">부스 위치 안내</h3>
+            <div className="img-text-wrap">
+              <i>
+                <img src={BoothImage} alt="" />
+              </i>
+              <p>
+                NC 부스는 제1 전시장 메인부스 A06, 휴게공간 C13,
+                <br />
+                벡스코 2홀 정문 앞에 야외부스가 마련되어 있습니다.
+              </p>
             </div>
           </div>
         </div>
-      </div>
-    </InfoWrapper>
+
+        <div className="nc-section">
+          <div className="big-inner">
+            <div className="tab-wrapper">
+              <ul>
+                {(["main", "rest", "booth"] as const).map((key) => (
+                  <li
+                    key={key}
+                    className={`${isCategory === key ? "active" : ""} vitro`}
+                    onClick={() => setIsCategory(key)}
+                  >
+                    {key === "main"
+                      ? "메인 부스"
+                      : key === "rest"
+                      ? "휴게 공간"
+                      : "야외 부스"}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="slide-wrapper">
+            <div className="slide-inner">
+              <Swiper
+                modules={[Pagination]}
+                pagination={{ clickable: true }}
+                onSwiper={(swiper: SwiperCore) => (swiperRef.current = swiper)}
+                onSlideChange={(swiper: SwiperCore) =>
+                  setActiveIndex(swiper.activeIndex)
+                }
+                slidesPerView={1}
+                spaceBetween={0}
+              >
+                {currentSlides.map((item, idx) => (
+                  <SwiperSlide key={idx}>
+                    <i>
+                      <img src={item.img} alt="" />
+                    </i>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+
+              <div className="arrow-btn-wrap">
+                <button
+                  className="slide-arrow prev"
+                  onClick={handlePrev}
+                  disabled={activeIndex === 0}
+                >
+                  <i>
+                    <img src={PrevIcon} alt="" />
+                  </i>
+                </button>
+                <button
+                  className="slide-arrow next"
+                  onClick={handleNext}
+                  disabled={activeIndex === currentSlides.length - 1}
+                >
+                  <i>
+                    <img src={NextIcon} alt="" />
+                  </i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </InfoWrapper>
+    </>
   );
 };
 

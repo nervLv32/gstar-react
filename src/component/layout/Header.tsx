@@ -5,8 +5,10 @@ import MoPoint from "../../assets/images/mobile/mobile-menu-point.png";
 import MoMenuLogo from "../../assets/images/mobile/mobile-menu-logo.png";
 
 import LinkLogo from "../../assets/images/common/header-link-icon.png";
-
-const Header = () => {
+interface IProps {
+  className?: string;
+}
+const Header = ({ className }: IProps) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -95,7 +97,9 @@ const Header = () => {
 
   return (
     <>
-      <HeaderWrapper className={isOpen ? "mo-open" : ""}>
+      <HeaderWrapper
+        className={`${isOpen ? "mo-open" : ""} ${className ? className : ""}`}
+      >
         <ul className="nav">
           <li>
             <button onClick={() => scrollToSection("#video")}>

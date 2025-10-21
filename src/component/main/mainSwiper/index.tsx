@@ -27,12 +27,12 @@ const list = [
     subTitle: "두 개의 하늘, 하나의 영광",
   },
   {
-    link: "cinder",
+    link: "breakers",
     uid: 2,
-    img: CinderImage,
-    logoImg: LogoCinderImage,
-    title: "신더시티",
-    subTitle: "새로운 슈터 장르의 시작",
+    img: LimitImage,
+    logoImg: LogoLimitImage,
+    title: "리밋 제로 브레이커스",
+    subTitle: "애니메이션 속으로 스며들 순간, 애니메이션 액션 RPG",
   },
   { link: "", uid: 3, img: CmImage, logoImg: null },
   {
@@ -43,13 +43,14 @@ const list = [
     title: "타임 테이커즈",
     subTitle: "“시간”으로 진화한 차세대 서바이벌 슈터",
   },
+
   {
-    link: "breakers",
+    link: "cinder",
     uid: 5,
-    img: LimitImage,
-    logoImg: LogoLimitImage,
-    title: "브레이커스",
-    subTitle: "애니메이션 속으로 스며들 순간, 애니메이션 액션 RPG",
+    img: CinderImage,
+    logoImg: LogoCinderImage,
+    title: "신더시티",
+    subTitle: "새로운 슈터 장르의 시작",
   },
 
   {
@@ -61,32 +62,32 @@ const list = [
     subTitle: "두 개의 하늘, 하나의 영광",
   },
   {
-    link: "cinder",
+    link: "breakers",
     uid: 7,
-    img: CinderImage,
-    logoImg: LogoCinderImage,
-    title: "신더시티",
-    subTitle: "새로운 슈터 장르의 시작",
+    img: LimitImage,
+    logoImg: LogoLimitImage,
+    title: "리밋 제로 브레이커스",
+    subTitle: "애니메이션 속으로 스며들 순간, 애니메이션 액션 RPG",
   },
   { link: "", uid: 8, img: CmImage, logoImg: null },
   {
     link: "timetakers",
-    uid: 10,
+    uid: 9,
     img: TimeImage,
     logoImg: LogoTimeImage,
     title: "타임 테이커즈",
     subTitle: "“시간”으로 진화한 차세대 서바이벌 슈터",
   },
+
   {
-    link: "breakers",
-    uid: 9,
-    img: LimitImage,
-    logoImg: LogoLimitImage,
-    title: "브레이커스",
-    subTitle: "애니메이션 속으로 스며들 순간, 애니메이션 액션 RPG",
+    link: "cinder",
+    uid: 10,
+    img: CinderImage,
+    logoImg: LogoCinderImage,
+    title: "신더시티",
+    subTitle: "새로운 슈터 장르의 시작",
   },
 ];
-
 const MainSwiper = () => {
   const [moActiveIndex, setMoActiveIndex] = useState(0);
   const swiperRef = useRef<SwiperCore | null>(null);

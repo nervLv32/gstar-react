@@ -79,7 +79,7 @@ const Breakers = () => {
                 className="default"
                 target="_blank"
               >
-                <p>공식홈페이지 바로가기</p>
+                <p>공식 홈페이지 바로가기</p>
               </Link>
               <Link
                 to="https://www.youtube.com/@BREAKERS_KRofficial"
