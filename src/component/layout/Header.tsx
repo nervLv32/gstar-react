@@ -34,7 +34,6 @@ const Header = ({ className }: IProps) => {
         window.history.replaceState(null, "", newUrl);
       }
     } else {
-      alert("여기서 문제?");
       navigate("/", { state: { scrollTo: sectionId } });
     }
   };
