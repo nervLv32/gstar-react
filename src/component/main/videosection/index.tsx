@@ -12,7 +12,7 @@ const VideoSection = () => {
   // 🔹 비디오 미리 로드 (preload)
   useEffect(() => {
     const preloadVideo = document.createElement("video");
-    preloadVideo.src = "/GSTAR2025/video/production-gstar.mp4";
+    preloadVideo.src = "/GSTAR2025/video/gstar.mp4";
     preloadVideo.preload = "auto";
     preloadVideo.muted = true;
     preloadVideo.addEventListener("loadeddata", () => {
@@ -76,7 +76,7 @@ const VideoSection = () => {
         {/* 실제 비디오 */}
         <video
           ref={videoRef}
-          src={videoReady ? "/GSTAR2025/video/production-gstar.mp4" : undefined}
+          src={videoReady ? "/GSTAR2025/video/gstar.mp4" : undefined}
           muted
           playsInline
           preload="auto"
