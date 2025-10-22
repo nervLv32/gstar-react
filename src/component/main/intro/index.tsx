@@ -18,7 +18,7 @@ const Intro = ({
       {step === "video" && (
         <video
           ref={videoRef}
-          src="/GSTAR2025/video/gstar-intro.mp4"
+          src="/video/gstar-intro.mp4"
           muted
           playsInline
           autoPlay
