@@ -18,27 +18,46 @@ export const MediaWrapper = styled.div`
       align-items: center;
       justify-content: center;
       gap: 3.5rem;
-
-      li {
-        &.active {
-          background: linear-gradient(88.27deg, #2bbcff 0%, #005aff 99.52%);
-          opacity: 1;
-          transition: all 0.2s linear;
-        }
-
-        transition: all 0s ease;
-        cursor: pointer;
-        width: 29rem;
-        height: 6rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0.7;
-        background: rgba(255, 255, 255, 0.35);
-        color: #fff;
-        font-size: 2.4rem;
-        border-radius: 10rem;
+    }
+    .tab-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+    .all-tab-wrapper {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
+    .tab-contents {
+      &:hover {
+        background: #164774;
       }
+      &.active {
+        background: linear-gradient(88.27deg, #2bbcff 0%, #005aff 99.52%);
+        opacity: 1;
+        transition: all 0.2s linear;
+        border: 0;
+      }
+      &.all-tab {
+        width: 23rem;
+        height: 5.8rem;
+        font-size: 2.4rem;
+      }
+      border: 0.3rem solid rgba(255, 255, 255, 0.73);
+      background: transparent;
+      transition: all 0s ease;
+      cursor: pointer;
+      width: 18rem;
+      height: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+
+      color: #fff;
+      font-size: 2rem;
+      border-radius: 10rem;
     }
   }
   .scroll-top {
@@ -73,11 +92,11 @@ export const MediaWrapper = styled.div`
       }
       .sub-tab {
         gap: 3rem;
-        li {
-          font-size: 2rem;
-          width: 25rem;
-          height: 5rem;
-        }
+      }
+      .tab-contents {
+        font-size: 2rem;
+        width: 20rem;
+        height: 5rem;
       }
     }
   }
@@ -90,11 +109,19 @@ export const MediaWrapper = styled.div`
       }
       .sub-tab {
         gap: 2.051vw;
-        li {
-          font-size: 3.59vw;
-          width: 41.026vw;
-          height: 8.205vw;
+      }
+      .all-tab-wrapper {
+        gap: 2.551vw;
+      }
+      .tab-contents {
+        &.all-tab {
+          width: 43.59vw;
+          font-size: 4.359vw;
+          height: 9.231vw;
         }
+        font-size: 3.59vw;
+        width: 41.026vw;
+        height: 8.205vw;
       }
     }
     .scroll-top {

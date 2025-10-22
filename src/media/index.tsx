@@ -20,26 +20,36 @@ const Media = () => {
       <MediaWrapper>
         <div className="sub-visual-wrap">
           <h2 className="vitro">MEDIA</h2>
-          <ul className="sub-tab">
-            <li
-              className={`${tab === "all" ? "active" : ""} vitro`}
-              onClick={() => setTab("all")}
-            >
-              전체
-            </li>
-            <li
-              className={`${tab === "material" ? "active" : ""} vitro`}
-              onClick={() => setTab("material")}
-            >
-              보도 자료
-            </li>
-            <li
-              className={`${tab === "media" ? "active" : ""} vitro`}
-              onClick={() => setTab("media")}
-            >
-              영상
-            </li>
-          </ul>
+          <div className="tab-wrapper">
+            <div className="all-tab-wrapper">
+              <div
+                className={`${
+                  tab === "all" ? "active" : ""
+                } vitro tab-contents all-tab`}
+                onClick={() => setTab("all")}
+              >
+                전체
+              </div>
+            </div>
+            <ul className="sub-tab">
+              <li
+                className={`${
+                  tab === "material" ? "active" : ""
+                } vitro tab-contents`}
+                onClick={() => setTab("material")}
+              >
+                보도자료
+              </li>
+              <li
+                className={`${
+                  tab === "media" ? "active" : ""
+                } vitro tab-contents`}
+                onClick={() => setTab("media")}
+              >
+                영상
+              </li>
+            </ul>
+          </div>
         </div>
 
         {tab === "all" && <AllSection />}
