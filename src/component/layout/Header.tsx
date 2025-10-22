@@ -24,7 +24,7 @@ const Header = ({ className }: IProps) => {
 
   /** ✅ 수정된 부분 */
   const scrollToSection = (sectionId: string) => {
-    if (location.pathname === "/") {
+    if (location.pathname === "/GSTAR2025") {
       const target = document.querySelector(sectionId);
       if (target) {
         target.scrollIntoView({ behavior: "smooth", block: "start" });

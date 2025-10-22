@@ -14,7 +14,7 @@ import TapeImage01 from "../assets/images/main/main-tape-image01.png";
 import TapeImage02 from "../assets/images/main/main-tape-image02.png";
 import Header from "../component/layout/Header";
 
-const BASENAME = "/"; // BrowserRouter basename과 동일하게 설정
+const BASENAME = "/GSTAR2025"; // BrowserRouter basename과 동일하게 설정
 
 const Main = () => {
   const location = useLocation();
