@@ -51,6 +51,5 @@
   "devDependencies": {
     "@types/aos": "^3.0.7",
     "@types/js-cookie": "^3.0.6"
-  },
-  "homepage": "/GSTAR2025/"
+  }
 }
