@@ -218,6 +218,12 @@ export const FloatingMenuWrapper = styled.div`
     }
   }
   .home {
+    a {
+      &::after {
+        display: none !important;
+      }
+    }
+
     i {
       display: block;
       width: 2.4rem;

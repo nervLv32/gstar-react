@@ -31,8 +31,8 @@ const slideData = {
     { img: MainImage03 },
     { img: MainImage04 },
   ],
-  rest: [{ img: RestImage01 }, { img: RestImage02 }],
-  booth: [{ img: BoothImage01 }, { img: BoothImage02 }],
+  rest: [{ img: RestImage02 }, { img: RestImage01 }],
+  booth: [{ img: BoothImage02 }],
 };
 
 const Info = () => {
@@ -77,7 +77,7 @@ const Info = () => {
     <>
       <Header />
       <InfoWrapper>
-        <div className="info-visual-section">
+        <div className={`info-visual-section`}>
           <div className="info-inner">
             <h3 className="vitro">부스 위치 안내</h3>
             <div className="img-text-wrap">
@@ -93,7 +93,7 @@ const Info = () => {
           </div>
         </div>
 
-        <div className="nc-section">
+        <div className={`nc-section ${isCategory}`}>
           <div className="big-inner">
             <div className="tab-wrapper">
               <ul>
