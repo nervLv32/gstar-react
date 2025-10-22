@@ -68,19 +68,10 @@ const Main = () => {
     }
   }, [location.state]);
 
-  /** ✅ 인트로 쿠키 초기화 — basename 대응 */
-  useEffect(() => {
-    const isRootPath =
-      location.pathname === "/" ||
-      location.pathname === BASENAME ||
-      location.pathname === `${BASENAME}/`;
-
-    if (isRootPath) {
-      Cookies.remove("isVideoView", { path: BASENAME });
-    }
-  }, [location.pathname]);
-
-  /** ✅ 새로고침 감지 — sessionStorage 플래그 */
+  /**
+   * ✅ 새로고침 감지 — sessionStorage 플래그 저장
+   * 새로고침 시에만 플래그 true 설정
+   */
   useEffect(() => {
     const handleBeforeUnload = () => {
       sessionStorage.setItem("refreshTriggered", "true");
@@ -90,7 +81,11 @@ const Main = () => {
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, []);
 
-  /** ✅ 새로고침 후 쿠키 삭제 */
+  /**
+   * ✅ 새로고침 후 쿠키 삭제
+   * - 메인 페이지일 때만
+   * - 서브 페이지 이동 시에는 절대 쿠키 삭제 X
+   */
   useEffect(() => {
     const isRootPath =
       window.location.pathname === "/" ||
@@ -104,18 +99,26 @@ const Main = () => {
     }
   }, []);
 
-  /** ✅ pageshow 이벤트 (Safari 등 BFCache 대응) */
+  /**
+   * ✅ Safari 등 BFCache 대응
+   * - 뒤로가기 시 BFCache 복구되는 경우 새로고침 동작 감지
+   */
   useEffect(() => {
     const handlePageShow = (e: PageTransitionEvent) => {
+      // BFCache 복원일 경우 무시
       if (e.persisted) return;
+
       const currentPath = window.location.pathname;
-      if (
+      const isRootPath =
         currentPath === "/" ||
         currentPath === BASENAME ||
-        currentPath === `${BASENAME}/`
-      ) {
+        currentPath === `${BASENAME}/`;
+
+      // 새로고침된 상태에서 메인이라면만 인트로 초기화
+      if (isRootPath && sessionStorage.getItem("refreshTriggered") === "true") {
         Cookies.remove("isVideoView", { path: BASENAME });
         setIntroStep("video");
+        sessionStorage.removeItem("refreshTriggered");
       }
     };
 
@@ -123,7 +126,7 @@ const Main = () => {
     return () => window.removeEventListener("pageshow", handlePageShow);
   }, []);
 
-  /** ✅ 라우트 변경 시 스크롤 상단으로 */
+  /** ✅ 라우트 변경 시 스크롤 상단으로 이동 */
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);

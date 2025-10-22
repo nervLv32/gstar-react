@@ -3,11 +3,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { HeaderWrapper, SideMenuWrapper } from "./styles";
 import MoPoint from "../../assets/images/mobile/mobile-menu-point.png";
 import MoMenuLogo from "../../assets/images/mobile/mobile-menu-logo.png";
-
 import LinkLogo from "../../assets/images/common/header-link-icon.png";
+
 interface IProps {
   className?: string;
 }
+
 const Header = ({ className }: IProps) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -21,14 +22,19 @@ const Header = ({ className }: IProps) => {
     { name: "COMING SOON", to: "/" },
   ];
 
+  /** ✅ 수정된 부분 */
   const scrollToSection = (sectionId: string) => {
     if (location.pathname === "/") {
       const target = document.querySelector(sectionId);
       if (target) {
         target.scrollIntoView({ behavior: "smooth", block: "start" });
-        window.history.replaceState(null, "", `/${sectionId}`);
+
+        // ✅ 절대경로로 안전하게 replaceState 수행
+        const newUrl = `${window.location.origin}${window.location.pathname}${sectionId}`;
+        window.history.replaceState(null, "", newUrl);
       }
     } else {
+      alert("여기서 문제?");
       navigate("/", { state: { scrollTo: sectionId } });
     }
   };
@@ -41,6 +47,7 @@ const Header = ({ className }: IProps) => {
       navigate("/");
     }
   };
+
   const handleCopyLink = (text = "https://about.ncsoft.com/gstar2025") => {
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard
@@ -51,21 +58,15 @@ const Header = ({ className }: IProps) => {
       fallbackCopyTextToClipboard(text);
     }
   };
+
   const fallbackCopyTextToClipboard = (text: string) => {
     const textarea = document.createElement("textarea");
     textarea.value = text;
-
-    // ✅ 화면 밖으로 완전히 밀어내서 보이지 않게 함
     textarea.style.position = "fixed";
     textarea.style.top = "-9999px";
     textarea.style.left = "-9999px";
-
-    // ✅ 모바일에서 키패드가 올라오지 않게 readonly 설정
     textarea.setAttribute("readonly", "");
-
     document.body.appendChild(textarea);
-
-    // ✅ selection만 잡되 focus는 주지 않음
     textarea.select();
     textarea.setSelectionRange(0, text.length); // iOS 대응
 
@@ -83,7 +84,7 @@ const Header = ({ className }: IProps) => {
     document.body.removeChild(textarea);
   };
 
-  // ✅ body 스크롤 제어
+  /** ✅ body 스크롤 제어 */
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -122,7 +123,7 @@ const Header = ({ className }: IProps) => {
           </li>
         </ul>
 
-        {/* ✅ 여기 수정 부분 */}
+        {/* 링크 복사 버튼 */}
         <ul className="link-wrap">
           <li>
             <i onClick={() => handleCopyLink()}>
@@ -131,6 +132,7 @@ const Header = ({ className }: IProps) => {
           </li>
         </ul>
 
+        {/* 모바일 햄버거 버튼 */}
         <div
           className={`mo-ham-wrap ${isOpen ? "active" : ""}`}
           onClick={() => setIsOpen(!isOpen)}
@@ -141,11 +143,12 @@ const Header = ({ className }: IProps) => {
         </div>
       </HeaderWrapper>
 
+      {/* 사이드 메뉴 */}
       <SideMenuWrapper className={isOpen ? "open" : ""}>
         <div className="inner">
           <Link to="/" className="logo" onClick={() => setIsOpen(false)}>
             <i>
-              <img src={MoMenuLogo} alt="" />
+              <img src={MoMenuLogo} alt="모바일 로고" />
             </i>
           </Link>
           <div className="menu-wrap">
@@ -207,6 +210,7 @@ const Header = ({ className }: IProps) => {
               <img src={MoPoint} alt="" />
             </i>
           </div>
+
           <ul className="small-icon-wrap">
             <li>
               <i onClick={() => handleCopyLink()}>

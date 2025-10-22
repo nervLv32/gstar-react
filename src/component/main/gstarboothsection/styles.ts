@@ -432,7 +432,7 @@ export const GstarBoothSectionWrapper = styled.section`
               font-size: 2.2rem;
               line-height: 2.8rem;
               text-align: center;
-              color: #0051ff;
+              color: #fff;
               width: 100%;
               b {
                 font-weight: 700;
