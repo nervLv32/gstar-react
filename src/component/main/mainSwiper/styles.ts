@@ -1,5 +1,6 @@
 import { keyframes, styled } from "styled-components";
-import SlideBorderImage from "../../../assets/images/main/main-border-slide-image.webp";
+// import SlideBorderImage from "../../../assets/images/main/main-border-slide-image.webp";
+import SlideBorderImage from "../../../assets/images/main/main-effect-slide-image.png";
 import ActiveShadowImage from "../../../assets/images/main/main-slide-active-shadow.webp";
 
 const titleFadeIn = keyframes`
