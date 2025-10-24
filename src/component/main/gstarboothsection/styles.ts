@@ -24,18 +24,18 @@ export const GstarBoothSectionWrapper = styled.section`
   justify-content: center;
   align-items: center;
   background: #fff;
-  padding: 15rem 0 24.7rem;
+  padding: 15rem 0 18rem;
   overflow: hidden;
 
   .section-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 13.8rem;
+    gap: 7.6rem;
 
     .title-wrap {
       display: flex;
       flex-direction: column;
-      gap: 7.3rem;
+      gap: 4.9rem;
       opacity: 0;
 
       h4 {
@@ -266,11 +266,11 @@ export const GstarBoothSectionWrapper = styled.section`
   @media all and (max-width: 1440px) {
     display: flex;
     flex-direction: column;
-    gap: 12rem;
-    padding: 13rem 0 21rem;
+    gap: 6.4rem;
+    padding: 13rem 0 15rem;
     .section-wrapper {
       .title-wrap {
-        gap: 6rem;
+        gap: 4rem;
         h4 {
           font-size: 6rem;
           line-height: 6.8rem;
@@ -542,8 +542,8 @@ export const GstarBoothSectionWrapper = styled.section`
   }
 
   @media all and (max-width: 900px) {
-    gap: 8rem;
-    padding: 10rem 0 18rem;
+    gap: 4.8rem;
+    padding: 10rem 0 13rem;
     .section-wrapper {
       .title-wrap {
         gap: 4rem;
@@ -551,8 +551,8 @@ export const GstarBoothSectionWrapper = styled.section`
     }
   }
   @media all and (max-width: 768px) {
-    gap: 10.375vw;
-    padding: 18.021vw 0 23.438vw;
+    gap: 5.469vw;
+    padding: 18.021vw 0 13.021vw;
     .section-wrapper {
       .title-wrap {
         gap: 5.3vw;

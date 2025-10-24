@@ -13,7 +13,7 @@ const FloatingMenu = () => {
     { name: "AION2", to: "/work/aion2" },
     { name: "CINDER CITY", to: "/work/cinder" },
     { name: "타임 테이커즈", to: "/work/timetakers" },
-    { name: "브레이커스", to: "/work/breakers" },
+    { name: "리밋 제로 브레이커스", to: "/work/breakers" },
     { name: "COMING SOON", to: "/" },
   ];
 

@@ -2,10 +2,10 @@ import { styled } from "styled-components";
 
 export const MediaWrapper = styled.div`
   .sub-visual-wrap {
-    padding: 20rem 0 12.5rem;
+    padding: 15rem 0 5rem;
     display: flex;
     flex-direction: column;
-    gap: 8rem;
+    gap: 5rem;
     background: #003769;
 
     h2 {
@@ -85,7 +85,7 @@ export const MediaWrapper = styled.div`
   }
   @media all and (max-width: 1024px) {
     .sub-visual-wrap {
-      padding: 18rem 0 10rem;
+      padding: 18rem 0 4.2rem;
       gap: 5rem;
       h2 {
         font-size: 6rem;
@@ -102,7 +102,7 @@ export const MediaWrapper = styled.div`
   }
   @media all and (max-width: 780px) {
     .sub-visual-wrap {
-      padding: 25.641vw 0 12.821vw;
+      padding: 25.641vw 0 3.846vw;
       gap: 10.256vw;
       h2 {
         font-size: 8.205vw;
@@ -135,7 +135,7 @@ export const MediaWrapper = styled.div`
 `;
 
 export const ContentsWrapper = styled.div`
-  padding: 16rem 0;
+  padding: 8rem 0 16rem;
   background: #fff;
 
   .list-wrapper {
@@ -338,7 +338,7 @@ export const ContentsWrapper = styled.div`
     }
   }
   @media all and (max-width: 1200px) {
-    padding: 13rem 0;
+    padding: 7rem 0 13rem;
     .list-wrapper {
       .main {
         padding-bottom: 13rem;
@@ -372,7 +372,7 @@ export const ContentsWrapper = styled.div`
     }
   }
   @media all and (max-width: 1024px) {
-    padding: 12rem 0;
+    padding: 6.4rem 0 12rem;
     .list-wrapper {
       .main {
         padding-bottom: 12rem;
@@ -409,7 +409,7 @@ export const ContentsWrapper = styled.div`
     }
   }
   @media all and (max-width: 768px) {
-    padding: 10.417vw 0;
+    padding: 6.51vw 0 10.417vw;
     .list-wrapper {
       .main {
         padding-bottom: 10.417vw;

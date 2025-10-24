@@ -27,7 +27,7 @@ export const TicketSectionWrapper = styled.div`
         }
       }
       p {
-        font-size: 3.4rem;
+        font-size: 2.8rem;
         font-weight: 600;
         color: #6f6f6f;
         line-height: 1.4;
@@ -50,7 +50,7 @@ export const TicketSectionWrapper = styled.div`
         flex-direction: column;
         align-items: center;
         .info-wrap {
-          padding: 4.2rem 9.1rem;
+          padding: 2.1rem 9.1rem 4.2rem;
           background: #e3e3e3;
           border-radius: 1.2rem 1.2rem 0 0;
           width: 100%;
@@ -58,15 +58,17 @@ export const TicketSectionWrapper = styled.div`
           flex-direction: column;
           .title-info-wrap {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            gap: 0.8rem;
+            justify-content: center;
+            align-items: flex-end;
             position: relative;
-            padding-bottom: 4.4rem;
+            padding-bottom: 1.6rem;
             border-bottom: 0.1rem solid #003769;
             margin-bottom: 3rem;
+
             h5 {
               width: fit-content;
-              font-size: 4.8rem;
+              font-size: 4rem;
               font-weight: 900;
               line-height: 7rem;
               letter-spacing: -0.72px;
@@ -83,15 +85,14 @@ export const TicketSectionWrapper = styled.div`
               font-weight: 500;
               line-height: 4.4rem;
               color: #003769;
-              position: absolute;
-              bottom: 0.6rem;
-              right: 9.2rem;
+              position: relative;
+              top: -0.6rem;
             }
           }
           .dl-info-wrap {
             display: flex;
             flex-direction: column;
-            gap: 3rem;
+            gap: 2.2rem;
             dl {
               display: flex;
               align-items: center;
@@ -124,10 +125,10 @@ export const TicketSectionWrapper = styled.div`
           align-items: center;
           width: 100%;
           a {
-            padding: 2.8rem;
+            padding: 0.8rem;
             display: block;
             width: 100%;
-            font-size: 3.4rem;
+            font-size: 2.6rem;
             line-height: 4.4rem;
             letter-spacing: -0.51px;
             color: #fff;
@@ -142,7 +143,7 @@ export const TicketSectionWrapper = styled.div`
       justify-content: center;
       gap: 2.4rem;
 
-      margin-top: 4.8rem;
+      margin-top: 3.5rem;
       p {
         color: rgba(0, 0, 0, 0.35);
         font-size: 2rem;
@@ -329,10 +330,9 @@ export const TicketSectionWrapper = styled.div`
       .ticket-info-wrapper {
         .ticket-info-wrap {
           .info-wrap {
-            padding: 4rem 6rem;
+            padding: 2rem 6rem 4rem;
             .title-info-wrap {
               > span {
-                right: 4rem;
               }
             }
             .dl-info-wrap {
@@ -367,10 +367,10 @@ export const TicketSectionWrapper = styled.div`
           .info-wrap {
             .title-info-wrap {
               h5 {
-                font-size: 4.2rem;
+                font-size: 3.6rem;
               }
               > span {
-                right: 2rem;
+                /* right: 2rem; */
               }
             }
           }
@@ -402,6 +402,8 @@ export const TicketSectionWrapper = styled.div`
             padding: 3.906vw 6.51vw;
 
             .title-info-wrap {
+              flex-direction: column;
+              align-items: center;
               padding-bottom: 3.906vw;
               margin-bottom: 3.906vw;
               h5 {
@@ -412,8 +414,10 @@ export const TicketSectionWrapper = styled.div`
                 }
               }
               > span {
-                right: 9.115vw;
-                bottom: 4.948vw;
+                position: absolute;
+                top: unset;
+                bottom: 5.469vw;
+                right: 10.417vw;
                 font-size: 3.125vw;
                 line-height: 4.427vw;
               }

@@ -66,12 +66,12 @@ const VideoSection = () => {
     >
       <div className="video-inner">
         {/* 비디오 로딩 전 보여줄 이미지 */}
-        <img
+        {/* <img
           src={TitleImage}
           alt="video placeholder"
           className="video-placeholder"
           draggable={false}
-        />
+        /> */}
 
         {/* 실제 비디오 */}
         <video

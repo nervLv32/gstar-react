@@ -93,12 +93,15 @@ export const IpWrapper = styled.div<IpWrapperProps>`
   }
   &.breakers {
       .ip-section {
-        background: url(${BreakersBg}) no-repeat center / cover;
+        background: url(${BreakersBg}) no-repeat bottom / cover;
       @media all and (max-width: 1024px) {
         background: url(${BreakersMoBg}) no-repeat bottom / cover;
       }
       .tablet-br {
         display: none;
+      }
+      .logo-text-wrap {
+        top: 55%;
       }
     }
     /* .ip-section {
@@ -391,6 +394,7 @@ export const IpWrapper = styled.div<IpWrapperProps>`
   .ip-section {
       
      .logo-text-wrap {
+      top: unset;
       .text-button-wrapper {
         .text-info-wrap {
           .text-wrap {

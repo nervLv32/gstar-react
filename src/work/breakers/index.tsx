@@ -104,8 +104,8 @@ const Breakers = () => {
               <h2 data-anim>리밋 제로 브레이커스</h2>
               <span data-anim>애니메이션 액션 RPG</span>
               <p data-anim>
-                다채로운 판타지 세계를 무대로 한 애니메이션 액션 RPG『LIMIT ZERO
-                BREAKERS』.
+                다채로운 판타지 세계를 무대로 한 애니메이션 액션 RPG 리밋 제로
+                브레이커스.
                 <br />
                 다양한 액션 스타일의 캐릭터를 조합하여 던전과 거대 마물을
                 공략하는 스릴 넘치는 전투를 즐길 수 있습니다.

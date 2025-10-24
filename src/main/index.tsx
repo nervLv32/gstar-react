@@ -45,7 +45,7 @@ const Main = () => {
       setIsHeaderFixed(false);
       setIsHeaderVisible(true);
       if (hideTimeout.current) clearTimeout(hideTimeout.current);
-      hideTimeout.current = setTimeout(() => setIsHeaderVisible(false), 1200);
+      hideTimeout.current = setTimeout(() => setIsHeaderVisible(false), 3000);
     };
 
     window.addEventListener("scroll", handleScroll);

@@ -59,9 +59,12 @@ const moveRightMo = keyframes`
 ================================ */
 export const TicketWrapper = styled.div`
   position: relative;
-  width: 54rem;
-  height: 65rem;
-  margin: 7rem auto;
+  width: 46rem;
+  /* width: 54rem; */
+  height: 52rem;
+  /* height: 65rem; */
+  /* margin: 7rem auto; */
+  margin: 2rem auto 7rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,9 +111,9 @@ export const TicketWrapper = styled.div`
      💻 PC 반응형
   ================================= */
   @media all and (max-width: 1024px) {
-    width: 49rem;
-    height: 59rem;
-    margin: 6rem auto;
+    width: 40rem;
+    height: 53rem;
+    margin: 1.4rem auto 2rem;
   }
 
   /* ================================
