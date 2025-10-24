@@ -75,6 +75,9 @@ export const IpWrapper = styled.div<IpWrapperProps>`
     }
   }
   &.timetakers {
+      .tablet-br {
+          display: none;
+      }
     .ip-section {
             background: url(${TimeTakersBg}) no-repeat center / 110%;
       @media all and (max-width: 1024px) {
@@ -344,6 +347,11 @@ export const IpWrapper = styled.div<IpWrapperProps>`
         right: 10rem;
       }
     }
+    &.timetakers {
+      .ip-section {
+        background-size: cover;
+      }
+    }
   }
   @media all and (max-width: 1540px) {
     .ip-section {
@@ -413,6 +421,11 @@ export const IpWrapper = styled.div<IpWrapperProps>`
       
     }
     
+  }
+  &.timetakers {
+    .tablet-br {
+                  display: block;
+                }
   }
   .ip-section {
     .logo-text-wrap {

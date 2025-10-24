@@ -63,7 +63,9 @@ const TimeTakers = () => {
             <div className="text-info-wrap">
               <div className="text-wrap">
                 <h2>
-                  <p data-anim>한 발의 총알보다, 더 강력한 1초</p>
+                  <p data-anim>
+                    한 발의 총알보다, <br className="tablet-br" />더 강력한 1초
+                  </p>
                 </h2>
               </div>
             </div>
