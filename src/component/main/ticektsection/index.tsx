@@ -154,14 +154,14 @@ const TicketSection = () => {
                     <dl>
                       <dt>기간</dt>
                       <dd>
-                        2025/10/24(금) 12:00 ~ <br className="mo-br" />
-                        2025/10/31(금) 23:59
+                        2025년 10월 27일(월) 12:00 ~ <br className="mo-br" />
+                        2025년 10월 31일(금) 23:59
                       </dd>
                     </dl>
                     <dl>
                       <dt>당첨자 발표</dt>
                       <dd>
-                        2025/11/4(화) 14:00 <br className="mo-br" />
+                        2025년 11월 4일(화) 14:00 <br className="mo-br" />
                         개별 SMS 안내
                       </dd>
                     </dl>

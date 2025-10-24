@@ -412,6 +412,9 @@ export const IpWrapper = styled.div<IpWrapperProps>`
      }
       
     }
+    
+  }
+  .ip-section {
     .logo-text-wrap {
       
       top: unset;
