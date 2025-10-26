@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const TicketSectionWrapper = styled.div`
   background: #fff;
 
-  padding: 20rem 0 17.3rem;
+  padding: 15rem 0 17.3rem;
   .contents-wrap {
     overflow: hidden;
   }
@@ -14,7 +14,7 @@ export const TicketSectionWrapper = styled.div`
       align-items: center;
       text-align: center;
       h4 {
-        font-size: 6.8rem;
+        font-size: 6.4rem;
         color: #1942f4;
         letter-spacing: -1.02px;
         font-weight: 900;
@@ -27,7 +27,7 @@ export const TicketSectionWrapper = styled.div`
         }
       }
       p {
-        font-size: 2.8rem;
+        font-size: 2.6rem;
         font-weight: 600;
         color: #6f6f6f;
         line-height: 1.4;

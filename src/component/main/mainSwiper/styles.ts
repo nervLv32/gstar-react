@@ -530,7 +530,7 @@ export const MainSwiperWrapper = styled.div`
               font-size: 2rem;
             }
             h4 {
-              font-size: 0.7rem;
+              font-size: 1.1rem;
             }
           }
         }

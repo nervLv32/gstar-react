@@ -10,7 +10,8 @@ export const VideoSectionWrapper = styled.section`
     position: sticky;
     top: 0;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
+    min-height: 108rem;
     overflow: hidden;
     transform-origin: center center;
     transform: scale(0.9);
@@ -49,11 +50,28 @@ export const VideoSectionWrapper = styled.section`
 
   video {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    height: auto;
+    min-width: 100%;
+    min-height: 108rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     /* object-fit: cover; */
+  }
+  @media all and (max-width: 1600px) {
+    .video-inner {
+      height: 100vh;
+      min-height: 1rem;
+    }
+    video {
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      min-height: 1rem;
+      transform: none;
+    }
   }
   @media all and (max-width: 768px) {
     display: none;

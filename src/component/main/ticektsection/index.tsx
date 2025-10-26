@@ -154,7 +154,7 @@ const TicketSection = () => {
                     <dl>
                       <dt>기간</dt>
                       <dd>
-                        2025년 10월 27일(월) 12:00 ~ <br className="mo-br" />
+                        2025년 10월 28일(화) 14:00 ~ <br className="mo-br" />
                         2025년 10월 31일(금) 23:59
                       </dd>
                     </dl>

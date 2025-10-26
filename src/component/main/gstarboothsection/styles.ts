@@ -30,16 +30,16 @@ export const GstarBoothSectionWrapper = styled.section`
   .section-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 7.6rem;
+    gap: 5rem;
 
     .title-wrap {
       display: flex;
       flex-direction: column;
-      gap: 4.9rem;
+      gap: 3rem;
       opacity: 0;
 
       h4 {
-        font-size: 6.8rem;
+        font-size: 6.4rem;
         line-height: 8rem;
         letter-spacing: -0.12rem;
         color: #005aff;
@@ -51,10 +51,10 @@ export const GstarBoothSectionWrapper = styled.section`
       }
 
       p {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
         font-weight: 500;
         color: #00162a;
-        line-height: 4.2rem;
+        line-height: 1.7;
         opacity: 0;
         transform: translateY(3rem);
         &.mo-text {

@@ -12,7 +12,7 @@ export const HeaderWrapper = styled.header`
   width: 100%;
   background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(7px);
-  height: 10.4rem;
+  height: 9rem;
   display: flex;
   justify-content: center;
   transition: opacity 0.6s ease, transform 0.6s ease;
@@ -44,9 +44,9 @@ export const HeaderWrapper = styled.header`
       button {
         display: block;
         font-weight: 700;
-        font-size: 2.2rem;
+        font-size: 2rem;
         color: #fff;
-        min-width: 10.3rem;
+        min-width: 9rem;
       }
     }
   }
@@ -72,7 +72,7 @@ export const HeaderWrapper = styled.header`
     display: none;
   }
   @media all and (max-width: 1024px) {
-    height: 9.4rem;
+    height: 8.6rem;
     .link-wrap {
       right: 2rem;
     }
