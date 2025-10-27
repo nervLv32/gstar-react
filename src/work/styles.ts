@@ -96,7 +96,9 @@ export const IpWrapper = styled.div<IpWrapperProps>`
   }
   &.breakers {
       .ip-section {
-        background: url(${BreakersBg}) no-repeat bottom / cover;
+        background: url(${BreakersBg}) no-repeat;
+        background-size: cover;
+        background-position-y: bottom;
       @media all and (max-width: 1024px) {
         background: url(${BreakersMoBg}) no-repeat bottom / cover;
       }

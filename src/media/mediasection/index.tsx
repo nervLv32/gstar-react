@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import MainImage from "../../assets/images/media/media/media-media-main.png";
+import MainImage from "../../assets/images/media/media/media-media-main.jpeg";
 import Image01 from "../../assets/images/media/media/media-media-image01.png";
 import Image02 from "../../assets/images/media/media/media-media-image02.png";
 import Image03 from "../../assets/images/media/media/media-media-image03.png";
@@ -23,134 +23,7 @@ export const mediaList = [
         27주년 신규 업데이트 사전예약 개시
       </h6>
     ),
-    date: "2025. 09. 25",
-  },
-  {
-    link: "/",
-    img: Image02,
-    textChild: (
-      <h6 className="title">
-        엔씨(NC) ‘리밋 제로 브레이커스’, TGS 2025 출격 <br />
-        신규 홍보 영상 공개
-      </h6>
-    ),
-    date: "2025. 09. 23",
-  },
-  {
-    link: "/",
-    img: Image09,
-    textChild: (
-      <h6 className="title">
-        엔씨(NC) 리니지 리마스터, 27주년 생방송
-        <br />
-        ‘스포일러 TALK’ 진행 예고
-      </h6>
-    ),
-    date: "2025. 09. 22",
-  },
-  {
-    link: "/",
-    img: Image03,
-    textChild: (
-      <h6 className="title">
-        엔씨소프트, 엔씨패밀리존에서 애니메이션 OTT <br />
-        ‘라프텔’ 서비스 시작
-      </h6>
-    ),
-    date: "2025. 09. 22",
-  },
-  {
-    link: "/",
-    img: Image04,
-    textChild: (
-      <h6 className="title">
-        엔씨(NC) 리니지M, ‘BURNING HEART’
-        <br />
-        업데이트 진행
-      </h6>
-    ),
-    date: "2025. 09. 21",
-  },
-  {
-    link: "/",
-    img: Image05,
-    textChild: (
-      <h6 className="title">
-        TL, 대규모 업데이트 ‘NEW WAVE’ 실시 ··· <br />
-        신규 무기 ‘마력구’ 도입
-      </h6>
-    ),
-    date: "2025. 09. 20",
-  },
-  {
-    link: "/",
-    img: Image06,
-    textChild: (
-      <h6 className="title">
-        엔씨소프트 ‘아이온2’, 11월 19일 한국∙대만 출시 ∙∙∙
-        <br />
-        사전예약 시작
-      </h6>
-    ),
-    date: "2025. 09. 19",
-  },
-  {
-    link: "/",
-    img: Image07,
-    textChild: (
-      <h6 className="title">
-        엔씨소프트 ‘리밋 제로 브레이커스’,
-        <br />
-        TGS 2025 프로그램 정보 공개
-      </h6>
-    ),
-    date: "2025. 09. 18",
-  },
-  {
-    link: "/",
-    img: Image08,
-    textChild: (
-      <h6 className="title">
-        엔씨(NC) 리니지M, ‘BURNING HEART’ <br />
-        업데이트 상세정보 공개
-      </h6>
-    ),
-    date: "2025. 09. 17",
-  },
-  {
-    link: "/",
-    img: Image03,
-    textChild: (
-      <h6 className="title">
-        엔씨소프트, 엔씨패밀리존에서 애니메이션 OTT <br />
-        ‘라프텔’ 서비스 시작
-      </h6>
-    ),
-    date: "2025. 09. 16",
-  },
-  {
-    link: "/",
-    img: Image04,
-    textChild: (
-      <h6 className="title">
-        엔씨(NC) 리니지M, ‘BURNING HEART’
-        <br />
-        업데이트 진행
-      </h6>
-    ),
-    date: "2025. 09. 15",
-  },
-  {
-    link: "/",
-    img: Image09,
-    textChild: (
-      <h6 className="title">
-        엔씨(NC) 리니지 리마스터, 27주년 생방송
-        <br />
-        ‘스포일러 TALK’ 진행 예고
-      </h6>
-    ),
-    date: "2025. 09. 14",
+    date: "2025. 10. 28",
   },
 ];
 const MediaSection = () => {
@@ -169,7 +42,7 @@ const MediaSection = () => {
     <ContentsWrapper>
       <div className="inner">
         <div className="list-wrapper">
-          <div className="main">
+          <div className={`${mediaList.length > 1 ? "" : "empty"} main`}>
             <Link to="/">
               <dl>
                 <dt>
@@ -180,50 +53,62 @@ const MediaSection = () => {
                 <dd>
                   <div className="text-wrap">
                     <h4>
-                      Time Takers – Official Reveal <br />
-                      Trailer (2025) | Mistil Games / NCSOFT
+                      [NC G-STAR 2025] 무한한 세계,
+                      <br />
+                      하나의 여정! 엔씨소프트 출품작 공개
                     </h4>
-                    <p>내용작성영역</p>
+                    <p>
+                      무한한 세계, 하나의 여정! 엔씨가 다양한 장르의 출품작과
+                      함께 부산에서 여러분을 기다립니다.
+                      {"<"}AION2{">"}, {"<"}CINDER CITY{">"}, {"<"}LIMIT ZERO
+                      BREAKERS{">"}, {"<"}TIME TAKERS{">"}와 G-STAR 2025 B2C관의
+                      랜드마크 NC CINEMA에서 공개되는 또 하나의 출품작까지!{" "}
+                      <br />
+                      <br />
+                      11월 13일(화)~11월 16일(일) 부산 벡스코에서 만나요!
+                    </p>
                   </div>
-                  <span>2025. 09. 25</span>
+                  <span>2025. 10. 28</span>
                 </dd>
               </dl>
             </Link>
           </div>
 
-          <div className="list-wrap">
-            <ul>
-              {visibleItems.map((item, index) => (
-                <li key={index}>
-                  <Link to={item.link}>
-                    <div className="img-wrap">
-                      <i>
-                        <img src={item.img} alt="" />
-                      </i>
-                    </div>
-                    <div className="text-wrap">
-                      {item.textChild}
-                      <span>{item.date}</span>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {mediaList.length > 1 && (
+            <div className="list-wrap">
+              <ul>
+                {visibleItems.map((item, index) => (
+                  <li key={index}>
+                    <Link to={item.link}>
+                      <div className="img-wrap">
+                        <i>
+                          <img src={item.img} alt="" />
+                        </i>
+                      </div>
+                      <div className="text-wrap">
+                        {item.textChild}
+                        <span>{item.date}</span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
 
-            <div className="viewmore-wrap">
-              {/* 버튼은 더 보여줄게 있을 때만 표시 */}
-              {visibleCount < mediaList.length && (
-                <div className="button-wrap">
-                  <span>+</span>
-                  <button onClick={handleViewMore}>VIEW MORE</button>
+              <div className="viewmore-wrap">
+                {/* 버튼은 더 보여줄게 있을 때만 표시 */}
+                {visibleCount < mediaList.length && (
+                  <div className="button-wrap">
+                    <span>+</span>
+                    <button onClick={handleViewMore}>VIEW MORE</button>
+                  </div>
+                )}
+
+                <div className="page-info">
+                  {currentPage} / {totalPages}
                 </div>
-              )}
-
-              <div className="page-info">
-                {currentPage} / {totalPages}
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </ContentsWrapper>

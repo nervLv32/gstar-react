@@ -75,7 +75,7 @@ const Footer = () => {
             <div className="text-sns-wrap">
               <div className="text-wrap">
                 <p className="vitro-pride">
-                  NC 운영정책 | 대표번호 : 02-2186-3300
+                  대표번호 : 02-2186-3300
                   <br />© NCSOFT Corporation. All Rights Reserved.
                 </p>
               </div>

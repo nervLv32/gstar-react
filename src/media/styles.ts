@@ -143,6 +143,10 @@ export const ContentsWrapper = styled.div`
     .main {
       padding-bottom: 16rem;
       border-bottom: 0.1rem solid #a5a5a5;
+      &.empty {
+        border-bottom: 0 none;
+        padding-bottom: 0 !important;
+      }
 
       dl {
         display: flex;
@@ -183,14 +187,17 @@ export const ContentsWrapper = styled.div`
 
             h4 {
               font-size: 3.6rem;
-              line-height: 1.6;
+              line-height: 1.45;
               font-weight: 500;
               letter-spacing: -0.54px;
+              word-break: keep-all;
             }
 
             p {
+              word-break: keep-all;
               font-size: 1.8rem;
-              line-height: 3.4rem;
+              line-height: 1.75;
+
               color: #000;
               min-height: 14rem;
             }
