@@ -71,7 +71,7 @@ const MaterialSection = () => {
                       공간에서 신작 라인업을 공개한다.
                     </p>
                   </div>
-                  <span>2025. 10. 28</span>
+                  <span>2025. 09. 08</span>
                 </dd>
               </dl>
             </Link>
