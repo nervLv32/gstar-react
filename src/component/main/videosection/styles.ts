@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 export const VideoSectionWrapper = styled.section`
   position: relative;
   width: 100%;
+  /* height: 100vh; */
   height: 150vh;
   background: #000;
 
@@ -10,8 +11,8 @@ export const VideoSectionWrapper = styled.section`
     position: sticky;
     top: 0;
     width: 100%;
-    /* height: 100vh; */
     min-height: 108rem;
+    height: 100vh;
     overflow: hidden;
     transform-origin: center center;
     transform: scale(0.9);
