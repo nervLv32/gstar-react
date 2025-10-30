@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { VideoSectionWrapper } from "./styles";
-import TitleImage from "../../../assets/images/main/main-title.webp";
 
 const VideoSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -9,21 +8,23 @@ const VideoSection = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
 
-  // 🔹 비디오 미리 로드 (preload)
-  useEffect(() => {
-    const preloadVideo = document.createElement("video");
-    preloadVideo.src = "/GSTAR2025/video/gstar.mp4";
-    preloadVideo.preload = "auto";
-    preloadVideo.muted = true;
-    preloadVideo.addEventListener("loadeddata", () => {
-      setVideoReady(true);
-    });
+  // 🔹 iOS 감지 (모바일 Safari 포함)
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-    // 메모리 누수 방지
-    return () => preloadVideo.remove();
+  // 🔹 비디오 preload — 실제 videoRef 기준으로 로드
+  useEffect(() => {
+    if (!videoRef.current) return;
+    const video = videoRef.current;
+    video.src = "/GSTAR2025/video/gstar.mp4";
+    video.load();
+
+    const handleLoadedData = () => setVideoReady(true);
+    video.addEventListener("loadeddata", handleLoadedData);
+
+    return () => video.removeEventListener("loadeddata", handleLoadedData);
   }, []);
 
-  // 🔹 IntersectionObserver: 화면에 들어올 때만 재생 시작 (한 번만)
+  // 🔹 IntersectionObserver로 섹션 활성화 감지
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
@@ -31,17 +32,17 @@ const VideoSection = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // ✅ 화면에 처음 들어올 때만 재생
           if (entry.isIntersecting) {
             setIsActive(true);
+
+            // ✅ iOS에서는 autoplay만으로 안 될 수 있으므로 보조 play 호출
             setTimeout(() => {
               videoRef.current?.play().catch(() => {});
-            }, 100);
+            }, 200);
           }
         });
       },
       {
-        root: null,
         threshold: 0.5,
         rootMargin: "-10% 0px",
       }
@@ -51,12 +52,25 @@ const VideoSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  // 🔹 혹시 로드 완료 시 자동 재생 보장
+  // 🔹 로드 완료 시 자동 재생 시도 (iOS fallback)
   useEffect(() => {
-    if (videoReady) {
-      videoRef.current?.play().catch(() => {});
+    if (videoReady && videoRef.current) {
+      const video = videoRef.current;
+
+      // iOS에서 autoplay 허용을 위해 mute + playsInline + autoplay 모두 적용
+      if (isIOS) {
+        video.muted = true;
+        video.playsInline = true;
+      }
+
+      video
+        .play()
+        .then(() => setIsVideoLoaded(true))
+        .catch(() => {
+          // 실패 시 iOS는 유저 제스처 필요 → 재생 버튼 표시 등 가능
+        });
     }
-  }, [videoReady]);
+  }, [videoReady, isIOS]);
 
   return (
     <VideoSectionWrapper
@@ -65,20 +79,12 @@ const VideoSection = () => {
       className={`${isActive ? "active" : ""} ${isVideoLoaded ? "loaded" : ""}`}
     >
       <div className="video-inner">
-        {/* 비디오 로딩 전 보여줄 이미지 */}
-        {/* <img
-          src={TitleImage}
-          alt="video placeholder"
-          className="video-placeholder"
-          draggable={false}
-        /> */}
-
         {/* 실제 비디오 */}
         <video
           ref={videoRef}
-          src={videoReady ? "/GSTAR2025/video/gstar.mp4" : undefined}
           muted
           playsInline
+          autoPlay
           preload="auto"
           loop
           onLoadedData={() => setIsVideoLoaded(true)}

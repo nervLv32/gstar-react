@@ -2,17 +2,18 @@ import Cookies from "js-cookie";
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-import BoothSection from "../component/main/boothsection";
-import GstarBoothSection from "../component/main/gstarboothsection";
-import GstarSection from "../component/main/gstarsection";
-import VideoSection from "../component/main/videosection";
-import { TapeWrapper } from "./styles";
-import Intro from "../component/main/intro";
-import TicketSection from "../component/main/ticektsection";
-import MainSection from "../component/main/mainsection";
 import TapeImage01 from "../assets/images/main/main-tape-image01.png";
 import TapeImage02 from "../assets/images/main/main-tape-image02.png";
 import Header from "../component/layout/Header";
+import BoothSection from "../component/main/boothsection";
+import EventSection from "../component/main/eventsection";
+import GstarBoothSection from "../component/main/gstarboothsection";
+import GstarSection from "../component/main/gstarsection";
+import Intro from "../component/main/intro";
+import MainSection from "../component/main/mainsection";
+import TicketSection from "../component/main/ticektsection";
+import VideoSection from "../component/main/videosection";
+import { TapeWrapper } from "./styles";
 
 const BASENAME = "/GSTAR2025"; // BrowserRouter basename과 동일하게 설정
 
@@ -171,6 +172,7 @@ const Main = () => {
           <GstarBoothSection />
           <BoothSection />
           <TicketSection />
+          {/* <EventSection /> */}
           <TapeWrapper>
             <div className="tape">
               {Array(8)

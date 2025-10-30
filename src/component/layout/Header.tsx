@@ -172,7 +172,13 @@ const Header = ({ className }: IProps) => {
                     <Link
                       to={menu.to}
                       key={menu.to}
-                      onClick={() => setIsOpen(false)}
+                      onClick={(e) => {
+                        if (menu.to === "/") {
+                          e.preventDefault();
+                        } else {
+                          setIsOpen(false);
+                        }
+                      }}
                     >
                       <span>{menu.name}</span>
                     </Link>

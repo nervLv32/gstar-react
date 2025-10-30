@@ -75,6 +75,34 @@ export const VideoSectionWrapper = styled.section`
     }
   }
   @media all and (max-width: 768px) {
-    display: none;
+    height: auto; /* 전체 섹션 높이 자동 조정 */
+
+    .video-inner {
+      position: relative; /* sticky 제거 */
+      top: auto;
+      height: auto;
+      min-height: auto;
+      transform: none;
+      opacity: 1;
+      overflow: visible;
+
+      &::after {
+        display: none; /* 블러 마스크 제거 */
+      }
+    }
+
+    video {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      width: 100%;
+      height: auto;
+      min-height: auto;
+      object-fit: contain; /* 비디오 원본 비율 유지 */
+    }
   }
+  /* @media all and (max-width: 768px) {
+    display: none;
+  } */
 `;

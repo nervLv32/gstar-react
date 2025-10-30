@@ -1,26 +1,26 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import MainImage from "../../assets/images/media/media/media-media-main.jpeg";
 import Image01 from "../../assets/images/media/media/media-media-image01.png";
-import Image02 from "../../assets/images/media/media/media-media-image02.png";
-import Image03 from "../../assets/images/media/media/media-media-image03.png";
-import Image04 from "../../assets/images/media/media/media-media-image04.png";
-import Image05 from "../../assets/images/media/media/media-media-image05.png";
-import Image06 from "../../assets/images/media/media/media-media-image06.png";
-import Image07 from "../../assets/images/media/media/media-media-image07.png";
-import Image08 from "../../assets/images/media/media/media-media-image08.png";
-import Image09 from "../../assets/images/media/media/media-media-image09.png";
+import MainImage from "../../assets/images/media/media/media-media-main.jpeg";
 import { ContentsWrapper } from "../styles";
 const ITEMS_PER_PAGE = 9; // ✅ 한 페이지당 아이템 수
 
-export const mediaList = [
+// ✅ 타입 정의
+interface MediaItem {
+  link: string;
+  img: string;
+  textChild: React.ReactNode;
+  date: string;
+}
+
+export const mediaList: MediaItem[] = [
   {
-    link: "/",
-    img: Image01,
+    link: "https://youtu.be/b_n4hpvoI0E",
+    img: MainImage,
     textChild: (
       <h6 className="title">
-        엔씨소프트 리니지 리마스터, <br />
-        27주년 신규 업데이트 사전예약 개시
+        무한한 세계, 하나의 여정! <br />
+        엔씨소프트 출품작 공개
       </h6>
     ),
     date: "2025. 10. 28",
@@ -43,7 +43,7 @@ const MediaSection = () => {
       <div className="inner">
         <div className="list-wrapper">
           <div className={`${mediaList.length > 1 ? "" : "empty"} main`}>
-            <Link to="/">
+            <Link to="https://youtu.be/b_n4hpvoI0E" target="_blank">
               <dl>
                 <dt>
                   <i>
@@ -52,11 +52,7 @@ const MediaSection = () => {
                 </dt>
                 <dd>
                   <div className="text-wrap">
-                    <h4>
-                      [NC G-STAR 2025] 무한한 세계,
-                      <br />
-                      하나의 여정! 엔씨소프트 출품작 공개
-                    </h4>
+                    <h4>무한한 세계, 하나의 여정! 엔씨소프트 출품작 공개</h4>
                     <p>
                       무한한 세계, 하나의 여정! 엔씨가 다양한 장르의 출품작과
                       함께 부산에서 여러분을 기다립니다.
@@ -65,7 +61,7 @@ const MediaSection = () => {
                       랜드마크 NC CINEMA에서 공개되는 또 하나의 출품작까지!{" "}
                       <br />
                       <br />
-                      11월 13일(화)~11월 16일(일) 부산 벡스코에서 만나요!
+                      11월 13일(목)~11월 16일(일) 부산 벡스코에서 만나요!
                     </p>
                   </div>
                   <span>2025. 10. 28</span>

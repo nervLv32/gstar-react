@@ -14,6 +14,8 @@ import SmallLogo05 from "../../assets/images/common/footer-logo05.png";
 import SmallLogo06 from "../../assets/images/common/footer-logo06.png";
 import SmallLogo07 from "../../assets/images/common/footer-logo07.png";
 import SmallLogo08 from "../../assets/images/common/footer-logo08.png";
+import SmallLogo09 from "../../assets/images/common/footer-logo09.png";
+import SmallLogo10 from "../../assets/images/common/footer-logo10.png";
 
 import { Link } from "react-router-dom";
 const Footer = () => {
@@ -34,9 +36,14 @@ const Footer = () => {
                   <img src={SmallLogo01} alt="" />
                 </i>
               </li>
-              <li className="w-146px">
+              <li className="w-126px">
                 <i>
-                  <img src={SmallLogo02} alt="" />
+                  <img src={SmallLogo09} alt="" />
+                </i>
+              </li>
+              <li className="w-105px">
+                <i>
+                  <img src={SmallLogo10} alt="" />
                 </i>
               </li>
               <li className="w-72px">

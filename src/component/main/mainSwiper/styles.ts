@@ -511,12 +511,18 @@ export const MainSwiperWrapper = styled.div`
   @media all and (max-width: 500px) {
     /* margin-top: 8vw;
     margin-bottom: 12vw; */
+
     .swiper {
       .swiper-wrapper {
         padding-top: 16vw;
         padding-bottom: 32vw;
       }
       .swiper-slide {
+        .text-wrap {
+          h4 {
+            font-size: 1.1rem !important;
+          }
+        }
         &.swiper-slide-active {
           .char-image {
             &::before {
@@ -530,7 +536,7 @@ export const MainSwiperWrapper = styled.div`
               font-size: 2rem;
             }
             h4 {
-              font-size: 1.1rem;
+              font-size: 1.1rem !important;
             }
           }
         }

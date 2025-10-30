@@ -243,16 +243,21 @@ export const ContentsWrapper = styled.div`
           .img-wrap {
             overflow: hidden;
             border-radius: 0.8rem;
+            width: 100%;
+            position: relative;
+            padding-top: 56.25%; /* ✅ 16:9 비율 = 9/16*100 */
 
             i {
-              display: block;
-              width: 100%;
+              position: absolute;
+              inset: 0;
+            }
 
-              img {
-                display: block;
-                width: 100%;
-                transition: transform 0.4s ease;
-              }
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover; /* ✅ 비율 유지하며 꽉 채움 */
+              object-position: center;
+              transition: all 0.3s linear;
             }
           }
 
@@ -276,6 +281,7 @@ export const ContentsWrapper = styled.div`
             padding-top: 1.9rem;
 
             .title {
+              min-height: 6.8rem;
               width: 100%;
               text-align: left;
               font-size: 2rem;
@@ -364,14 +370,6 @@ export const ContentsWrapper = styled.div`
             margin-top: 2rem !important;
             &:nth-child(-n + 2) {
               margin-top: 0 !important;
-            }
-            .img-wrap {
-              i {
-                height: 24.167vw;
-                img {
-                  object-fit: cover;
-                }
-              }
             }
           }
         }

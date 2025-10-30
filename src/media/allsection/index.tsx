@@ -31,9 +31,9 @@ const AllSection = () => {
     <ContentsWrapper>
       <div className="inner">
         <div className="list-wrapper">
-          <div className="main empty">
+          <div className="main">
             <Link
-              to="https://www.nc.com/newsroom/news/articles/?articleId=68be1c8000000000000017c6&boardLanguage=ko&snsShare=true"
+              to="https://www.nc.com/newsroom/news/articles/?articleId=69004f2b8b93c2788d4004e6&boardLanguage=ko"
               target="_blank"
             >
               <dl>
@@ -45,30 +45,27 @@ const AllSection = () => {
                 <dd>
                   <div className="text-wrap">
                     <h4>
-                      엔씨소프트, 지스타 2025 참가
-                      <br /> B2C관 단독 300부스 최대 규모
+                      엔씨소프트, ‘지스타 2025’ 출품작 및 부스 조감도 공개
                     </h4>
                     <p>
-                      ㈜엔씨소프트(공동대표 김택진, 박병무)가 국내 최대 게임
-                      전시회 ‘지스타(G-STAR) 2025’에 참가한다.
-                      <br />
-                      엔씨소프트는 ‘지스타 2025’의 메인 스폰서를 맡는다.
-                      B2C(기업과 소비자간 거래)관에 대규모 전시관을 마련해 게임
-                      이용자들과 직접 만난다. 단독 300 부스 규모의 최대 전시
-                      공간에서 신작 라인업을 공개한다.
+                      ㈜엔씨소프트(공동대표 김택진, 박병무, 이하 엔씨(NC))가
+                      ‘지스타 (G-STAR) 2025’ 공식 홈페이지를 통해 5종의 신작
+                      라인업과 부스 조감도를 공개했다. 엔씨(NC)는 지스타에서
+                      오는 11월 19일 출시 예정인 ‘아이온2’와 MMO 택티컬 슈터
+                      ‘신더시티’ 등 신작 2종의 시연 부스를 운영한다.
                     </p>
                   </div>
-                  <span>2025. 09. 08</span>
+                  <span>2025. 10. 28</span>
                 </dd>
               </dl>
             </Link>
           </div>
 
-          {/* <div className="list-wrap">
+          <div className="list-wrap">
             <ul>
               {visibleItems.map((item, index) => (
                 <li key={index}>
-                  <Link to={item.link}>
+                  <Link to={item.link} target="_blank">
                     <div className="img-wrap">
                       <i>
                         <img src={item.img} alt="" />
@@ -95,7 +92,7 @@ const AllSection = () => {
                 {currentPage} / {totalPages}
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </ContentsWrapper>
