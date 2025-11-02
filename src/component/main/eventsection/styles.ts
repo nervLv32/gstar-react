@@ -1,16 +1,22 @@
 import { styled } from "styled-components";
 import EventBg from "../../../assets/images/main/main-event-bg.png";
 import EventTicketBg from "../../../assets/images/main/main-event-ticket-bg.png";
+import TicketBg from "../../../assets/images/main/main-event-ticket-blue-bg.png";
+import BigTicket from "../../../assets/images/main/event/main-slide-bigticket.png";
 
 export const EventSectionWrapper = styled.div`
   padding: 24rem 0;
-  background: url(${EventBg}) no-repeat center / cover;
+  /* background: url(${EventBg}) no-repeat center / cover; */
+  background: #fff;
   .event-inner {
     margin: 0 auto;
-    max-width: 146rem;
+    max-width: 144rem;
     width: 100%;
   }
   .event-section-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 7rem;
     .title-tab-wrapper {
       display: flex;
       flex-direction: column;
@@ -19,7 +25,7 @@ export const EventSectionWrapper = styled.div`
         display: flex;
         flex-direction: column;
         gap: 6.4rem;
-        color: #fff;
+        color: #005aff;
         h5 {
           font-size: 6.8rem;
         }
@@ -28,6 +34,9 @@ export const EventSectionWrapper = styled.div`
           font-weight: 500;
           text-align: center;
           line-height: 1.3;
+          b {
+            font-weight: 700;
+          }
         }
       }
       .title-tab {
@@ -44,7 +53,7 @@ export const EventSectionWrapper = styled.div`
           display: flex;
           align-items: center;
           justify-content: center;
-          color: rgba(255, 255, 255, 0.7);
+          color: rgba(122, 157, 217, 0.7);
 
           cursor: pointer;
           &.active {
@@ -60,34 +69,45 @@ export const EventSectionWrapper = styled.div`
       }
     }
     .slide-wrap {
+      /* margin-bottom: -4rem; */
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
       .slide {
         width: 100%;
-        height: 59rem;
-        background: url(${EventTicketBg}) no-repeat center / cover;
+        height: 53.9rem;
+        /* background: url(${EventTicketBg}) no-repeat center / cover; */
+        background: url(${TicketBg}) no-repeat center / cover;
         display: flex;
-        padding: 5rem 3.2rem 2.6rem 5rem;
+        /* padding: 5rem 3.2rem 2.6rem 10rem; */
+        /* padding: 5rem 8rem 2.6rem 10rem; */
         gap: 4.5rem;
-        .slide-image {
-          width: 60rem;
-          height: 51.4rem;
-          background: grey;
+        position: relative;
+        &.bigticket {
+          background: url(${BigTicket}) no-repeat center / cover;
         }
+
+        .slide-image {
+          padding: 1.2rem 0 1.2rem 5rem;
+          height: 100%;
+          i {
+            display: block;
+            width: 60rem;
+            img {
+              display: block;
+              width: 100%;
+            }
+          }
+        }
+
         .slide-text-wrap {
-          padding-top: 6rem;
+          padding-top: 4rem;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           gap: 3.4rem;
           .point {
-            --from: #2bbcff;
-            --to: #005aff;
-            --dir: 90deg;
-
-            background: linear-gradient(var(--dir), var(--from), var(--to));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
+            color: #0a309a;
             font-size: 2.4rem;
             line-height: 3.8rem;
           }
@@ -103,11 +123,12 @@ export const EventSectionWrapper = styled.div`
               text-align: left;
               gap: 1.6rem;
               h6 {
-                font-size: 6.5rem;
+                font-size: 5.8rem;
                 color: #fff;
+                line-height: 1.2;
               }
               p {
-                font-size: 3rem;
+                font-size: 2.6rem;
                 font-weight: 600;
                 line-height: 1.3;
                 color: rgba(255, 255, 255, 0.82);
@@ -130,9 +151,66 @@ export const EventSectionWrapper = styled.div`
                   font-size: 2.4rem;
                   font-weight: 400;
                   color: #fff;
+                  text-align: left;
+                  line-height: 1.2;
+                  word-break: keep-all;
                 }
               }
             }
+          }
+        }
+      }
+    }
+    .slide-wrapper {
+      position: relative;
+      /* margin-top: 7rem; */
+      .swiper {
+        /* padding-bottom: 4rem; */
+      }
+      .custom-pagination {
+        position: absolute;
+        bottom: -5rem;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &.active {
+          bottom: 54rem;
+        }
+        .swiper-pagination-bullet {
+          background: rgba(0, 136, 255, 0.3);
+          cursor: pointer;
+          width: 1.1rem;
+          height: 1.1rem;
+          opacity: 1;
+
+          margin: 0 1.3rem;
+          border-radius: 0.6rem;
+          &.swiper-pagination-bullet-active {
+            background: rgba(0, 136, 255, 1);
+          }
+        }
+      }
+      .arrow-btn-wrap {
+        .slide-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          cursor: pointer;
+          i {
+            display: block;
+            width: 2.2rem;
+            height: 9.7rem;
+
+            img {
+              display: block;
+              width: 100%;
+            }
+          }
+          &.prev {
+            left: -10rem;
+          }
+          &.next {
+            right: -10rem;
           }
         }
       }

@@ -152,39 +152,39 @@ const Main = () => {
       />
 
       {/* 🔹 Intro (인트로 영상 + 딤) */}
-      {location.pathname === "/" && introStep !== "done" && (
+      {/* {location.pathname === "/" && introStep !== "done" && (
         <Intro
           step={introStep}
           onVideoEnd={handleVideoEnd}
           onDimEnd={handleDimEnd}
           videoRef={videoRef}
         />
-      )}
+      )} */}
 
       {/* 🔹 메인 콘텐츠 */}
-      {introStep === "done" && (
-        <>
-          <MainSection />
-          <div ref={videoSectionRef}>
-            <VideoSection />
+      {/* {introStep === "done" && ( */}
+      <>
+        <MainSection />
+        <div ref={videoSectionRef}>
+          <VideoSection />
+        </div>
+        <GstarSection />
+        <GstarBoothSection />
+        <BoothSection />
+        {/* <TicketSection /> */}
+        <EventSection />
+        <TapeWrapper>
+          <div className="tape">
+            {Array(8)
+              .fill(null)
+              .flatMap(() => [TapeImage01, TapeImage02])
+              .map((img, i) => (
+                <img key={i} src={img} alt={`tape${i}`} />
+              ))}
           </div>
-          <GstarSection />
-          <GstarBoothSection />
-          <BoothSection />
-          <TicketSection />
-          {/* <EventSection /> */}
-          <TapeWrapper>
-            <div className="tape">
-              {Array(8)
-                .fill(null)
-                .flatMap(() => [TapeImage01, TapeImage02])
-                .map((img, i) => (
-                  <img key={i} src={img} alt={`tape${i}`} />
-                ))}
-            </div>
-          </TapeWrapper>
-        </>
-      )}
+        </TapeWrapper>
+      </>
+      {/* )} */}
     </div>
   );
 };
