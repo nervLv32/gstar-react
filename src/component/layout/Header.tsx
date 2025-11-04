@@ -115,7 +115,11 @@ const Header = ({ className }: IProps) => {
             </a>
           </h1>
           <li>
-            <button onClick={() => scrollToSection("#event")}>이벤트</button>
+            <button
+            // onClick={() => scrollToSection("#event")}
+            >
+              이벤트
+            </button>
           </li>
           <li>
             <Link to="/media">MEDIA</Link>
