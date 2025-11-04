@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Image01 from "../../assets/images/media/media/media-media-image01.png";
 import MainImage from "../../assets/images/media/media/media-media-main.jpeg";
 import { ContentsWrapper } from "../styles";
-const ITEMS_PER_PAGE = 9; // ✅ 한 페이지당 아이템 수
+const ITEMS_PER_PAGE = 9;
 
-// ✅ 타입 정의
 interface MediaItem {
   link: string;
   img: string;
@@ -33,7 +31,6 @@ const MediaSection = () => {
     setVisibleCount((prev) => prev + ITEMS_PER_PAGE);
   };
 
-  // ✅ 페이지 계산
   const currentPage = Math.ceil(visibleCount / ITEMS_PER_PAGE);
   const totalPages = Math.ceil(mediaList.length / ITEMS_PER_PAGE);
 

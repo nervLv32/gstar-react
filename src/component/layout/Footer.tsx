@@ -1,13 +1,12 @@
-import { FooterWrapper } from "./styles";
 import FooterLogo from "../../assets/images/common/footer-logo.png";
 import ScrollTopIcon from "../../assets/images/media/media-scoll-top.png";
+import { FooterWrapper } from "./styles";
 
-import InstagramIcon from "../../assets/images/common/footer-instagram-logo.svg";
 import FacebookIcon from "../../assets/images/common/footer-facebook-logo.svg";
+import InstagramIcon from "../../assets/images/common/footer-instagram-logo.svg";
 import YoutubeIcon from "../../assets/images/common/footer-youtube-logo.svg";
 
 import SmallLogo01 from "../../assets/images/common/footer-logo01.png";
-import SmallLogo02 from "../../assets/images/common/footer-logo02.png";
 import SmallLogo03 from "../../assets/images/common/footer-logo03.png";
 import SmallLogo04 from "../../assets/images/common/footer-logo04.png";
 import SmallLogo05 from "../../assets/images/common/footer-logo05.png";

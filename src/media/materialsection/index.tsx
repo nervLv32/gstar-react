@@ -1,18 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import MaterialMainImage from "../../assets/images/media/material/media-material-main.jpg";
 import MaterialImage01 from "../../assets/images/media/material/media-material-image01.jpg";
 import MaterialImage02 from "../../assets/images/media/material/media-material-image02.png";
-import MaterialImage03 from "../../assets/images/media/material/media-material-image03.png";
-import MaterialImage04 from "../../assets/images/media/material/media-material-image04.png";
-import MaterialImage05 from "../../assets/images/media/material/media-material-image05.png";
-import MaterialImage06 from "../../assets/images/media/material/media-material-image06.png";
-import MaterialImage07 from "../../assets/images/media/material/media-material-image07.png";
-import MaterialImage08 from "../../assets/images/media/material/media-material-image08.png";
-import MaterialImage09 from "../../assets/images/media/material/media-material-image09.png";
+import MaterialMainImage from "../../assets/images/media/material/media-material-main.jpg";
 import { ContentsWrapper } from "../styles";
-const ITEMS_PER_PAGE = 9; // ✅ 한 페이지당 아이템 수
+const ITEMS_PER_PAGE = 9;
 
 export const materialList = [
   {
