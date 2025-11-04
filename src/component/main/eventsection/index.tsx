@@ -563,7 +563,7 @@ const EventSection = () => {
                     </i>
                   </div>
                   <div className="slide-text-wrap">
-                    <span className="point vitro">EVENT 01</span>
+                    <span className="point vitro">EVENT 02</span>
                     <div className="text-wrap">
                       <div className="ticket-title-wrap">
                         <h6 className="vitro">NC 포토존 이벤트</h6>
