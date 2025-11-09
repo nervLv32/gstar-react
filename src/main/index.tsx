@@ -172,7 +172,7 @@ const Main = () => {
         <GstarBoothSection />
         <BoothSection />
         {/* <TicketSection /> */}
-        {/* <EventSection /> */}
+        <EventSection />
         <TapeWrapper>
           <div className="tape">
             {Array(8)

@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 import MaterialImage01 from "../../assets/images/media/material/media-material-image01.jpg";
 import MaterialImage02 from "../../assets/images/media/material/media-material-image02.png";
+import MaterialImage03 from "../../assets/images/media/material/media-material-image03.jpg";
 import MaterialMainImage from "../../assets/images/media/material/media-material-main.jpg";
+
 import { ContentsWrapper } from "../styles";
 const ITEMS_PER_PAGE = 9;
 
@@ -17,6 +19,16 @@ export const materialList = [
       </h6>
     ),
     date: "2025. 10. 30",
+  },
+  {
+    link: "https://www.nc.com/newsroom/news/articles/?articleId=69004f2b8b93c2788d4004e6&boardLanguage=ko",
+    img: MaterialImage03,
+    textChild: (
+      <h6 className="title">
+        엔씨소프트, ‘지스타 2025’ 출품작 및 부스 조감도 공개
+      </h6>
+    ),
+    date: "2025. 10. 28",
   },
   {
     link: "https://www.nc.com/newsroom/news/articles/?articleId=68be1c8000000000000017c6&boardLanguage=ko&snsShare=true",
@@ -49,7 +61,7 @@ const MaterialSection = () => {
         <div className="list-wrapper">
           <div className={`main`}>
             <Link
-              to="https://www.nc.com/newsroom/news/articles/?articleId=69004f2b8b93c2788d4004e6&boardLanguage=ko"
+              to="https://www.nc.com/newsroom/news/articles/?articleId=690aa3fdc4cd0a5069dc611d&boardLanguage=ko&snsShare=true"
               target="_blank"
             >
               <dl>
@@ -60,18 +72,19 @@ const MaterialSection = () => {
                 </dt>
                 <dd>
                   <div className="text-wrap">
-                    <h4>
-                      엔씨소프트, ‘지스타 2025’ 출품작 및 부스 조감도 공개
-                    </h4>
+                    <h4>엔씨소프트, ‘지스타 2025’ 현장 프로그램 공개</h4>
                     <p>
-                      ㈜엔씨소프트(공동대표 김택진, 박병무, 이하 엔씨(NC))가
-                      ‘지스타 (G-STAR) 2025’ 공식 홈페이지를 통해 5종의 신작
-                      라인업과 부스 조감도를 공개했다. 엔씨(NC)는 지스타에서
-                      오는 11월 19일 출시 예정인 ‘아이온2’와 MMO 택티컬 슈터
-                      ‘신더시티’ 등 신작 2종의 시연 부스를 운영한다.
+                      엔씨(NC)는 지스타 현장에 ▲메인부스 ▲휴게공간 ▲야외부스 등
+                      세가지 테마의 공간을 마련했다. 지스타 관람객은 엔씨(NC)가
+                      운영하는 부스를 방문해 다양한 프로그램을 진행하고 경품을
+                      받을 수 있다. <br />
+                      메인부스에서는 ‘아이온2’와 ‘신더시티’ 시연 및 신작
+                      트레일러 상영이 진행된다. 아이온2 시연자는 게임 정식 출시
+                      후 게임 내에서 사용할 수 있는 ‘G-STAR 스페셜 쿠폰’과
+                      ‘마우스 장패드’를 선물로 받는다.
                     </p>
                   </div>
-                  <span>2025. 10. 28</span>
+                  <span>2025. 11. 05</span>
                 </dd>
               </dl>
             </Link>
