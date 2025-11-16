@@ -5,6 +5,7 @@ import Media from "../media";
 import Cinder from "../work/cinder";
 import TimeTakers from "../work/takers";
 import Breakers from "../work/breakers";
+import Horizon from "../work/horizon";
 
 export const routes = [
   {
@@ -33,6 +34,10 @@ export const ipRoutes = [
   {
     path: "/work/breakers",
     element: <Breakers />,
+  },
+  {
+    path: "/work/horizon",
+    element: <Horizon />,
   },
   {
     path: "/media",

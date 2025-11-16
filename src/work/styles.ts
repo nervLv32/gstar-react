@@ -7,6 +7,10 @@ import TimeTakersBg from "../assets/images/ip/timetakers/ip-timetakers-default-b
 import TimeTakersMoBg from "../assets/images/ip/timetakers/ip-timetakers-mo-bg.webp";
 import BreakersBg from "../assets/images/ip/breakers/ip-breakers-default-bg.webp";
 import BreakersMoBg from "../assets/images/ip/breakers/ip-breakers-mo-bg.webp";
+
+import HorizonBg from "../assets/images/ip/horizon/ip-horizon-default-bg.webp";
+import HorizonMoBg from "../assets/images/ip/horizon/ip-horizon-mo-bg.webp";
+
 interface IpWrapperProps {
   $isVh?: string;
 }
@@ -14,7 +18,14 @@ export const IpWrapper = styled.div<IpWrapperProps>`
   width: 100vw;
   height: 200vh;
   overflow: hidden;
-
+  .horizon-copy {
+    font-size: 1.5rem;
+    color: #fff;
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   section {
     width: 100vw;
     height: 100vh;
@@ -59,6 +70,23 @@ export const IpWrapper = styled.div<IpWrapperProps>`
       } */
     }
   }
+   &.horizon {
+    .ip-section {
+      /* position: relative; */
+      background: url(${HorizonBg}) no-repeat center / cover;
+      @media all and (max-width: 1024px) {
+        background: url(${HorizonMoBg}) no-repeat top / cover;
+      }
+      .logo-text-wrap {
+        .logo-wrap {
+          > i {
+            top: -25%;
+          }
+        }  
+      }
+    }
+  }
+  
   &.cinder {
     .ip-section {
       background: url(${CinderBg}) no-repeat left bottom / cover;
@@ -174,6 +202,9 @@ export const IpWrapper = styled.div<IpWrapperProps>`
           flex-direction: column;
           align-items: center;
           gap: 4rem;
+          &.mo-only {
+            display: none;
+          }
           .text-wrap {
             display: flex;
             flex-direction: column;
@@ -208,6 +239,7 @@ export const IpWrapper = styled.div<IpWrapperProps>`
             font-size: 1.8rem;
             letter-spacing: -0.27px;
             font-weight: 400;
+            max-width: 82rem;
             .mo-br {
               display: none;
             }
@@ -302,6 +334,7 @@ export const IpWrapper = styled.div<IpWrapperProps>`
           word-break: keep-all;
           font-weight: 300;
           color: #fff;
+          min-height: 18rem;
           .mo-br {
                 display: none;
               }
@@ -398,8 +431,12 @@ export const IpWrapper = styled.div<IpWrapperProps>`
         }
       }
     }
+   
   }
   @media all and (max-width: 1200px) {
+   .horizon-copy {
+    bottom: 3rem;
+   }
     &.breakers {
   .ip-section {
       
@@ -450,6 +487,9 @@ export const IpWrapper = styled.div<IpWrapperProps>`
     .section-wrapper {
       .text-wrap {
         gap: 1.4rem;
+        p {
+            min-height: 1rem;
+          }
       }
       .swiper {
         .swiper-pagination-progressbar {
@@ -464,6 +504,9 @@ export const IpWrapper = styled.div<IpWrapperProps>`
 }
   @media all and (max-width: 1024px) {
     height: auto;
+    .horizon-copy {
+      display: none;
+    }
     .ip-section {
       .logo-text-wrap {
         right: 0;
@@ -484,6 +527,9 @@ export const IpWrapper = styled.div<IpWrapperProps>`
             }
           }
           .text-info-wrap {
+            &.mo-only {
+              display: block;
+            }
             .text-wrap {
               
               h2 {
@@ -517,6 +563,18 @@ export const IpWrapper = styled.div<IpWrapperProps>`
       }
     }
    }
+  }
+
+  @media all and (max-width: 900px) {
+    .info-section {
+      .section-wrapper {
+        .text-wrap {
+          h2 {
+            text-align: left;
+          }
+        }
+      }
+    }
   }
 
   @media all and (max-width: 768px) {

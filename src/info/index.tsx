@@ -16,6 +16,7 @@ import MainImage04 from "../assets/images/info/info-main-slide-image04.webp";
 import RestImage01 from "../assets/images/info/info-rest-slide-image01.webp";
 import RestImage02 from "../assets/images/info/info-rest-slide-image02.webp";
 
+import BoothImage01 from "../assets/images/info/info-booth-slide-image01.webp";
 import BoothImage02 from "../assets/images/info/info-booth-slide-image02.webp";
 
 import NextIcon from "../assets/images/info/info-slide-next-arrow.png";
@@ -31,7 +32,7 @@ const slideData = {
     { img: MainImage04 },
   ],
   rest: [{ img: RestImage02 }, { img: RestImage01 }],
-  booth: [{ img: BoothImage02 }],
+  booth: [{ img: BoothImage01 }, { img: BoothImage02 }],
 };
 
 const Info = () => {

@@ -7,7 +7,7 @@ import { MainSwiperWrapper } from "./styles";
 
 import AionImage from "../../../assets/images/main/main-aion-slide-image.webp";
 import CinderImage from "../../../assets/images/main/main-cinder-slide-image.webp";
-import CmImage from "../../../assets/images/main/main-cm-slide-image.webp";
+import HorizonImage from "../../../assets/images/main/main-horizon-slide-image.webp";
 import LimitImage from "../../../assets/images/main/main-limit-slide-image.webp";
 import TimeImage from "../../../assets/images/main/main-time-slide-image.webp";
 import TitleImage from "../../../assets/images/main/main-title.webp";
@@ -27,7 +27,14 @@ const list = [
     title: "리밋 제로 브레이커스",
     subTitle: "애니메이션 속으로 스며들 순간, 애니메이션 액션 RPG",
   },
-  { link: "", uid: 3, img: CmImage },
+
+  {
+    link: "horizon",
+    uid: 3,
+    img: HorizonImage,
+    title: "Horizon Steel Frontiers",
+    subTitle: "© NCSOFT. © SIE.",
+  },
   {
     link: "timetakers",
     uid: 4,
@@ -58,7 +65,13 @@ const list = [
     title: "리밋 제로 브레이커스",
     subTitle: "애니메이션 속으로 스며들 순간, 애니메이션 액션 RPG",
   },
-  { link: "", uid: 8, img: CmImage },
+  {
+    link: "horizon",
+    uid: 8,
+    img: HorizonImage,
+    title: "Horizon Steel Frontiers",
+    subTitle: "© NCSOFT. © SIE.",
+  },
   {
     link: "timetakers",
     uid: 9,

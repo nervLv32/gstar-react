@@ -281,6 +281,7 @@ export const ContentsWrapper = styled.div`
             padding-top: 1.9rem;
 
             .title {
+              word-break: keep-all;
               min-height: 6.8rem;
               width: 100%;
               text-align: left;

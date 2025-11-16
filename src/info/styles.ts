@@ -52,11 +52,6 @@ export const InfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
-    &.booth {
-      .arrow-btn-wrap {
-        display: none !important;
-      }
-    }
 
     .tab-wrapper {
       display: flex;

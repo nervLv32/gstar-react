@@ -1,0 +1,174 @@
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { Swiper as SwiperCore } from "swiper";
+import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import { useFullpage } from "../../hooks/useFullpage";
+import { IpWrapper } from "../styles";
+
+import FloatingMenu from "../../component/ip/floatingmenu";
+import Header from "../../component/layout/Header";
+
+import ButtonIcon from "../../assets/images/ip/aion/ip-aion-button-icon.png";
+import HorizonLogo from "../../assets/images/ip/horizon/ip-horizon-logo.webp";
+
+import Slide01 from "../../assets/images/ip/horizon/ip-horizon-slide01.webp";
+import Slide02 from "../../assets/images/ip/horizon/ip-horizon-slide02.webp";
+import Slide03 from "../../assets/images/ip/horizon/ip-horizon-slide03.webp";
+import Slide04 from "../../assets/images/ip/horizon/ip-horizon-slide04.webp";
+import Slide05 from "../../assets/images/ip/horizon/ip-horizon-slide05.webp";
+import Slide06 from "../../assets/images/ip/horizon/ip-horizon-slide06.webp";
+import Slide07 from "../../assets/images/ip/horizon/ip-horizon-slide07.webp";
+
+import HorizonBg from "../../assets/images/ip/horizon/ip-horizon-default-bg.webp";
+import HorizonMoBg from "../../assets/images/ip/horizon/ip-horizon-mo-bg.webp";
+import { useViewportHeight } from "../../hooks/useViewportHeight";
+
+const Horizon = () => {
+  const { currentSection, isFullpageEnabled } = useFullpage();
+  const swiperRef = useRef<SwiperCore | null>(null);
+  const [, setMoActiveIndex] = useState(0);
+  useEffect(() => {
+    const header = document.querySelector("header");
+    if (!header) return;
+
+    if (isFullpageEnabled && currentSection === 1) {
+      header.classList.add("hide");
+    } else {
+      header.classList.remove("hide");
+    }
+  }, [currentSection, isFullpageEnabled]);
+
+  useViewportHeight(); // ✅ 훅 호출
+
+  const [isVh, setIsVh] = useState("0");
+  useEffect(() => {
+    const vh = getComputedStyle(document.documentElement).getPropertyValue(
+      "--vh"
+    );
+    setIsVh(vh);
+  }, []);
+
+  useEffect(() => {
+    const preloadImages = [HorizonLogo, HorizonBg, HorizonMoBg];
+    preloadImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
+  return (
+    <IpWrapper className="horizon" $isVh={isVh}>
+      <Header />
+      <FloatingMenu />
+
+      {/* SECTION 1 */}
+      <section className="section ip-section">
+        <div className="logo-text-wrap">
+          <div className="logo-wrap">
+            <i data-anim>
+              <img src={HorizonLogo} alt="horizon 로고" />
+            </i>
+          </div>
+
+          <div className="text-button-wrapper">
+            <div className="text-info-wrap mo-only">
+              <div className="info-text" data-anim>
+                © NCSOFT. © SIE.
+              </div>
+            </div>
+
+            <div className="button-wrap" data-anim>
+              <Link
+                to="https://hsf.plaync.com/"
+                className="default"
+                target="_blank"
+              >
+                <p>공식 홈페이지 바로가기</p>
+              </Link>
+              <Link
+                to="https://www.youtube.com/@HorizonSteelFrontiers"
+                className="point"
+                target="_blank"
+              >
+                <i>
+                  <img src={ButtonIcon} alt="버튼 아이콘" />
+                </i>
+                <p>공식 유튜브 바로가기</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="horizon-copy">© NCSOFT. © SIE.</div>
+      </section>
+
+      {/* SECTION 2 */}
+      <section className="section info-section">
+        <div className="big-inner">
+          <div className="section-wrapper">
+            <div className="text-wrap">
+              <h2 data-anim>Horizon Steel Frontiers</h2>
+              <span data-anim>MMORPG</span>
+              <p data-anim>
+                호라이즌 스틸 프론티어스는 엔씨소프트가 글로벌 히트작 Horizon IP
+                기반의 세계관과 비주얼의 매력을 모바일, PC(PURPLE) 크로스
+                플랫폼으로 구현해 낸 차세대 MMORPG입니다.
+                <br />
+                원작 특유의 빼어난 헌팅 액션과 거대 몬스터를 처치하는 스릴에
+                더해 다른 유저와 협동하여 전략적으로 기계 몬스터를 사냥할 수
+                있는 것이 특징인 게임입니다.
+                {/* 
+                <br className="mo-br" />
+                각자의 개성이 더욱 뚜렷해진 {"<"}8종의 오리지널 클래스{">"}{" "}
+                무한한 가능성을 담아낸 {"<"}극한의 커스터마이징{">"} <br />
+                원작 대비 36배 확장된 거대한 월드에서 펼쳐지는 {"<"}경계 없는
+                탐험{">"} 그리고 훨씬 {"<"}풍부해진 콘텐츠{">"}와 세대를 이어온
+                전투의 심장 {"<"}대규모 RvR전장 어비스{">"}까지. <br />
+                완전한 MMORPG의 세계가 눈앞에 펼쳐집니다. <br />
+                <br className="mo-br" />
+                11월 19일, AION2의 새로운 여정을 준비하세요. <br /> */}
+              </p>
+            </div>
+
+            <div className="swiper-box" data-anim>
+              <Swiper
+                modules={[Pagination]}
+                pagination={{ type: "progressbar" }}
+                onSwiper={(swiper: SwiperCore) => (swiperRef.current = swiper)}
+                onSlideChange={(swiper: SwiperCore) =>
+                  setMoActiveIndex(swiper.activeIndex)
+                }
+                spaceBetween={14}
+                slidesPerView={1.05}
+                breakpoints={{
+                  1200: { slidesPerView: 2, spaceBetween: 22 },
+                  768: { slidesPerView: 1.4, spaceBetween: 14 },
+                  500: { slidesPerView: 1.05, spaceBetween: 10 },
+                }}
+              >
+                {[
+                  Slide01,
+                  Slide02,
+                  Slide03,
+                  Slide04,
+                  Slide05,
+                  Slide06,
+                  Slide07,
+                ].map((img, i) => (
+                  <SwiperSlide key={i}>
+                    <i>
+                      <img src={img} alt={`horizon 슬라이드 ${i + 1}`} />
+                    </i>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
+        </div>
+      </section>
+    </IpWrapper>
+  );
+};
+
+export default Horizon;

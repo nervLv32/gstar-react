@@ -14,7 +14,7 @@ const FloatingMenu = () => {
     { name: "CINDER CITY", to: "/work/cinder" },
     { name: "타임 테이커즈", to: "/work/timetakers" },
     { name: "리밋 제로 브레이커스", to: "/work/breakers" },
-    { name: "COMING SOON", to: "/" },
+    { name: "Horizon Steel Frontiers", to: "/work/horizon" },
   ];
 
   // 초기 오픈 애니메이션

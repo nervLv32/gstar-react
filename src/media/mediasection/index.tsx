@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import MainImage from "../../assets/images/media/media/media-media-main.jpeg";
+import Image01 from "../../assets/images/media/media/media-media-main.jpeg";
+import MainImage from "../../assets/images/media/media/media-media-image01.jpeg";
+import Image10 from "../../assets/images/media/media/media-media-image10.jpeg";
+import Image11 from "../../assets/images/media/media/media-media-image11.png";
+import Image12 from "../../assets/images/media/media/media-media-image12.jpeg";
+import Image13 from "../../assets/images/media/media/media-media-image13.jpeg";
 import { ContentsWrapper } from "../styles";
 const ITEMS_PER_PAGE = 9;
 
@@ -13,8 +18,37 @@ interface MediaItem {
 
 export const mediaList: MediaItem[] = [
   {
-    link: "https://youtu.be/b_n4hpvoI0E",
+    link: "https://youtu.be/8wlVvgUrqY8?si=yAIK5OjDXazZ2fKJ",
+    img: Image13,
+    textChild: <h6 className="title">공식 현장 스케치 Day 2</h6>,
+    date: "2025. 11. 15",
+  },
+  {
+    link: "https://youtu.be/yqSLDqVlwh0?si=1Xbl_rfex4JfB-vA",
+    img: Image12,
+    textChild: <h6 className="title">공식 현장 스케치 Day 1</h6>,
+    date: "2025. 11. 15",
+  },
+  {
+    link: "https://youtu.be/T2IQuVoZ4kQ?si=vyWOb2ISdGmUe7ME",
+    img: Image11,
+    textChild: <h6 className="title">NC 부스 미리보기</h6>,
+    date: "2025. 11. 14",
+  },
+  {
+    link: "https://www.youtube.com/watch?v=7BQdHJWk5Ks",
     img: MainImage,
+    textChild: (
+      <h6 className="title">
+        무한한 세계, 하나의 여정! <br />
+        엔씨소프트 출품작 공개(본편)
+      </h6>
+    ),
+    date: "2025. 11. 14",
+  },
+  {
+    link: "https://www.youtube.com/watch?v=1ARYpgLmPnE",
+    img: Image01,
     textChild: (
       <h6 className="title">
         무한한 세계, 하나의 여정! <br />
@@ -35,44 +69,57 @@ const MediaSection = () => {
   const totalPages = Math.ceil(mediaList.length / ITEMS_PER_PAGE);
 
   const visibleItems = mediaList.slice(0, visibleCount);
+
   return (
     <ContentsWrapper>
       <div className="inner">
         <div className="list-wrapper">
-          <div className={`${mediaList.length > 1 ? "" : "empty"} main`}>
-            <Link to="https://youtu.be/b_n4hpvoI0E" target="_blank">
+          <div className={`${mediaList.length > 0 ? "" : "empty"} main`}>
+            <Link
+              to="https://youtu.be/0oKm8plg6Fc?si=pkyOHxFlTo3hih8m"
+              target="_blank"
+            >
               <dl>
                 <dt>
                   <i>
-                    <img src={MainImage} alt="" />
+                    <img src={Image10} alt="" />
                   </i>
                 </dt>
                 <dd>
                   <div className="text-wrap">
-                    <h4>무한한 세계, 하나의 여정! 엔씨소프트 출품작 공개</h4>
+                    <h4>
+                      Opening Session : <br />
+                      NEXT SCENE
+                    </h4>
                     <p>
-                      무한한 세계, 하나의 여정! 엔씨가 다양한 장르의 출품작과
-                      함께 부산에서 여러분을 기다립니다.
-                      {"<"}AION2{">"}, {"<"}CINDER CITY{">"}, {"<"}LIMIT ZERO
-                      BREAKERS{">"}, {"<"}TIME TAKERS{">"}와 G-STAR 2025 B2C관의
-                      랜드마크 NC CINEMA에서 공개되는 또 하나의 출품작까지!{" "}
+                      엔씨가 그려나갈, 새로운 시대의 여정을 알리는 시작!
+                      <br /> 모든 이상을 담은 완전한 세계, AION의 완전판!
+                      [AION2]
                       <br />
+                      엔씨소프트의 첫 번째 글로벌 오픈월드 슈터 게임, [CINDER
+                      CITY] <br />
+                      시간 그 자체가 전투의 룰이 되는 독창적인 시스템, [Time
+                      Takers] <br />
+                      속도감 있는 전투 액션, 애니메이션의 한 장면을 직접
+                      플레이하는 경험! [Limit Zero Brakers] <br />
+                      그리고, 기계와 인간이 공존하는 무한한 가능성을 가진 세계.
+                      글로벌 최초 공개! [Horizon Steel Frontiers] <br />
                       <br />
-                      11월 13일(목)~11월 16일(일) 부산 벡스코에서 만나요!
+                      엔씨가 빚어온, 그리고 빚어갈 게임들을 소개합니다.
                     </p>
                   </div>
-                  <span>2025. 10. 28</span>
+                  <span>2025. 11. 15</span>
                 </dd>
               </dl>
             </Link>
           </div>
 
-          {mediaList.length > 1 && (
+          {mediaList.length > 0 && (
             <div className="list-wrap">
               <ul>
                 {visibleItems.map((item, index) => (
                   <li key={index}>
-                    <Link to={item.link}>
+                    <Link to={item.link} target="_blank">
                       <div className="img-wrap">
                         <i>
                           <img src={item.img} alt="" />

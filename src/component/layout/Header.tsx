@@ -19,7 +19,7 @@ const Header = ({ className }: IProps) => {
     { name: "CINDER CITY", to: "/work/cinder" },
     { name: "타임 테이커즈", to: "/work/timetakers" },
     { name: "브레이커스", to: "/work/breakers" },
-    { name: "COMING SOON", to: "/" },
+    { name: "Horizon Steel Frontiers", to: "/work/horizon" },
   ];
 
   /** ✅ 수정된 부분 */
@@ -115,11 +115,7 @@ const Header = ({ className }: IProps) => {
             </a>
           </h1>
           <li>
-            <button
-            // onClick={() => scrollToSection("#event")}
-            >
-              이벤트
-            </button>
+            <button onClick={() => scrollToSection("#event")}>이벤트</button>
           </li>
           <li>
             <Link to="/media">MEDIA</Link>

@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { ContentsWrapper } from "../styles";
-import MainImage from "../../assets/images/media/material/media-material-main.jpg";
+import MainImage from "../../assets/images/media/material/media-material-image04.jpg";
 
 import { materialList } from "../materialsection";
 import { mediaList } from "../mediasection";
@@ -33,7 +33,7 @@ const AllSection = () => {
         <div className="list-wrapper">
           <div className={`main`}>
             <Link
-              to="https://www.nc.com/newsroom/news/articles/?articleId=690aa3fdc4cd0a5069dc611d&boardLanguage=ko&snsShare=true"
+              to="https://www.nc.com/newsroom/news/articles/?articleId=69155ecc15687f2605ced9aa&boardLanguage=ko"
               target="_blank"
             >
               <dl>
@@ -44,19 +44,21 @@ const AllSection = () => {
                 </dt>
                 <dd>
                   <div className="text-wrap">
-                    <h4>엔씨소프트, ‘지스타 2025’ 현장 프로그램 공개</h4>
+                    <h4>
+                      지스타에서 엔씨의 ‘현재와 미래’를 만나다. 글로벌 신작 5종
+                      공개
+                    </h4>
                     <p>
-                      엔씨(NC)는 지스타 현장에 ▲메인부스 ▲휴게공간 ▲야외부스 등
-                      세가지 테마의 공간을 마련했다. 지스타 관람객은 엔씨(NC)가
-                      운영하는 부스를 방문해 다양한 프로그램을 진행하고 경품을
-                      받을 수 있다. <br />
-                      메인부스에서는 ‘아이온2’와 ‘신더시티’ 시연 및 신작
-                      트레일러 상영이 진행된다. 아이온2 시연자는 게임 정식 출시
-                      후 게임 내에서 사용할 수 있는 ‘G-STAR 스페셜 쿠폰’과
-                      ‘마우스 장패드’를 선물로 받는다.
+                      ㈜엔씨소프트(공동대표 김택진, 박병무, 이하 엔씨(NC))가
+                      ‘지스타 2025’에서 개막 행사 ‘오프닝 세션’을 개최하고,
+                      출품작 5종을 공개했다.
+                      <br />
+                      오프닝 세션의 기조 연설을 맡은 김택진 CCO(Chief Creative
+                      Officer, 최고창의력책임자)는 이번 지스타에 참여한 의미와
+                      함께 엔씨(NC)의 개발 철학과 비전을 제시했다.
                     </p>
                   </div>
-                  <span>2025. 11. 05</span>
+                  <span>2025. 11. 13</span>
                 </dd>
               </dl>
             </Link>
