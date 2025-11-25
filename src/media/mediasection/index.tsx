@@ -6,6 +6,9 @@ import Image10 from "../../assets/images/media/media/media-media-image10.jpeg";
 import Image11 from "../../assets/images/media/media/media-media-image11.png";
 import Image12 from "../../assets/images/media/media/media-media-image12.jpeg";
 import Image13 from "../../assets/images/media/media/media-media-image13.jpeg";
+import Image14 from "../../assets/images/media/media/media-media-image14.jpeg";
+import Image15 from "../../assets/images/media/media/media-media-image15.jpeg";
+import Image16 from "../../assets/images/media/media/media-media-image16.png";
 import { ContentsWrapper } from "../styles";
 const ITEMS_PER_PAGE = 9;
 
@@ -17,6 +20,24 @@ interface MediaItem {
 }
 
 export const mediaList: MediaItem[] = [
+  {
+    link: "https://youtu.be/rwnxkQFvHlQ?si=z0AFzffroAyDQlU1",
+    img: Image16,
+    textChild: <h6 className="title">공식 현장 스케치 최종</h6>,
+    date: "2025. 11. 25",
+  },
+  {
+    link: "https://youtu.be/skOWR5j07xU?si=Fxbm_YlMEXxnQ358",
+    img: Image15,
+    textChild: <h6 className="title">공식 현장 스케치 Day 4</h6>,
+    date: "2025. 11. 24",
+  },
+  {
+    link: "https://youtu.be/I_6dh5QVod8?si=S56ByrSZzZJpElox",
+    img: Image14,
+    textChild: <h6 className="title">공식 현장 스케치 Day 3</h6>,
+    date: "2025. 11. 24",
+  },
   {
     link: "https://youtu.be/8wlVvgUrqY8?si=yAIK5OjDXazZ2fKJ",
     img: Image13,
